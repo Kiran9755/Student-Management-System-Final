@@ -1,0 +1,129 @@
+<!DOCTYPE html>
+
+<html lang="en">
+<head>
+<title>Admin Dashboard</title>
+<link href="{{ url_for('static', filename='css/style.css') }}" rel="stylesheet"/>
+<link href="{{ url_for('static', filename='images/icon.png') }}" rel="icon" type="image/png"/>
+</head>
+<body class="admin_dashboard_page">
+<!-- =====================================================
+         NAVBAR
+         ===================================================== -->
+<div class="admin_navbar global_role_navbar"><div class="admin_nav_left"><h1>Student Management System</h1></div><div class="admin_nav_right global_nav_right"><a class="global_home_link" href="/admin_dashboard">Home</a><div class="global_nav_dropdown"><button class="global_nav_dropdown_button" type="button">Menu ▾</button><div class="global_nav_dropdown_menu"><a href="/admin_students">Students</a><a href="/admin_teachers">Teachers</a><a href="/admin_subjects">Subjects</a><a href="/admin_enrollment">Enrollment</a><a href="/admin_teacher_subjects">Teacher Subjects</a><a href="/admin_departments">Departments</a><a href="/admin_hods">HODs</a><a href="/logout?role=admin">Logout</a></div></div></div></div>
+<!-- =====================================================
+         DASHBOARD
+         ===================================================== -->
+<div class="admin_dashboard_container">
+<h1>Welcome {{ admin["name"] }}</h1>
+<p>Administrator</p>
+<!-- =================================================
+             STAT CARDS
+             ================================================= -->
+<div class="admin_stats_container">
+<!-- =================================================
+                 STUDENTS
+                 ================================================= -->
+<div class="admin_stat_card admin_dashboard_count_card">
+<h2>Students</h2>
+<label>Department</label>
+<select id="student_department">
+<option value="">Select Department</option>
+                    {% for department in student_departments %}
+                    <option value="{{ department['department'] }}">{{ department['department'] }}</option>
+                    {% endfor %}
+                </select>
+<label>Semester</label>
+<select id="student_semester">
+<option value="">Select Semester</option>
+<option value="1">Semester 1</option>
+<option value="2">Semester 2</option>
+<option value="3">Semester 3</option>
+<option value="4">Semester 4</option>
+<option value="5">Semester 5</option>
+<option value="6">Semester 6</option>
+</select>
+<div class="admin_dashboard_count">
+<strong id="student_count">0</strong>
+<span>Students</span>
+</div>
+</div>
+<!-- =================================================
+                 SUBJECTS
+                 ================================================= -->
+<div class="admin_stat_card admin_dashboard_count_card">
+<h2>Subjects</h2>
+<label>Department</label>
+<select id="subject_department">
+<option value="">Select Department</option>
+                    {% for department in subject_departments %}
+                    <option value="{{ department['department'] }}">{{ department['department'] }}</option>
+                    {% endfor %}
+                </select>
+<label>Semester</label>
+<select id="subject_semester">
+<option value="">Select Semester</option>
+<option value="1">Semester 1</option>
+<option value="2">Semester 2</option>
+<option value="3">Semester 3</option>
+<option value="4">Semester 4</option>
+<option value="5">Semester 5</option>
+<option value="6">Semester 6</option>
+</select>
+<div class="admin_dashboard_count">
+<strong id="subject_count">0</strong>
+<span>Subjects</span>
+</div>
+</div>
+<!-- =================================================
+                 TEACHERS
+                 ================================================= -->
+<div class="admin_stat_card admin_dashboard_count_card">
+<h2>Teachers</h2>
+<label>Department</label>
+<select id="teacher_department">
+<option value="">Select Department</option>
+                    {% for department in teacher_departments %}
+                    <option value="{{ department['department'] }}">{{ department['department'] }}</option>
+                    {% endfor %}
+                </select>
+<div class="admin_dashboard_count">
+<strong id="teacher_count">0</strong>
+<span>Teachers</span>
+</div>
+</div>
+</div> <!-- END OF admin_stats_container -->
+<!-- =================================================
+             MANAGEMENT SECTION
+             ================================================= -->
+<div class="admin_management_container">
+<a href="/admin_students">
+<button>Add / Manage Students</button>
+</a>
+<a href="/admin_teachers">
+<button>Add / Manage Teachers</button>
+</a>
+<a href="/admin_subjects">
+<button>Manage Subjects</button>
+</a>
+<a href="/admin_enrollment">
+<button>Manage Student Enrollment</button>
+</a>
+<a href="/admin_teacher_subjects">
+<button>Teacher Subject Assignment</button>
+</a>
+<a href="/admin_departments">
+<button>Manage Departments</button>
+</a>
+<a href="/admin_hods">
+<button>Manage HODs</button>
+</a>
+</div> <!-- END OF admin_management_container -->
+</div> <!-- END OF admin_dashboard_container -->
+<!-- =====================================================
+         DASHBOARD JAVASCRIPT
+         ===================================================== -->
+<script src="{{ url_for('static', filename='js/admin_dashboard.js') }}" defer></script>
+<script src="{{ url_for('static', filename='js/common.js') }}" defer></script>
+</body>
+</html>

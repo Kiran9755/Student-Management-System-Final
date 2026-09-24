@@ -1,0 +1,8779 @@
+/* =========================================================
+   GLOBAL / MAIN STYLES
+   Merged into static/css/style.css
+   ========================================================= */
+
+/* GLOBAL*/
+* {
+    box-sizing: border-box;
+}
+html {
+    scroll-behavior: smooth;
+    margin: 0;
+    padding: 0;
+}
+body {
+    margin: 0;
+    padding: 0;
+    font-family: Arial, sans-serif;
+    color: #172033;
+}
+
+.login_error {
+
+    color: #ff3d3d;
+
+    text-align: center;
+
+    font-size: 14px;
+
+    font-weight: 600;
+
+    margin-top: 15px;
+
+}
+
+/*HOME PAGE*/
+
+.home-page {
+    background: #eef5ff;
+}
+
+/* Main container */
+
+.home-container {
+    min-height: 100vh;
+    background:
+        radial-gradient(circle at 10% 10%,
+            rgba(14, 165, 233, 0.15),
+            transparent 28%),
+
+        radial-gradient(circle at 90% 30%,
+            rgba(37, 99, 235, 0.12),
+            transparent 30%),
+        #eef5ff;
+}
+
+
+/*NAVBAR*/
+
+.home-page .navbar {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    padding: 10px 25px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    background: rgba(7, 26, 51, 0.45);
+    backdrop-filter: blur(12px);
+    -webkit-backdrop-filter: blur(12px);
+    border-bottom:
+        1px solid rgba(255, 255, 255, 0.18);
+    z-index: 100;
+}
+
+.home-page .nav_left {
+    display: flex;
+    align-items: center;
+}
+
+.home-page .logo {
+    object-fit: contain;
+    background: transparent;
+}
+
+.home-page .nav_right {
+    display: flex;
+    align-items: center;
+    gap: 28px;
+    padding: 10px 25px;
+}
+
+.home-page .nav_right a {
+    position: relative;
+    text-decoration: none;
+    color: white;
+    font-weight: bold;
+    transition: 0.25s;
+}
+
+.home-page .nav_right a::after {
+    content: "";
+    position: absolute;
+    left: 0;
+    bottom: -6px;
+    width: 0;
+    height: 2px;
+    background: #67e8f9;
+    transition: 0.25s;
+}
+
+.home-page .nav_right a:hover::after {
+    width: 100%;
+}
+
+.home-page .nav_right a:hover {
+    color: #67e8f9;
+}
+
+.home-page #h {
+    border-right:
+        1px solid rgba(255, 255, 255, 0.45);
+    padding-right: 20px;
+}
+
+/* HERO*/
+
+.home_hero {
+    min-height: 100vh;
+    padding: 150px 8% 100px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 70px;
+    position: relative;
+    overflow: hidden;
+    background:
+        linear-gradient(135deg,
+            #071a33 0%,
+            #0b3157 45%,
+            #0d6078 100%);
+}
+
+
+/* Decorative circle */
+
+.home_hero::before {
+    content: "";
+    position: absolute;
+    width: 500px;
+    height: 500px;
+    border-radius: 50%;
+    border:
+        1px solid rgba(103, 232, 249, 0.15);
+    right: -180px;
+    top: -180px;
+}
+
+
+/* Decorative glow */
+.home_hero::after {
+    content: "";
+    position: absolute;
+    width: 350px;
+    height: 350px;
+    border-radius: 50%;
+    background: #0ea5e9;
+    opacity: 0.10;
+    filter: blur(80px);
+    left: -100px;
+    bottom: -100px;
+}
+
+/* HERO CONTENT*/
+
+.hero_content {
+    max-width: 650px;
+    position: relative;
+    z-index: 2;
+}
+
+.hero_small_title {
+    color: #67e8f9;
+    font-size: 13px;
+    font-weight: bold;
+    letter-spacing: 3px;
+    margin-bottom: 20px;
+}
+
+.hero_content h1 {
+    margin: 0;
+    color: white;
+    font-size: 58px;
+    line-height: 1.08;
+    text-align: left;
+}
+
+.hero_content h1 span {
+    color: #67e8f9;
+}
+
+.hero_description {
+    color:
+        rgba(255, 255, 255, 0.78);
+    font-size: 18px;
+    line-height: 1.7;
+    max-width: 580px;
+    margin:
+        25px 0 35px;
+}
+
+/* HERO BUTTONS*/
+
+.hero_buttons {
+    display: flex;
+    gap: 15px;
+}
+
+.primary_button,
+.secondary_button {
+    text-decoration: none;
+    padding: 13px 23px;
+    border-radius: 9px;
+    font-weight: bold;
+    transition: 0.25s;
+}
+
+.primary_button {
+    background: #0ea5e9;
+    color: white;
+}
+
+.primary_button:hover {
+    background: #0284c7;
+    transform: translateY(-2px);
+    box-shadow: 0 8px 20px rgba(14, 165, 233, 0.30);
+}
+
+.secondary_button {
+    color: white;
+    border:
+        1px solid rgba(255, 255, 255, 0.35);
+    background:
+        rgba(255, 255, 255, 0.08);
+    backdrop-filter: blur(8px);
+}
+
+.secondary_button:hover {
+    background: rgba(255, 255, 255, 0.16);
+    transform: translateY(-2px);
+}
+
+/* HERO VISUAL*/
+
+.hero_visual {
+    position: relative;
+    z-index: 2;
+    width: 430px;
+}
+
+.visual_card {
+    padding: 28px;
+    border-radius: 22px;
+    background:rgba(255, 255, 255, 0.10);
+    border:1px solid rgba(255, 255, 255, 0.25);
+    backdrop-filter: blur(18px);
+    -webkit-backdrop-filter: blur(18px);
+    box-shadow:0 25px 60px rgba(0, 0, 0, 0.25);
+}
+
+.visual_header {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    color: white;
+    font-weight: bold;
+    padding-bottom: 20px;
+    border-bottom:1px solid rgba(255, 255, 255, 0.15);
+}
+
+.status_dot {
+    width: 9px;
+    height: 9px;
+    border-radius: 50%;
+    background: #67e8f9;
+    box-shadow:0 0 10px rgba(103, 232, 249, 0.7);
+}
+
+.visual_profile {
+    display: flex;
+    align-items: center;
+    gap: 15px;
+    margin: 25px 0;
+}
+
+.profile_circle {
+    width: 55px;
+    height: 55px;
+    border-radius: 50%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background: #0ea5e9;
+    color: white;
+    font-size: 22px;
+    font-weight: bold;
+}
+
+
+.visual_profile h3 {
+    color: white;
+    margin: 0 0 5px;
+}
+
+.visual_profile p {
+    color:rgba(255, 255, 255, 0.6);
+    margin: 0;
+    font-size: 13px;
+}
+
+/* STAT BOXES*/
+
+.visual_stats {
+    display: grid;
+    grid-template-columns:
+        repeat(3, 1fr);
+    gap: 10px;
+}
+
+.stat_box {
+    padding: 15px 10px;
+    border-radius: 12px;
+    background:
+        rgba(255, 255, 255, 0.08);
+    border:
+        1px solid rgba(255, 255, 255, 0.12);
+}
+
+.stat_box strong {
+    display: block;
+    color: white;
+    font-size: 13px;
+    margin-bottom: 5px;
+}
+
+.stat_box span {
+    color: #67e8f9;
+    font-size: 12px;
+}
+
+/* ABOUT SECTION*/
+
+.about_section {
+    padding: 100px 8%;
+    background: #eef5ff;
+}
+
+.about_content {
+    max-width: 700px;
+}
+
+.section_label {
+    color: #0284c7;
+    font-size: 13px;
+    font-weight: bold;
+    letter-spacing: 2px;
+}
+
+.about_content h2 {
+    color: #0f2a5f;
+    font-size: 38px;
+    line-height: 1.2;
+    margin: 15px 0;
+}
+
+.about_content>p:last-child {
+    color: #64748b;
+    font-size: 17px;
+    line-height: 1.7;
+}
+
+/*ABOUT CARDS*/
+
+.about_cards {
+    display: grid;
+    grid-template-columns:
+        repeat(3, 1fr);
+    gap: 22px;
+    margin-top: 50px;
+}
+
+.about_card {
+    padding: 30px;
+    border-radius: 18px;
+    background:
+        rgba(255, 255, 255, 0.75);
+    border:
+        1px solid rgba(255, 255, 255, 0.9);
+    box-shadow:
+        0 10px 30px rgba(15, 42, 95, 0.08);
+    transition: 0.25s;
+}
+
+.about_card:hover {
+    transform: translateY(-5px);
+    box-shadow:
+        0 15px 35px rgba(15, 42, 95, 0.13);
+}
+
+.about_icon {
+    color: #0284c7;
+    font-weight: bold;
+    font-size: 14px;
+    margin-bottom: 20px;
+}
+
+.about_card h3 {
+    color: #0f2a5f;
+}
+
+.about_card p {
+    color: #64748b;
+    line-height: 1.6;
+}
+
+/* FOOTER*/
+
+.home-page .footer {
+    padding: 25px;
+    text-align: center;
+    background: #071a33;
+    color:
+        rgba(255, 255, 255, 0.65);
+}
+
+.home-page .footer p {
+    margin: 0;
+    font-size: 13px;
+}
+
+/*RESPONSIVE*/
+
+@media(max-width:900px) {
+    .home-page .nav_right {
+        gap: 15px;
+        padding-right: 10px;
+    }
+
+    .home_hero {
+        flex-direction: column;
+        justify-content: center;
+        text-align: center;
+        padding-top: 150px;
+    }
+
+    .hero_content {
+        max-width: 700px;
+    }
+
+    .hero_content h1 {
+        text-align: center;
+        font-size: 45px;
+    }
+
+    .hero_description {
+        margin-left: auto;
+        margin-right: auto;
+    }
+
+    .hero_buttons {
+        justify-content: center;
+    }
+
+    .hero_visual {
+        width: min(430px, 90%);
+    }
+
+    .about_cards {
+        grid-template-columns: 1fr;
+    }
+}
+
+@media(max-width:650px) {
+    .home-page .navbar {
+        padding: 8px 12px;
+    }
+
+    .home-page .logo {
+        width: 180px;
+        height: auto;
+    }
+
+    .home-page .nav_right {
+        gap: 10px;
+        padding: 5px;
+    }
+
+    .home-page .nav_right a {
+        font-size: 11px;
+    }
+
+    .home-page #h {
+        padding-right: 10px;
+    }
+
+    .hero_content h1 {
+        font-size: 38px;
+    }
+    .hero_description {
+        font-size: 15px;
+    }
+
+    .visual_stats {
+        grid-template-columns: 1fr;
+    }
+}
+
+
+
+
+/* GLOBAL ROLE NAVIGATION: keep only Home + one white Menu button */
+.global_role_navbar .global_nav_right { display:flex; align-items:center; gap:12px; }
+.global_role_navbar .global_home_link { text-decoration:none; color:#fff; font-weight:600; padding:10px 18px; border-radius:10px; transition:.25s; }
+.global_role_navbar .global_home_link:hover { background:rgba(179,229,252,.177); transform:translateY(-1px); }
+.global_nav_dropdown, .home_global_nav_dropdown { position:relative; display:inline-flex; align-items:center; }
+.global_nav_dropdown_button, .home_global_nav_button { border:1px solid rgba(15,59,99,.16); background:#fff; color:#0f3b63; padding:10px 18px; border-radius:10px; font:inherit; font-weight:700; cursor:pointer; box-shadow:0 3px 10px rgba(15,23,42,.12); transition:.25s; }
+.global_nav_dropdown_button:hover, .global_nav_dropdown:focus-within .global_nav_dropdown_button, .home_global_nav_button:hover, .home_global_nav_dropdown:focus-within .home_global_nav_button { background:#f0f9ff; color:#0c4a6e; transform:translateY(-1px); }
+.global_nav_dropdown_menu, .home_global_nav_menu { display:none; position:absolute; right:0; top:calc(100% + 8px); min-width:210px; padding:7px; background:#fff; border:1px solid #dbeafe; border-radius:11px; box-shadow:0 14px 30px rgba(15,23,42,.20); z-index:2000; }
+.global_nav_dropdown:hover .global_nav_dropdown_menu, .global_nav_dropdown:focus-within .global_nav_dropdown_menu, .home_global_nav_dropdown:hover .home_global_nav_menu, .home_global_nav_dropdown:focus-within .home_global_nav_menu { display:block; }
+.global_nav_dropdown_menu a, .home_global_nav_menu a { display:block; padding:10px 13px; color:#334155 !important; text-decoration:none; font-weight:600; border-radius:8px; white-space:nowrap; transition:.2s; }
+.global_nav_dropdown_menu a:hover, .home_global_nav_menu a:hover { background:#eff6ff !important; color:#0f3b63 !important; }
+.home-page .home_global_nav_dropdown { margin-left:2px; }
+.home-page .home_global_nav_button { min-width:95px; }
+@media (max-width:700px) { .global_role_navbar .global_nav_right, .home-page .nav_right { gap:8px; } }
+
+
+/* =========================================================
+   NAVBAR DROPDOWNS — SAME EXISTING DASHBOARD THEME
+   ========================================================= */
+.nav_dropdown {
+    position: relative;
+    display: inline-flex;
+    align-items: center;
+}
+
+.nav_dropdown_button {
+    border: 0;
+    background: transparent;
+    color: rgba(255, 255, 255, 0.82);
+    padding: 9px 13px;
+    border-radius: 8px;
+    font: inherit;
+    font-size: 14px;
+    font-weight: 600;
+    cursor: pointer;
+    transition: 0.25s;
+}
+
+.nav_dropdown:hover .nav_dropdown_button,
+.nav_dropdown:focus-within .nav_dropdown_button {
+    color: white;
+    background: rgba(255, 255, 255, 0.12);
+}
+
+.nav_dropdown_menu {
+    display: none;
+    position: absolute;
+    right: 0;
+    top: calc(100% + 7px);
+    min-width: 190px;
+    padding: 7px;
+    background: #ffffff;
+    border: 1px solid #dbeafe;
+    border-radius: 10px;
+    box-shadow: 0 12px 28px rgba(15, 23, 42, 0.18);
+    z-index: 1000;
+}
+
+.nav_dropdown:hover .nav_dropdown_menu,
+.nav_dropdown:focus-within .nav_dropdown_menu {
+    display: block;
+}
+
+.nav_dropdown_menu a {
+    display: block;
+    padding: 10px 12px;
+    color: #334155 !important;
+    border-radius: 7px;
+    text-decoration: none;
+    white-space: nowrap;
+}
+
+.nav_dropdown_menu a:hover {
+    color: #0f3b63 !important;
+    background: #eff6ff !important;
+}
+
+@media (max-width: 600px) {
+    .nav_dropdown_menu {
+        left: 0;
+        right: auto;
+    }
+}
+
+/* STUDENT LOGIN PAGE CSS*/
+
+/* ---------- PAGE ---------- */
+
+.login-page {
+    margin: 0;
+    overflow: hidden;
+    font-family: Arial, sans-serif;
+}
+
+/* ---------- BACKGROUND ---------- */
+
+.login_background {
+    height: 100vh;
+    box-sizing: border-box;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 40px;
+    position: relative;
+    overflow: hidden;
+    background:
+        radial-gradient(circle at 15% 20%,
+            rgba(14, 165, 233, 0.18),
+            transparent 30%),
+
+        radial-gradient(circle at 85% 80%,
+            rgba(37, 99, 235, 0.16),
+            transparent 30%),
+
+        linear-gradient(135deg,
+            #071a33,
+            #0b3157,
+            #0d6078);
+}
+
+
+/* ---------- BACKGROUND GLOW ---------- */
+
+.login_background::before {
+    content: "";
+    position: absolute;
+    width: 350px;
+    height: 350px;
+    border-radius: 50%;
+    background: #0ea5e9;
+    opacity: 0.08;
+    filter: blur(70px);
+    top: -120px;
+    right: -100px;
+}
+
+.login_background::after {
+    content: "";
+    position: absolute;
+    width: 300px;
+    height: 300px;
+    border-radius: 50%;
+    background: #67e8f9;
+    opacity: 0.07;
+    filter: blur(70px);
+    bottom: -120px;
+    left: -100px;
+}
+
+/* LOGIN CARD */
+.login-page .login_card {
+    width: 380px;
+    padding: 38px;
+    position: relative;
+    z-index: 2;
+    box-sizing: border-box;
+    background:
+        rgba(255, 255, 255, 0.10);
+
+    border:
+        1px solid rgba(255, 255, 255, 0.22);
+    border-radius: 20px;
+    backdrop-filter: blur(14px);
+    -webkit-backdrop-filter: blur(14px);
+    box-shadow:
+        0 25px 60px rgba(0, 0, 0, 0.25);
+}
+
+/* Subtle glow around card */
+.login-page .login_card::before {
+    content: "";
+    position: absolute;
+    inset: -1px;
+    border-radius: 20px;
+    padding: 1px;
+    background:
+        linear-gradient(135deg,
+            rgba(103, 232, 249, 0.45),
+            transparent 35%,
+            transparent 65%,
+            rgba(14, 165, 233, 0.30));
+
+    -webkit-mask:
+        linear-gradient(#fff 0 0) content-box,
+        linear-gradient(#fff 0 0);
+
+    -webkit-mask: linear-gradient(#fff 0 0) content-box, linear-gradient(#fff 0 0);
+    mask: linear-gradient(#fff 0 0) content-box, linear-gradient(#fff 0 0);
+    -webkit-mask-composite: xor;
+    mask-composite: exclude;
+    pointer-events: none;
+}
+
+/* LOGIN HEADER*/
+.login_header {
+    text-align: center;
+    margin-bottom: 32px;
+}
+
+.login_icon {
+    width: 55px;
+    height: 55px;
+    margin: 0 auto 15px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    border-radius: 50%;
+    background:
+        linear-gradient(135deg,
+            #0ea5e9,
+            #2563eb);
+
+    color: white;
+    font-size: 22px;
+    font-weight: bold;
+    box-shadow:
+        0 8px 20px rgba(14, 165, 233, 0.25);
+}
+
+.login_header h1 {
+    margin: 0;
+    color: white;
+    font-size: 29px;
+}
+
+.login_header p {
+    margin-top: 8px;
+    margin-bottom: 0;
+    color:
+        rgba(255, 255, 255, 0.65);
+    font-size: 14px;
+}
+
+/* LOGIN FORM*/
+.login_form {
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+}
+
+/* ---------- INPUT GROUP ---------- */
+.input_group {
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+}
+
+/* ---------- LABEL ---------- */
+.input_group label {
+    color:
+        rgba(255, 255, 255, 0.85);
+    font-size: 13px;
+    font-weight: bold;
+}
+
+/* ---------- INPUT ---------- */
+.input_group input {
+    width: 100%;
+    box-sizing: border-box;
+    padding: 13px 14px;
+    border-radius: 9px;
+    border:
+        1px solid rgba(255, 255, 255, 0.20);
+
+    outline: none;
+
+    background:
+        rgba(255, 255, 255, 0.08);
+
+    color: white;
+    font-size: 14px;
+    transition: 0.25s;
+}
+
+/* ---------- PLACEHOLDER ---------- */
+.input_group input::placeholder {
+    color:
+        rgba(255, 255, 255, 0.40);
+}
+
+/* ---------- INPUT FOCUS ---------- */
+.input_group input:focus {
+    border-color: #67e8f9;
+    background:
+        rgba(255, 255, 255, 0.12);
+    box-shadow:
+        0 0 0 3px rgba(103, 232, 249, 0.08);
+}
+
+/* LOGIN BUTTON*/
+.login_button {
+    width: 100%;
+    padding: 13px;
+    margin-top: 5px;
+    border: none;
+    border-radius: 9px;
+    cursor: pointer;
+    background:
+        linear-gradient(135deg,
+            #0ea5e9,
+            #2563eb);
+    color: white;
+    font-size: 15px;
+    font-weight: bold;
+    transition: 0.25s;
+}
+
+.login_button:hover {
+    transform: translateY(-2px);
+    box-shadow:
+        0 10px 25px rgba(14, 165, 233, 0.25);
+}
+
+.login_button:active {
+    transform: translateY(0);
+}
+
+/* LOGIN FOOTER*/
+
+.login_footer {
+    display: flex;
+    justify-content: space-between;
+    margin-top: 25px;
+    padding-top: 20px;
+    border-top:
+        1px solid rgba(255, 255, 255, 0.12);
+}
+
+.login_footer a {
+    color:
+        rgba(255, 255, 255, 0.65);
+    text-decoration: none;
+    font-size: 12px;
+    transition: 0.2s;
+}
+
+.login_footer a:hover {
+    color: #67e8f9;
+}
+
+/* MOBILE*/
+
+@media (max-width: 500px) {
+    .login_background {
+        padding: 20px;
+    }
+
+    .login-page .login_card {
+        width: 100%;
+        padding: 30px 25px;
+    }
+
+    .login_header h1 {
+        font-size: 26px;
+    }
+}
+
+
+/* STUDENT DASHBOARD*/
+.Sdash_navbar {
+    height: 72px;
+    padding: 0 35px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    box-sizing: border-box;
+    background:
+        linear-gradient(
+            110deg,
+            #172554,
+            #1e3a8a,
+            #164e63
+        );
+    border-bottom:
+        1px solid rgba(255, 255, 255, 0.15);
+    box-shadow:
+        0 5px 20px
+        rgba(15, 23, 42, 0.25);
+    position: relative;
+    z-index: 10;
+}
+
+/* NAVBAR TITLE*/
+
+.Sdash_navbar h2 {
+    margin: 0;
+    color: white;
+    font-size: 21px;
+    letter-spacing: 0.3px;
+}
+
+/* =========================================================
+   NAVBAR LINKS
+   ========================================================= */
+.Sdash_nav_right {
+    display: flex;
+    align-items: center;
+    gap: 5px;
+}
+
+.Sdash_nav_right a {
+    padding: 9px 13px;
+    text-decoration: none;
+    color:rgba(255, 255, 255, 0.78);
+    font-size: 14px;
+    font-weight: 600;
+    border-radius: 8px;
+    transition: 0.25s;
+}
+
+.Sdash_nav_right a:hover {
+    color: white;
+    background: rgba(255, 255, 255, 0.12);
+}
+
+/* Active dashboard */
+.Sdash_nav_right a:first-child {
+    color: white;
+    background: rgba(255, 255, 255, 0.16);
+}
+
+/* =========================================================
+   MAIN DASHBOARD BODY
+   ========================================================= */
+.Studentdash_container 
+{
+    min-height: calc(100vh - 72px);
+    box-sizing: border-box;
+    padding:55px 7% 70px;
+    position: relative;
+    overflow: hidden;
+    background:
+        radial-gradient(
+            circle at 5% 10%,
+            rgba(59, 130, 246, 0.25),
+            transparent 28%
+        ),
+        radial-gradient(
+            circle at 95% 20%,
+            rgba(79, 70, 229, 0.20),
+            transparent 30%
+        ),
+        radial-gradient(
+            circle at 50% 100%,
+            rgba(13, 148, 136, 0.18),
+            transparent 35%
+        ),
+        linear-gradient(
+            135deg,
+            #dbeafe,
+            #e0e7ff 45%,
+            #dff7f5
+        );
+}
+
+/* =========================================================
+   BACKGROUND LIGHT
+   ========================================================= */
+.Studentdash_container::before {
+    content: "";
+    position: absolute;
+    width: 350px;
+    height: 350px;
+    border-radius: 50%;
+    top: -170px;
+    left: -100px;
+    background:rgba(37, 99, 235, 0.18);
+    filter: blur(75px);
+    pointer-events: none;
+}
+
+.Studentdash_container::after {
+    content: "";
+    position: absolute;
+    width: 350px;
+    height: 350px;
+    border-radius: 50%;
+    bottom: -180px;
+    right: -100px;
+    background:rgba(13, 148, 136, 0.15);
+    filter: blur(80px);
+    pointer-events: none;
+}
+
+/* =========================================================
+   WELCOME MESSAGE
+   ========================================================= */
+.Studentdash_container h1 {
+    margin:0 0 45px;
+    position: relative;
+    z-index: 2;
+    text-align: center;
+    color: #172554;
+    font-size: 36px;
+    font-weight: 70px;
+}
+
+/* Decorative line */
+
+.Studentdash_container h1::after {
+    content: "";
+    display: block;
+    width: 65px;
+    height: 4px;
+    margin: 14px auto 0;
+    border-radius: 10px;
+    background:
+        linear-gradient(
+            90deg,
+            #2563eb,
+            #4f46e5,
+            #0891b2
+        );
+
+    box-shadow:0 3px 12px rgba(37, 99, 235, 0.25);
+}
+
+/* =========================================================
+   CARD CONTAINER
+   ========================================================= */
+
+.studentdash_card-container {
+    max-width: 1100px;
+    margin: 0 auto;
+    position: relative;
+    z-index: 2;
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 28px;
+}
+
+/* =========================================================
+   COMMON CARD
+    ========================================================= */
+
+.studentdash_card {
+    min-height: 240px;
+    padding: 30px;
+    box-sizing: border-box;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    position: relative;
+    overflow: hidden;
+    border-radius: 20px;
+    border:1px solid rgba(255, 255, 255, 0.35);
+    box-shadow:
+        0 12px 30px
+        rgba(15, 23, 42, 0.18);
+    transition:
+        transform 0.3s,
+        box-shadow 0.3s;
+}
+
+/* =========================================================
+   CARD LIGHT EFFECT
+   ========================================================= */
+.studentdash_card::before {
+    content: "";
+    position: absolute;
+    width: 170px;
+    height: 170px;
+    top: -90px;
+    right: -70px;
+    border-radius: 50%;
+    background: rgba(255, 255, 255, 0.14);
+    filter: blur(18px);
+    pointer-events: none;
+}
+
+/* =========================================================
+   CARD 1
+   ACADEMIC INFORMATION
+   ========================================================= */
+
+.studentdash_card:nth-child(1) {
+    background:
+        linear-gradient(
+            145deg,
+            #315db5,
+            #3674c9
+        );
+}
+
+
+/* =========================================================
+   CARD 2
+   STUDENT INFORMATION
+   ========================================================= */
+
+.studentdash_card:nth-child(2) {
+    background:
+        linear-gradient(
+            145deg,
+            #4b4aa5,
+            #5c5fc7
+        );
+}
+
+
+/* =========================================================
+   CARD 3
+   CONTACT INFORMATION
+   ========================================================= */
+
+.studentdash_card:nth-child(3) {
+
+    background:
+        linear-gradient(
+            145deg,
+            #e5a040,
+            #b77518
+        );
+}
+
+
+/* =========================================================
+   CARD HOVER
+   ========================================================= */
+
+.studentdash_card:hover {
+    transform:
+        translateY(-7px);
+    box-shadow:
+        0 20px 40px
+        rgba(15, 23, 42, 0.25);
+}
+
+
+/* =========================================================
+   CARD HEADINGS
+   ========================================================= */
+
+.studentdash_card h2 {
+    margin:0 0 22px;
+    position: relative;
+    z-index: 2;
+    color: white;
+    font-size: 22px;
+}
+
+/* =========================================================
+   CARD LABELS
+   ========================================================= */
+
+.studentdash_card p {
+    margin: 5px 0 3px;
+    position: relative;
+    z-index: 2;
+    color: rgba(255, 255, 255, 0.75);
+    font-size: 13px;
+}
+
+/* =========================================================
+   CARD VALUES
+   ========================================================= */
+
+.studentdash_card strong {
+    margin: 0 0 10px;
+    position: relative;
+    z-index: 2;
+    color: white;
+    font-size: 16px;
+    font-weight: 600;
+}
+
+/* ========================================================
+   RESPONSIVE
+   ========================================================= */
+
+@media (max-width: 850px) {
+    .studentdash_card-container {
+        grid-template-columns: 1fr;
+        max-width: 500px;
+    }
+
+    .Sdash_navbar {
+        padding: 0 20px;
+    }
+
+    .Sdash_navbar h2 {
+        font-size: 17px;
+    }
+
+    .Sdash_nav_right a {
+        padding: 8px;
+        font-size: 12px;
+    }
+}
+
+
+@media (max-width: 600px) {
+
+    .Sdash_navbar {
+        height: auto;
+        padding: 15px;
+        flex-direction: column;
+        gap: 10px;
+    }
+
+    .Sdash_nav_right {
+        flex-wrap: wrap;
+        justify-content: center;
+    }
+
+    .Studentdash_container {
+        min-height:
+            calc(100vh - 120px);
+        padding:
+            40px 20px;
+    }
+
+    .Studentdash_container h1 {
+        font-size: 27px;
+        margin-bottom: 35px;
+    }
+}
+
+/* =====================================================
+   TEACHER DASHBOARD CSS
+   ===================================================== */
+.tdash_navbar {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 12px 30px;
+    background: rgba(255, 255, 255, 0.55);
+    backdrop-filter: blur(12px);
+    border-bottom: 1px solid rgba(255, 255, 255, 0.7);
+    box-shadow:
+        0 5px 20px rgba(15, 23, 42, 0.10);
+    position: relative;
+    z-index: 10;
+    background:
+        linear-gradient(
+            110deg,
+            #172554,
+            #1e3a8a,
+            #164e63
+        );
+    min-height: 70px;
+    box-sizing: border-box;
+}
+
+/* Left side */
+.tdash_nav_left h1 {
+    margin: 0;
+    font-size: 23px;
+    color: #ffffff;
+}
+
+
+/* Right side */
+.tdash_nav_right {
+    display: flex;
+    align-items: center;
+}
+
+
+.tdash_nav_right a {
+    text-decoration: none;
+    color: #ffffff;
+    font-weight: 600;
+    padding: 10px 18px;
+    border-radius: 10px;
+    transition: 0.3s;
+}
+
+.tdash_nav_right a:hover {
+    background: rgba(179, 229, 252, 0.177);
+    transform: translateY(-2px);
+}
+
+.Tdash_container {
+    min-height: calc(100vh - 80px);
+    padding:50px 20px;
+    box-sizing:border-box;
+    background:
+    linear-gradient(
+        135deg,
+        #e0f2fe,
+        #dbeafe,
+        #f8fafc
+    );
+
+    display:flex;
+    justify-content:center;
+    position:relative;
+    overflow:hidden;
+}
+
+.Tdash_container::before {
+    content:"";
+    position:absolute;
+    width:450px;
+    height:450px;
+    top:-200px;
+    right:-120px;
+    border-radius:50%;
+    background:
+    rgba(14,165,233,0.15);
+    filter:blur(90px);
+}
+
+.Tdash_container::after {
+    content:"";
+    position:absolute;
+    width:400px;
+    height:400px;
+    bottom:-180px;
+    left:-100px;
+    border-radius:50%;
+    background: rgba(20,184,166,0.12);
+    filter:blur(90px);
+}
+
+.Tdash_content {
+    width:90%;
+    max-width:850px;
+    position:relative;
+    z-index:2;
+}
+
+.Tdash_title {
+    color:#1e3a8a;
+    font-size:36px;
+    margin-top: 50px;
+    margin-bottom:25px;
+}
+
+.Tdash_title::after {
+    content:"";
+    display:block;
+    width:70px;
+    height:4px;
+    margin-top:12px;
+    border-radius:10px;
+    background:
+    linear-gradient(
+        90deg,
+        #2563eb,
+        #06b6d4
+    );
+}
+
+.Tdash_details {
+    display:flex;
+    gap:30px;
+    flex-wrap:wrap;
+    margin-bottom:35px;
+}
+
+.Tdash_details p {
+    background:
+    rgba(255,255,255,0.45);
+    padding:12px 18px;
+    border-radius:12px;
+    color:#334155;
+    box-shadow: 0 5px 15px
+    rgba(15,23,42,0.08);
+    backdrop-filter:blur(10px);
+}
+
+.Tdash_search {
+    padding:30px;
+    background: rgba(255,255,255,0.55);
+    border-radius:20px;
+    box-shadow:
+    0 15px 35px rgba(15,23,42,0.15);
+    backdrop-filter:blur(12px);
+}
+
+.Tdash_search h2 {
+    color:#0f7667;
+    margin-bottom:25px;
+}
+
+.Tdash_input {
+    width:60%;
+    padding:14px 18px;
+    border:none;
+    outline:none;
+    border-radius:10px;
+    background:white;
+    font-size:15px;
+}
+
+.Tdash_input:focus {
+    box-shadow: 0 0 0 3px rgba(14,165,233,0.25);
+}
+
+.Tdash_button {
+    padding:13px 30px;
+    margin-left:10px;
+    border:none;
+    border-radius:10px;
+    color:white;
+    background:
+    linear-gradient(
+        135deg,
+        #0891b2,
+        #0ea5e9
+    );
+    cursor:pointer;
+    font-weight:600;
+    transition:0.3s;
+}
+
+.Tdash_button:hover {
+    transform: translateY(-3px);
+    box-shadow: 0 10px 20px rgba(14,165,233,0.25);
+}
+
+@media (max-width: 600px) {
+    .tdash_navbar {
+        padding: 12px 15px;
+
+    }
+
+    .tdash_nav_left h1 {
+        font-size: 18px;
+    }
+
+    .tdash_nav_right a {
+        padding: 8px 12px;
+    }
+
+    .Tdash_container {
+        padding: 35px 15px;
+    }
+
+    .Tdash_content {
+        width: 95%;
+    }
+
+    .Tdash_title {
+        font-size: 28px;
+    }
+
+    .Tdash_details {
+        flex-direction: column;
+        gap: 10px;
+    }
+
+    .Tdash_details p {
+        margin: 0;
+    }
+
+    .Tdash_search {
+        padding: 22px;
+    }
+    .Tdash_input {
+        width: 100%;
+        box-sizing: border-box;
+        margin-bottom: 15px;
+    }
+    .Tdash_button {
+        margin-left: 0;
+        width: 100%;
+    }
+}
+
+/* Teacher dashboard styles will be added here */
+
+
+/* =====================================================
+   PROFILE PAGE CSS
+   ===================================================== */
+
+.Sprofile_container {
+    min-height: 100vh;
+    padding: 50px 20px;
+    box-sizing: border-box;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    background:
+        linear-gradient(
+            135deg,
+            #eef6ff,
+            #dbeafe,
+            #f8fafc
+        );
+
+    position: relative;
+    overflow: hidden;
+}
+
+
+/* background glow */
+
+.Sprofile_container::before {
+    content: "";
+    position: absolute;
+    width: 450px;
+    height: 450px;
+    top: -200px;
+    left: -150px;
+    border-radius: 50%;
+    background: rgba(37, 99, 235, 0.18);
+    filter: blur(90px);
+}
+
+.Sprofile_container::after {
+    content: "";
+    position: absolute;
+    width: 400px;
+    height: 400px;
+    bottom: -200px;
+    right: -100px;
+    border-radius: 50%;
+    background: rgba(14, 165, 233, 0.18);
+    filter: blur(90px);
+}
+
+/* =========================================================
+   TITLE
+   ========================================================= */
+.Sprofile_title {
+    position: relative;
+    z-index: 2;
+    color: #0f172a;
+    font-size: 35px;
+    margin-bottom: 35px;
+}
+
+.Sprofile_title::after {
+    content: "";
+    display: block;
+    width: 65px;
+    height: 5px;
+    margin: 12px auto;
+    border-radius: 10px;
+    background:
+        linear-gradient(
+            90deg,
+            #2563eb,
+            #38bdf8
+        );
+}
+
+/* =========================================================
+   PROFILE CARD
+   ========================================================= */
+.Sprofile_card {
+    width: 100%;
+    max-width: 700px;
+    padding: 15px;
+    position: relative;
+    z-index: 2;
+    border-radius: 20px;
+    background: rgba(255,255,255,0.55);
+    border: 1px solid rgba(255,255,255,0.8);
+    box-shadow:0 15px 35px rgba(15,23,42,0.15);
+    backdrop-filter: blur(12px);
+}
+
+/* =========================================================
+   PROFILE ROW
+   ========================================================= */
+.Sprofile_row {
+    display: grid;
+    grid-template-columns: 180px 1fr;
+    align-items: center;
+    padding: 18px 22px;
+    border-radius: 12px;
+    transition: 0.25s;
+}
+
+.Sprofile_row:hover {
+    background: rgba(37,99,235,0.08);
+    transform: translateX(5px);
+}
+
+/* =========================================================
+   LABEL
+   ========================================================= */
+.Sprofile_label {
+    color: #2563eb;
+    font-weight: 700;
+    font-size: 15px;
+}
+/* =========================================================
+   VALUE
+   ========================================================= */
+.Sprofile_value {
+    color: #334155;
+    font-size: 15px;
+}
+/* =========================================================
+   BACK BUTTON
+   ========================================================= */
+.Sprofile_back {
+    margin-top: 30px;
+    padding: 12px 25px;
+    border-radius: 10px;
+    position: relative;
+    z-index: 2;
+    text-decoration: none;
+    color: white;
+    background:
+        linear-gradient(
+            135deg,
+            #2563eb,
+            #0ea5e9
+        );
+    font-weight: 600;
+    transition: 0.3s;
+}
+
+.Sprofile_back:hover {
+    transform: translateY(-3px);
+    box-shadow: 0 10px 25px rgba(37,99,235,0.35);
+}
+
+/* =========================================================
+   MOBILE
+   ========================================================= */
+@media(max-width:600px){
+    .Sprofile_title{
+        font-size:28px;
+    }
+
+    .Sprofile_row{
+        grid-template-columns:1fr;
+        gap:8px;
+    }
+}
+
+/* Profile styles will be added here */
+
+/* =========================================================
+   STUDENT ATTENDANCE PAGE
+   ========================================================= */
+.Satt_container {
+    min-height:100vh;
+    padding:50px 20px;
+    box-sizing:border-box;
+    display:flex;
+    flex-direction:column;
+    align-items:center;
+    background:
+    linear-gradient(
+        135deg,
+        #eef6ff,
+        #dbeafe,
+        #f8fafc
+    );
+    position:relative;
+    overflow:hidden;
+}
+
+/* Background glow */
+.Satt_container::before {
+    content:"";
+    position:absolute;
+    width:450px;
+    height:450px;
+    top:-200px;
+    left:-150px;
+    border-radius:50%;
+    background: rgba(37,99,235,0.18);
+    filter:blur(90px);
+}
+
+
+
+.Satt_container::after {
+    content:"";
+    position:absolute;
+    width:400px;
+    height:400px;
+    bottom:-200px;
+    right:-120px;
+    border-radius:50%;
+    background: rgba(14,165,233,0.18);
+    filter:blur(90px);
+}
+
+/* Title */
+.Satt_title {
+    position:relative;
+    z-index:2;
+    color:#0f172a;
+    font-size:35px;
+    margin-bottom:35px;
+}
+
+.Satt_title::after {
+    content:"";
+    display:block;
+    width:65px;
+    height:4px;
+    margin:12px auto;
+    border-radius:10px;
+    background:
+    linear-gradient(
+        90deg,
+        #2563eb,
+        #38bdf8
+    );
+}
+
+/* Table Card */
+.Satt_table_card {
+    width:90%;
+    max-width:850px;
+    padding:20px;
+    position:relative;
+    z-index:2;
+    background: rgba(255,255,255,0.55);
+    border:1px solid rgba(255,255,255,0.8);
+    border-radius:20px;
+    box-shadow: 0 15px 35px rgba(15,23,42,0.15);
+    backdrop-filter:blur(12px);
+}
+
+/* Table */
+.Satt_table {
+    width:100%;
+    border-collapse:collapse;
+    overflow:hidden;
+}
+
+/* Header */
+.Satt_table th {
+    padding:16px;
+    color:white;
+    font-size:15px;
+    background:
+    linear-gradient(
+        135deg,
+        #2563eb,
+        #0ea5e9
+    );
+}
+
+/* Data */
+.Satt_table td {
+    padding:15px;
+    text-align:center;
+    color:#334155;
+    border-bottom: 1px solid rgba(15,23,42,0.08);
+}
+
+/* Row hover */
+.Satt_table tr:hover td {
+    background: rgba(37,99,235,0.08);
+}
+
+/* Percentage highlight */
+.Satt_table td:last-child {
+    color:#2563eb;
+    font-weight:700;
+}
+
+/* Back button */
+.Satt_back {
+    margin-top:30px;
+    padding:12px 25px;
+    border-radius:10px;
+    text-decoration:none;
+    color:white;
+    background:
+    linear-gradient(
+        135deg,
+        #2563eb,
+        #0ea5e9
+    );
+    font-weight:600;
+    position:relative;
+    z-index:2;
+    transition:0.3s;
+}
+
+.Satt_back:hover {
+    transform:translateY(-3px);
+    box-shadow:0 10px 25px rgba(37,99,235,0.35);
+}
+
+/* Mobile */
+@media(max-width:600px){
+    .Satt_table_card {
+        width:95%;
+        overflow-x:auto;
+    }
+
+    .Satt_title {
+        font-size:28px;
+    }
+
+    .Satt_table th,
+    .Satt_table td {
+        padding:12px;
+        font-size:13px;
+    }
+}
+
+/* Attendance table styles will be added here */
+
+/* =========================================================
+   STUDENT MARKS PAGE
+   ========================================================= */
+.Smarks_container {
+    min-height:100vh;
+    padding:50px 20px;
+    box-sizing:border-box;
+    display:flex;
+    flex-direction:column;
+    align-items:center;
+    background:
+    linear-gradient(
+        135deg,
+        #eef6ff,
+        #dbeafe,
+        #f8fafc
+    );
+    position:relative;
+    overflow:hidden;
+}
+
+
+
+/* Background Glow */
+
+
+.Smarks_container::before {
+
+
+    content:"";
+
+
+    position:absolute;
+
+
+    width:450px;
+
+
+    height:450px;
+
+
+    top:-200px;
+
+
+    left:-150px;
+
+
+    border-radius:50%;
+
+
+
+    background:
+
+    rgba(37,99,235,0.18);
+
+
+
+    filter:blur(90px);
+
+
+}
+
+
+.Smarks_container::after {
+
+
+    content:"";
+
+
+    position:absolute;
+
+
+    width:400px;
+
+
+    height:400px;
+
+
+    bottom:-200px;
+
+
+    right:-120px;
+
+
+    border-radius:50%;
+
+
+
+    background:
+
+    rgba(14,165,233,0.18);
+
+
+
+    filter:blur(90px);
+
+
+}
+
+
+
+/* Title */
+
+
+.Smarks_title {
+
+
+    position:relative;
+
+
+    z-index:2;
+
+
+    color:#0f172a;
+
+
+    font-size:35px;
+
+
+    margin-bottom:35px;
+
+}
+
+
+.Smarks_title::after {
+
+
+    content:"";
+
+
+    display:block;
+
+
+    width:65px;
+
+
+    height:4px;
+
+
+    margin:12px auto;
+
+
+
+    border-radius:10px;
+
+
+
+    background:
+
+    linear-gradient(
+
+        90deg,
+
+        #2563eb,
+
+        #38bdf8
+
+    );
+
+}
+
+
+/* Table Card */
+
+
+.Smarks_table_card {
+
+
+    width:90%;
+
+
+    max-width:850px;
+
+
+
+    padding:20px;
+
+
+
+    position:relative;
+
+
+    z-index:2;
+
+
+
+    background:
+
+    rgba(255,255,255,0.55);
+
+
+
+    border:
+
+    1px solid
+
+    rgba(255,255,255,0.8);
+
+
+
+    border-radius:20px;
+
+
+
+    box-shadow:
+
+
+    0 15px 35px
+
+    rgba(15,23,42,0.15);
+
+
+
+    backdrop-filter:blur(12px);
+
+}
+
+
+/* Table */
+
+
+.Smarks_table {
+
+
+    width:100%;
+
+
+    border-collapse:collapse;
+
+}
+
+
+/* Table Heading */
+
+
+.Smarks_table th {
+
+
+    padding:16px;
+
+
+
+    color:white;
+
+
+
+    font-size:15px;
+
+
+
+    background:
+
+
+    linear-gradient(
+
+        135deg,
+
+        #2563eb,
+
+        #0ea5e9
+
+    );
+
+}
+
+
+/* Table Data */
+
+
+.Smarks_table td {
+
+
+    padding:15px;
+
+
+    text-align:center;
+
+
+
+    color:#334155;
+
+
+
+    border-bottom:
+
+
+    1px solid
+
+    rgba(15,23,42,0.08);
+
+}
+
+/* Hover */
+
+
+.Smarks_table tr:hover td {
+
+
+    background:
+
+
+    rgba(37,99,235,0.08);
+
+}
+
+
+
+/* Total marks highlight */
+
+
+.Smarks_table td:last-child {
+
+
+    color:#2563eb;
+
+
+    font-weight:700;
+
+}
+
+/* Back Button */
+
+
+.Smarks_back {
+
+
+    margin-top:30px;
+
+
+
+    padding:12px 25px;
+
+
+
+    border-radius:10px;
+
+
+
+    text-decoration:none;
+
+
+
+    color:white;
+
+
+
+    background:
+
+
+    linear-gradient(
+
+        135deg,
+
+        #2563eb,
+
+        #0ea5e9
+
+    );
+
+
+
+    font-weight:600;
+
+
+
+    position:relative;
+
+
+    z-index:2;
+
+
+
+    transition:0.3s;
+
+}
+
+
+.Smarks_back:hover {
+
+
+    transform:
+
+
+    translateY(-3px);
+
+
+
+    box-shadow:
+
+
+    0 10px 25px
+
+    rgba(37,99,235,0.35);
+
+}
+
+/* Mobile */
+
+
+@media(max-width:600px){
+
+
+    .Smarks_table_card {
+
+
+        width:95%;
+
+
+        overflow-x:auto;
+
+    }
+
+
+
+
+    .Smarks_title {
+
+
+        font-size:28px;
+
+    }
+
+
+
+
+    .Smarks_table th,
+
+    .Smarks_table td {
+
+
+        padding:12px;
+
+
+        font-size:13px;
+
+    }
+
+}
+
+/* Marks table styles will be added here */
+
+/* =========================================================
+   TEACHER - STUDENT DETAILS PAGE
+   ========================================================= */
+
+
+.Tstudent_container {
+    min-height: calc(100vh - 70px);
+    height: auto;
+    padding: 50px 20px;
+
+    box-sizing: border-box;
+
+    display: flex;
+
+    flex-direction: column;
+
+    align-items: center;
+
+
+    background:
+
+    linear-gradient(
+        135deg,
+        #e0f2fe,
+        #dbeafe,
+        #f8fafc
+    );
+
+
+    position: relative;
+
+    overflow: hidden;
+
+}
+
+
+
+/* Background glow */
+
+.Tstudent_container::before {
+
+    content: "";
+
+    position: absolute;
+
+    width: 450px;
+
+    height: 450px;
+
+    top: -200px;
+
+    right: -120px;
+
+    border-radius: 50%;
+
+
+    background:
+
+    rgba(14, 165, 233, 0.14);
+
+
+    filter: blur(90px);
+
+}
+
+
+.Tstudent_container::after {
+
+    content: "";
+
+    position: absolute;
+
+    width: 400px;
+
+    height: 400px;
+
+    bottom: -180px;
+
+    left: -100px;
+
+    border-radius: 50%;
+
+
+    background:
+
+    rgba(20, 184, 166, 0.10);
+
+
+    filter: blur(90px);
+
+}
+
+
+
+/* Title */
+
+.Tstudent_title {
+
+    position: relative;
+
+    z-index: 2;
+
+    color: #1e3a8a;
+
+    font-size: 35px;
+
+    margin-bottom: 30px;
+
+}
+
+
+.Tstudent_title::after {
+
+    content: "";
+
+    display: block;
+
+    width: 65px;
+
+    height: 4px;
+
+    margin: 12px auto;
+
+    border-radius: 10px;
+
+
+    background:
+
+    linear-gradient(
+        90deg,
+        #2563eb,
+        #06b6d4
+    );
+
+}
+
+
+
+/* Student information */
+
+.Tstudent_info {
+
+    width: 90%;
+
+    max-width: 700px;
+
+    padding: 10px;
+
+
+    position: relative;
+
+    z-index: 2;
+
+
+    background:
+
+    rgba(255, 255, 255, 0.55);
+
+
+    border:
+
+    1px solid
+    rgba(255, 255, 255, 0.8);
+
+
+    border-radius: 20px;
+
+
+    box-shadow:
+
+    0 15px 35px
+    rgba(15, 23, 42, 0.14);
+
+
+    backdrop-filter: blur(12px);
+
+}
+
+
+
+/* Individual row */
+
+.Tstudent_row {
+
+    display: grid;
+
+    grid-template-columns: 180px 1fr;
+
+    padding: 17px 22px;
+
+    border-bottom:
+
+    1px solid
+    rgba(15, 23, 42, 0.07);
+
+    transition: 0.25s;
+
+}
+
+
+.Tstudent_row:last-child {
+
+    border-bottom: none;
+
+}
+
+
+.Tstudent_row:hover {
+
+    background:
+
+    rgba(14, 165, 233, 0.07);
+
+}
+
+
+
+/* Label */
+
+.Tstudent_label {
+
+    color: #0f766e;
+
+    font-weight: 700;
+
+}
+
+
+
+/* Value */
+
+.Tstudent_value {
+
+    color: #334155;
+
+}
+
+
+
+/* Teacher options */
+
+.Tstudent_options {
+
+    width: 90%;
+
+    max-width: 700px;
+
+    margin-top: 30px;
+
+    padding: 25px;
+
+    box-sizing: border-box;
+
+
+    position: relative;
+
+    z-index: 2;
+
+
+    text-align: center;
+
+
+    background:
+
+    rgba(255, 255, 255, 0.45);
+
+
+    border-radius: 18px;
+
+
+    backdrop-filter: blur(10px);
+
+}
+
+
+.Tstudent_options h2 {
+
+    margin-top: 0;
+
+    color: #1e3a8a;
+
+}
+
+
+
+/* Buttons */
+
+.Tstudent_buttons {
+
+    display: flex;
+
+    justify-content: center;
+
+    gap: 20px;
+
+    flex-wrap: wrap;
+
+}
+
+
+.Tstudent_button {
+
+    padding: 12px 22px;
+
+    border: none;
+
+    border-radius: 10px;
+
+    cursor: pointer;
+
+
+    color: white;
+
+    font-weight: 600;
+
+
+    background:
+
+    linear-gradient(
+        135deg,
+        #0891b2,
+        #0ea5e9
+    );
+
+
+    transition: 0.3s;
+
+}
+
+
+.Tstudent_button:hover {
+
+    transform: translateY(-3px);
+
+    box-shadow:
+
+    0 10px 20px
+    rgba(14, 165, 233, 0.25);
+
+}
+
+
+
+/* =========================================================
+   MOBILE
+   ========================================================= */
+
+@media (max-width: 600px) {
+
+    .Tstudent_container {
+
+        padding: 35px 15px;
+
+    }
+
+
+    .Tstudent_title {
+
+        font-size: 28px;
+
+    }
+
+
+    .Tstudent_info {
+
+        width: 95%;
+
+    }
+
+
+    .Tstudent_row {
+
+        grid-template-columns: 1fr;
+
+        gap: 6px;
+
+        padding: 15px;
+
+    }
+
+
+    .Tstudent_options {
+
+        width: 95%;
+
+    }
+
+
+    .Tstudent_buttons {
+
+        flex-direction: column;
+
+    }
+
+
+    .Tstudent_button {
+
+        width: 100%;
+
+    }
+
+}
+
+/* =========================================================
+   TEACHER ATTENDANCE UPDATE PAGE
+   ========================================================= */
+
+
+.Tatt_container {
+    min-height: calc(100vh - 70px);
+    padding: 50px 20px;
+
+    box-sizing: border-box;
+
+    display: flex;
+
+    flex-direction: column;
+
+    align-items: center;
+
+
+    background:
+
+    linear-gradient(
+        135deg,
+        #e0f2fe,
+        #dbeafe,
+        #f8fafc
+    );
+
+
+    position: relative;
+
+    overflow: hidden;
+
+}
+
+
+
+/* Background glow */
+
+.Tatt_container::before {
+
+    content: "";
+
+    position: absolute;
+
+    width: 450px;
+
+    height: 450px;
+
+    top: -200px;
+
+    right: -120px;
+
+    border-radius: 50%;
+
+
+    background:
+
+    rgba(14, 165, 233, 0.14);
+
+
+    filter: blur(90px);
+
+}
+
+
+.Tatt_container::after {
+
+    content: "";
+
+    position: absolute;
+
+    width: 400px;
+
+    height: 400px;
+
+    bottom: -180px;
+
+    left: -100px;
+
+    border-radius: 50%;
+
+
+    background:
+
+    rgba(20, 184, 166, 0.10);
+
+
+    filter: blur(90px);
+
+}
+
+
+
+/* Title */
+
+.Tatt_title {
+
+    position: relative;
+
+    z-index: 2;
+
+    color: #1e3a8a;
+
+    font-size: 35px;
+
+    margin-bottom: 15px;
+
+}
+
+
+.Tatt_title::after {
+
+    content: "";
+
+    display: block;
+
+    width: 65px;
+
+    height: 4px;
+
+    margin: 12px auto;
+
+    border-radius: 10px;
+
+
+    background:
+
+    linear-gradient(
+        90deg,
+        #2563eb,
+        #06b6d4
+    );
+
+}
+
+
+
+/* Form */
+
+.Tatt_form {
+
+    width: 90%;
+
+    max-width: 850px;
+
+    position: relative;
+
+    z-index: 2;
+
+    display: flex;
+
+    flex-direction: column;
+
+    align-items: center;
+
+}
+
+
+
+/* Table card */
+
+.Tatt_table_card {
+
+    width: 100%;
+
+    padding: 20px;
+
+    box-sizing: border-box;
+
+
+    background:
+
+    rgba(255, 255, 255, 0.55);
+
+
+    border:
+
+    1px solid
+    rgba(255, 255, 255, 0.8);
+
+
+    border-radius: 20px;
+
+
+    box-shadow:
+
+    0 15px 35px
+    rgba(15, 23, 42, 0.14);
+
+
+    backdrop-filter: blur(12px);
+
+}
+
+
+
+/* Table */
+
+.Tatt_table {
+
+    width: 100%;
+
+    border-collapse: collapse;
+
+}
+
+
+
+/* Header */
+
+.Tatt_table th {
+
+    padding: 10px;
+
+    color: white;
+
+    background:
+
+    linear-gradient(
+        135deg,
+        #0891b2,
+        #0ea5e9
+    );
+
+    font-size: 15px;
+
+}
+
+
+
+/* Cells */
+
+.Tatt_table td {
+
+    padding: 15px;
+
+    text-align: center;
+
+    color: #334155;
+
+
+    border-bottom:
+
+    1px solid
+    rgba(15, 23, 42, 0.08);
+
+}
+
+
+
+/* Hover */
+
+.Tatt_table tr:hover td {
+
+    background:
+
+    rgba(14, 165, 233, 0.07);
+
+}
+
+
+
+/* Present classes input */
+
+.Tatt_input {
+
+    width: 70px;
+
+    padding: 9px;
+
+    box-sizing: border-box;
+
+    text-align: center;
+
+    border: 1px solid #cbd5e1;
+
+    border-radius: 8px;
+
+    outline: none;
+
+    color: #334155;
+
+    background: rgba(255, 255, 255, 0.9);
+
+}
+
+
+.Tatt_input:focus {
+
+    border-color: #0ea5e9;
+
+    box-shadow:
+
+    0 0 0 3px
+    rgba(14, 165, 233, 0.15);
+
+}
+
+
+
+/* Save button */
+
+.Tatt_button {
+
+    margin-top: 20px;
+
+    padding: 13px 30px;
+
+    border: none;
+
+    border-radius: 10px;
+
+    cursor: pointer;
+
+
+    color: white;
+
+    font-weight: 600;
+
+
+    background:
+
+    linear-gradient(
+        135deg,
+        #0891b2,
+        #0ea5e9
+    );
+
+
+    transition: 0.3s;
+
+}
+
+
+.Tatt_button:hover {
+
+    transform: translateY(-3px);
+
+    box-shadow:
+
+    0 10px 20px
+    rgba(14, 165, 233, 0.25);
+
+}
+
+
+
+/* =========================================================
+   MOBILE
+   ========================================================= */
+
+@media (max-width: 600px) {
+
+    .Tatt_container {
+
+        padding: 35px 15px;
+
+    }
+
+
+    .Tatt_title {
+
+        font-size: 28px;
+
+    }
+
+
+    .Tatt_form {
+
+        width: 95%;
+
+    }
+
+
+    .Tatt_table_card {
+
+        padding: 10px;
+
+        overflow-x: auto;
+
+    }
+
+
+    .Tatt_table {
+
+        min-width: 550px;
+
+    }
+
+
+    .Tatt_table th,
+    .Tatt_table td {
+
+        padding: 12px;
+
+        font-size: 13px;
+
+    }
+
+
+    .Tatt_input {
+
+        width: 65px;
+
+    }
+
+}
+
+/* =========================================================
+   TEACHER MARKS UPDATE PAGE
+   ========================================================= */
+
+
+.Tmarks_container {
+
+    min-height: 100vh;
+
+    padding: 50px 20px;
+
+    box-sizing: border-box;
+
+    display: flex;
+
+    flex-direction: column;
+
+    align-items: center;
+
+
+    background:
+
+    linear-gradient(
+        135deg,
+        #e0f2fe,
+        #dbeafe,
+        #f8fafc
+    );
+
+
+    position: relative;
+
+    overflow: hidden;
+
+}
+
+
+/* Background glow */
+
+.Tmarks_container::before {
+
+    content: "";
+
+    position: absolute;
+
+    width: 450px;
+
+    height: 450px;
+
+    top: -200px;
+
+    right: -120px;
+
+    border-radius: 50%;
+
+
+    background:
+
+    rgba(14, 165, 233, 0.14);
+
+
+    filter: blur(90px);
+
+}
+
+
+.Tmarks_container::after {
+
+    content: "";
+
+    position: absolute;
+
+    width: 400px;
+
+    height: 400px;
+
+    bottom: -180px;
+
+    left: -100px;
+
+    border-radius: 50%;
+
+
+    background:
+
+    rgba(20, 184, 166, 0.10);
+
+
+    filter: blur(90px);
+
+}
+
+
+/* Title */
+
+.Tmarks_title {
+
+    position: relative;
+
+    z-index: 2;
+
+    color: #1e3a8a;
+
+    font-size: 35px;
+
+    margin-bottom: 35px;
+
+}
+
+
+.Tmarks_title::after {
+
+    content: "";
+
+    display: block;
+
+    width: 65px;
+
+    height: 4px;
+
+    margin: 12px auto;
+
+    border-radius: 10px;
+
+
+    background:
+
+    linear-gradient(
+        90deg,
+        #2563eb,
+        #06b6d4
+    );
+
+}
+
+
+/* Form */
+
+.Tmarks_form {
+
+    width: 90%;
+
+    max-width: 900px;
+
+    position: relative;
+
+    z-index: 2;
+
+    display: flex;
+
+    flex-direction: column;
+
+    align-items: center;
+
+}
+
+
+/* Table card */
+
+.Tmarks_table_card {
+
+    width: 100%;
+
+    padding: 20px;
+
+    box-sizing: border-box;
+
+
+    background:
+
+    rgba(255, 255, 255, 0.55);
+
+
+    border:
+
+    1px solid
+    rgba(255, 255, 255, 0.8);
+
+
+    border-radius: 20px;
+
+
+    box-shadow:
+
+    0 15px 35px
+    rgba(15, 23, 42, 0.14);
+
+
+    backdrop-filter: blur(12px);
+
+}
+
+
+/* Table */
+
+.Tmarks_table {
+
+    width: 100%;
+
+    border-collapse: collapse;
+
+}
+
+
+/* Header */
+
+.Tmarks_table th {
+
+    padding: 16px;
+
+    color: white;
+
+    background:
+
+    linear-gradient(
+        135deg,
+        #0891b2,
+        #0ea5e9
+    );
+
+    font-size: 15px;
+
+}
+
+
+/* Cells */
+
+.Tmarks_table td {
+
+    padding: 15px;
+
+    text-align: center;
+
+    color: #334155;
+
+
+    border-bottom:
+
+    1px solid
+    rgba(15, 23, 42, 0.08);
+
+}
+
+
+/* Hover */
+
+.Tmarks_table tr:hover td {
+
+    background:
+
+    rgba(14, 165, 233, 0.07);
+
+}
+
+
+/* Marks inputs */
+
+.Tmarks_input {
+
+    width: 75px;
+
+    padding: 9px;
+
+    box-sizing: border-box;
+
+    text-align: center;
+
+
+    border:
+
+    1px solid #cbd5e1;
+
+
+    border-radius: 8px;
+
+
+    outline: none;
+
+
+    color: #334155;
+
+
+    background:
+
+    rgba(255, 255, 255, 0.9);
+
+}
+
+
+.Tmarks_input:focus {
+
+    border-color: #0ea5e9;
+
+
+    box-shadow:
+
+    0 0 0 3px
+    rgba(14, 165, 233, 0.15);
+
+}
+
+
+/* Save button */
+
+.Tmarks_button {
+
+    margin-top: 30px;
+
+    padding: 13px 30px;
+
+    border: none;
+
+    border-radius: 10px;
+
+    cursor: pointer;
+
+
+    color: white;
+
+    font-weight: 600;
+
+
+    background:
+
+    linear-gradient(
+        135deg,
+        #0891b2,
+        #0ea5e9
+    );
+
+
+    transition: 0.3s;
+
+}
+
+
+.Tmarks_button:hover {
+
+    transform: translateY(-3px);
+
+
+    box-shadow:
+
+    0 10px 20px
+    rgba(14, 165, 233, 0.25);
+
+}
+
+
+/* =========================================================
+   MOBILE
+   ========================================================= */
+
+@media (max-width: 600px) {
+
+    .Tmarks_container {
+
+        padding: 35px 15px;
+
+    }
+
+
+    .Tmarks_title {
+
+        font-size: 28px;
+
+    }
+
+
+    .Tmarks_form {
+
+        width: 95%;
+
+    }
+
+
+    .Tmarks_table_card {
+
+        padding: 10px;
+
+        overflow-x: auto;
+
+    }
+
+
+    .Tmarks_table {
+
+        min-width: 650px;
+
+    }
+
+
+    .Tmarks_table th,
+    .Tmarks_table td {
+
+        padding: 12px;
+
+        font-size: 13px;
+
+    }
+
+
+    .Tmarks_input {
+
+        width: 65px;
+
+    }
+
+}
+
+
+/* =========================================================
+   HOD + LEAVE REQUEST FEATURES
+   ========================================================= */
+/* =========================================================
+   LEAVE REQUEST + HOD PORTAL
+   ========================================================= */
+
+.portal_navbar {
+    width: 100%;
+    padding: 16px 5%;
+    background: #071a33;
+    color: white;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    gap: 20px;
+}
+
+.portal_navbar h1 { margin: 0; font-size: 22px; }
+.portal_navbar > div { display: flex; gap: 22px; align-items: center; }
+.portal_navbar a { color: white; text-decoration: none; font-weight: 600; }
+.portal_navbar a:hover { color: #67e8f9; }
+
+.leave_page,
+.hod_page,
+.role_login_page {
+    min-height: 100vh;
+    background: linear-gradient(135deg, #eef5ff, #f8fbff);
+}
+
+.leave_container {
+    width: min(900px, 92%);
+    margin: 45px auto;
+}
+
+.wide_leave_container { width: min(1250px, 94%); }
+
+.leave_card,
+.admin_hod_card {
+    background: white;
+    border-radius: 20px;
+    padding: 32px;
+    box-shadow: 0 12px 35px rgba(15, 23, 42, 0.09);
+    border: 1px solid #e4edf8;
+}
+
+.leave_card h1,
+.admin_hod_card h2 { margin-top: 0; color: #10233f; }
+
+.page_subtitle { color: #667085; margin-top: -5px; line-height: 1.6; }
+.eyebrow { color: #0284c7; font-size: 12px; font-weight: 800; letter-spacing: 2px; }
+
+.leave_student_info {
+    display: grid;
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    gap: 14px;
+    margin: 25px 0;
+}
+
+.leave_student_info > div {
+    padding: 15px 17px;
+    background: #f6f9fd;
+    border-radius: 12px;
+}
+
+.leave_student_info span,
+.current_status_box > span,
+.leave_reason_box > span {
+    display: block;
+    color: #64748b;
+    font-size: 12px;
+    margin-bottom: 5px;
+}
+
+.leave_student_info strong { color: #172033; }
+
+.approval_info {
+    padding: 14px 16px;
+    border-left: 4px solid #0ea5e9;
+    background: #eff9ff;
+    border-radius: 8px;
+    margin-bottom: 22px;
+}
+
+.leave_form,
+.admin_hod_form,
+.leave_decision_form {
+    display: flex;
+    flex-direction: column;
+    gap: 9px;
+}
+
+.leave_form label,
+.admin_hod_form label,
+.leave_decision_form label { font-weight: 700; color: #334155; margin-top: 7px; }
+
+.leave_form input,
+.leave_form textarea,
+.admin_hod_form input,
+.admin_hod_form select,
+.leave_decision_form textarea,
+.role_login_card input {
+    width: 100%;
+    padding: 12px 14px;
+    border: 1px solid #cbd5e1;
+    border-radius: 9px;
+    font-size: 14px;
+    font-family: inherit;
+    outline: none;
+}
+
+.leave_form input:focus,
+.leave_form textarea:focus,
+.admin_hod_form input:focus,
+.admin_hod_form select:focus,
+.leave_decision_form textarea:focus,
+.role_login_card input:focus { border-color: #0ea5e9; box-shadow: 0 0 0 3px rgba(14,165,233,.10); }
+
+.leave_primary_button,
+.approve_button,
+.reject_button,
+.admin_hod_form button,
+.table_action_button,
+.delete_button {
+    border: 0;
+    border-radius: 8px;
+    padding: 11px 17px;
+    font-weight: 700;
+    cursor: pointer;
+    text-decoration: none;
+    display: inline-block;
+}
+
+.leave_primary_button,
+.admin_hod_form button,
+.approve_button { background: #0ea5e9; color: white; }
+.leave_primary_button:hover,
+.admin_hod_form button:hover,
+.approve_button:hover { background: #0284c7; }
+.reject_button { background: #ef4444; color: white; }
+.reject_button:hover { background: #dc2626; }
+
+.portal_message {
+    padding: 12px 15px;
+    background: #eff9ff;
+    color: #0369a1;
+    border-radius: 9px;
+    font-weight: 600;
+}
+
+.leave_warning { padding: 16px; background: #fff7ed; color: #c2410c; border-radius: 10px; font-weight: 600; }
+.empty_state { padding: 24px; text-align: center; color: #64748b; background: #f8fafc; border-radius: 10px; }
+
+.leave_table_wrap { width: 100%; overflow-x: auto; }
+.leave_table { width: 100%; border-collapse: collapse; min-width: 760px; }
+.leave_table th { background: #071a33; color: white; text-align: left; padding: 13px; font-size: 13px; }
+.leave_table td { padding: 13px; border-bottom: 1px solid #e5e7eb; color: #334155; vertical-align: top; }
+.leave_table tr:hover td { background: #f8fbff; }
+.leave_table small { color: #64748b; }
+
+.status_badge { display: inline-block; padding: 6px 10px; border-radius: 999px; font-size: 12px; font-weight: 800; white-space: nowrap; }
+.status_approved { background: #dcfce7; color: #15803d; }
+.status_rejected { background: #fee2e2; color: #b91c1c; }
+.status_pending { background: #fef3c7; color: #a16207; }
+
+.table_action_button { background: #e0f2fe; color: #0369a1; }
+.table_action_button:hover { background: #bae6fd; }
+
+.hod_container { width: min(1400px, 94%); margin: 38px auto 70px; }
+.hod_header { display: flex; justify-content: space-between; align-items: center; gap: 25px; margin-bottom: 25px; }
+.hod_header h1 { margin: 4px 0; color: #10233f; }
+.hod_header p:not(.eyebrow) { color: #64748b; }
+.hod_identity { background: white; padding: 17px 22px; border-radius: 14px; box-shadow: 0 8px 25px rgba(15,23,42,.07); }
+.hod_identity span { display: block; color: #64748b; font-size: 12px; }
+.hod_identity strong { color: #0284c7; }
+
+.hod_stats { display: grid; grid-template-columns: repeat(4, 1fr); gap: 18px; margin: 25px 0; }
+.hod_stat_card { background: white; border-radius: 16px; padding: 22px; box-shadow: 0 8px 25px rgba(15,23,42,.07); border: 1px solid #e7eef7; }
+.hod_stat_card span { display: block; color: #64748b; }
+.hod_stat_card strong { display: block; margin-top: 8px; font-size: 32px; color: #0f3b63; }
+.hod_pending_card strong { color: #d97706; }
+
+.hod_section { background: white; padding: 25px; border-radius: 18px; box-shadow: 0 8px 25px rgba(15,23,42,.06); margin-top: 24px; border: 1px solid #e7eef7; }
+.section_heading h2 { margin: 0 0 4px; color: #10233f; }
+.section_heading p { margin-top: 0; color: #64748b; }
+
+.leave_reason_box,
+.current_status_box { margin-top: 22px; padding: 18px; background: #f8fafc; border-radius: 12px; }
+.leave_reason_box p { margin-bottom: 0; line-height: 1.7; white-space: pre-wrap; }
+.current_status_box p { color: #475569; }
+.leave_decision_form { margin-top: 22px; padding-top: 20px; border-top: 1px solid #e2e8f0; }
+.reject_form { border-top: 1px dashed #fecaca; }
+.back_link { display: inline-block; margin-top: 24px; color: #0369a1; text-decoration: none; font-weight: 700; }
+
+.admin_hod_container { width: min(1400px, 94%); margin: 40px auto; }
+.admin_hod_grid { display: grid; grid-template-columns: minmax(320px, 0.7fr) minmax(500px, 1.3fr); gap: 24px; margin-top: 25px; }
+.delete_button { background: #fee2e2; color: #b91c1c; }
+.delete_button:hover { background: #fecaca; }
+
+.role_login_page { display: flex; justify-content: center; align-items: center; padding: 30px; }
+.role_login_card { width: min(420px, 94%); background: white; padding: 35px; border-radius: 20px; box-shadow: 0 18px 45px rgba(15,23,42,.12); }
+.role_login_card h1 { margin-bottom: 5px; color: #10233f; }
+.role_login_card > p { color: #64748b; }
+.role_login_card form { display: flex; flex-direction: column; gap: 9px; margin-top: 25px; }
+.role_login_card label { font-weight: 700; margin-top: 8px; color: #334155; }
+.role_login_card button { margin-top: 12px; padding: 12px; border: 0; border-radius: 9px; background: #0ea5e9; color: white; font-weight: 700; cursor: pointer; }
+.role_login_card button:hover { background: #0284c7; }
+
+.leave_dashboard_card { grid-column: 1 / -1; }
+.leave_dashboard_card p { color: #64748b; }
+.leave_dashboard_buttons { display: flex; gap: 12px; flex-wrap: wrap; }
+.leave_dashboard_buttons a { padding: 10px 15px; border-radius: 8px; background: #0ea5e9; color: white; text-decoration: none; font-weight: 700; }
+.leave_dashboard_buttons a:last-child { background: #e0f2fe; color: #0369a1; }
+
+.teacher_leave_status_section { margin-top: 28px; }
+.teacher_leave_status_section h2 { color: #10233f; }
+
+@media (max-width: 900px) {
+    .hod_stats { grid-template-columns: repeat(2, 1fr); }
+    .admin_hod_grid { grid-template-columns: 1fr; }
+    .hod_header { flex-direction: column; align-items: flex-start; }
+}
+
+@media (max-width: 600px) {
+    .portal_navbar { flex-direction: column; align-items: flex-start; }
+    .portal_navbar > div { flex-wrap: wrap; gap: 12px; }
+    .leave_student_info { grid-template-columns: 1fr; }
+    .hod_stats { grid-template-columns: 1fr; }
+    .leave_card, .admin_hod_card, .hod_section { padding: 20px; }
+}
+
+/* =========================================================
+   LEAVE + HOD PAGES — MATCH EXISTING STUDENT/TEACHER THEME
+   ========================================================= */
+
+.portal_navbar {
+    height: 72px;
+    padding: 0 35px;
+    box-sizing: border-box;
+    background: linear-gradient(110deg, #172554, #1e3a8a, #164e63);
+    border-bottom: 1px solid rgba(255, 255, 255, 0.15);
+    box-shadow: 0 5px 20px rgba(15, 23, 42, 0.25);
+}
+
+.portal_navbar h1 {
+    margin: 0;
+    color: white;
+    font-size: 21px;
+    letter-spacing: 0.3px;
+}
+
+.portal_navbar > div {
+    display: flex;
+    align-items: center;
+    gap: 5px;
+}
+
+.portal_navbar a {
+    padding: 9px 13px;
+    color: rgba(255, 255, 255, 0.78);
+    border-radius: 8px;
+    font-size: 14px;
+    font-weight: 600;
+    transition: 0.25s;
+}
+
+.portal_navbar a:hover {
+    color: white;
+    background: rgba(255, 255, 255, 0.12);
+}
+
+.leave_page,
+.hod_page,
+.role_login_page {
+    min-height: 100vh;
+    background:
+        radial-gradient(circle at 5% 10%, rgba(59, 130, 246, 0.25), transparent 28%),
+        radial-gradient(circle at 95% 20%, rgba(79, 70, 229, 0.20), transparent 30%),
+        radial-gradient(circle at 50% 100%, rgba(13, 148, 136, 0.18), transparent 35%),
+        linear-gradient(135deg, #dbeafe, #e0e7ff 45%, #dff7f5);
+}
+
+.leave_container,
+.hod_container {
+    position: relative;
+}
+
+.leave_container::before,
+.hod_container::before {
+    content: "";
+    position: fixed;
+    width: 360px;
+    height: 360px;
+    border-radius: 50%;
+    right: -130px;
+    top: 120px;
+    background: rgba(14, 165, 233, 0.12);
+    filter: blur(85px);
+    pointer-events: none;
+}
+
+.leave_card,
+.hod_section,
+.hod_stat_card,
+.hod_identity {
+    backdrop-filter: blur(12px);
+}
+
+.leave_card,
+.hod_section {
+    border: 1px solid rgba(255, 255, 255, 0.70);
+    box-shadow: 0 15px 35px rgba(15, 23, 42, 0.10);
+}
+
+.leave_card h1,
+.hod_header h1,
+.section_heading h2 {
+    color: #1e3a8a;
+}
+
+.leave_primary_button,
+.approve_button,
+.admin_hod_form button {
+    background: linear-gradient(135deg, #2563eb, #06b6d4);
+}
+
+.leave_primary_button:hover,
+.approve_button:hover,
+.admin_hod_form button:hover {
+    background: linear-gradient(135deg, #1d4ed8, #0891b2);
+}
+
+.leave_table th {
+    background: linear-gradient(110deg, #172554, #1e3a8a, #164e63);
+}
+
+.teacher_leave_shortcut {
+    margin-top: 28px;
+}
+
+.teacher_leave_shortcut p {
+    color: #64748b;
+    line-height: 1.6;
+}
+
+.teacher_leave_button {
+    display: inline-block;
+    margin-top: 8px;
+    text-decoration: none;
+}
+
+.teacher_leave_panel {
+    padding: 30px;
+}
+
+.teacher_leave_panel h2 {
+    color: #0f766e;
+    margin-top: 0;
+}
+
+.teacher_leave_intro {
+    color: #64748b;
+    margin-bottom: 22px;
+    line-height: 1.6;
+}
+
+.teacher_leave_table_wrap {
+    width: 100%;
+    overflow-x: auto;
+}
+
+.teacher_leave_table {
+    width: 100%;
+    min-width: 900px;
+    border-collapse: collapse;
+}
+
+.teacher_leave_table th {
+    padding: 13px;
+    text-align: left;
+    color: white;
+    background: linear-gradient(110deg, #172554, #1e3a8a, #164e63);
+    font-size: 13px;
+}
+
+.teacher_leave_table td {
+    padding: 13px;
+    color: #334155;
+    border-bottom: 1px solid #e2e8f0;
+    vertical-align: top;
+}
+
+.teacher_leave_table tr:hover td {
+    background: #f8fbff;
+}
+
+.teacher_leave_table small {
+    color: #64748b;
+}
+
+.teacher_leave_empty {
+    padding: 25px;
+    text-align: center;
+    color: #64748b;
+    background: rgba(248, 250, 252, 0.75);
+    border-radius: 12px;
+}
+
+@media (max-width: 600px) {
+    .portal_navbar {
+        height: auto;
+        min-height: 72px;
+        padding: 12px 15px;
+        flex-direction: column;
+        align-items: flex-start;
+    }
+
+    .portal_navbar > div {
+        flex-wrap: wrap;
+    }
+}
+
+/* =========================================================
+   HOD / TEACHER LEAVE - SAME EXISTING TEACHER THEME
+   ========================================================= */
+.hod_teacher_theme_container .Tdash_content,
+.teacher_leave_form_container .Tdash_content {
+    width: 100%;
+}
+
+.hod_theme_stats {
+    display: grid;
+    grid-template-columns: repeat(4, minmax(0, 1fr));
+    gap: 18px;
+    margin: 25px 0;
+}
+
+.hod_theme_card {
+    background: white;
+    border: 1px solid #dbeafe;
+    border-radius: 14px;
+    padding: 20px;
+    box-shadow: 0 8px 22px rgba(15, 23, 42, .07);
+}
+
+.hod_theme_card span {
+    display: block;
+    color: #64748b;
+    font-size: 14px;
+}
+
+.hod_theme_card strong {
+    display: block;
+    margin-top: 7px;
+    color: #0f3b63;
+    font-size: 30px;
+}
+
+.hod_theme_section {
+    margin-top: 24px;
+}
+
+.hod_theme_section h2 {
+    color: #0f3b63;
+    margin-top: 0;
+}
+
+.hod_theme_note,
+.hod_form_note {
+    color: #64748b;
+    line-height: 1.6;
+}
+
+.hod_filter_form {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    margin: 18px 0;
+    flex-wrap: wrap;
+}
+
+.hod_filter_form label {
+    font-weight: 700;
+    color: #334155;
+}
+
+.hod_filter_form select {
+    min-width: 190px;
+    padding: 10px 12px;
+    border: 1px solid #cbd5e1;
+    border-radius: 8px;
+    background: white;
+}
+
+.hod_selected_teacher_info {
+    margin-top: 12px;
+    padding: 14px 16px;
+    border-radius: 10px;
+    background: #f8fbff;
+    border: 1px solid #dbeafe;
+}
+
+.hod_selected_teacher_info p {
+    margin: 5px 0;
+    color: #475569;
+}
+
+.teacher_leave_form {
+    display: flex;
+    flex-direction: column;
+    gap: 9px;
+}
+
+.teacher_leave_form label {
+    margin-top: 8px;
+    font-weight: 700;
+    color: #334155;
+}
+
+.teacher_leave_form input,
+.teacher_leave_form textarea {
+    width: 100%;
+    box-sizing: border-box;
+    padding: 11px 12px;
+    border: 1px solid #cbd5e1;
+    border-radius: 9px;
+    font: inherit;
+    background: white;
+}
+
+.teacher_leave_form input:focus,
+.teacher_leave_form textarea:focus {
+    outline: none;
+    border-color: #0ea5e9;
+    box-shadow: 0 0 0 3px rgba(14,165,233,.10);
+}
+
+.teacher_leave_notice {
+    margin-top: 25px;
+    padding: 18px;
+    border-radius: 12px;
+    background: #fff7ed;
+    border: 1px solid #fed7aa;
+    color: #9a3412;
+}
+
+.teacher_leave_notice p { margin-bottom: 0; }
+
+.teacher_leave_dashboard_buttons {
+    display: flex;
+    gap: 12px;
+    flex-wrap: wrap;
+}
+
+.secondary_leave_button {
+    background: #0f766e !important;
+}
+
+.secondary_leave_button:hover {
+    background: #115e59 !important;
+}
+
+@media (max-width: 850px) {
+    .hod_theme_stats { grid-template-columns: repeat(2, 1fr); }
+}
+
+@media (max-width: 600px) {
+    .hod_theme_stats { grid-template-columns: 1fr; }
+}
+/* Persistent leave counters and decided-request deletion */
+.leave_counter_card {
+    display: inline-flex;
+    align-items: center;
+    gap: 14px;
+    margin: 8px 0 20px;
+    padding: 12px 18px;
+    background: #ffffff;
+    border: 1px solid #dbeafe;
+    border-radius: 12px;
+    box-shadow: 0 4px 14px rgba(15, 23, 42, 0.08);
+}
+
+.leave_counter_card span {
+    color: #64748b;
+    font-weight: 700;
+}
+
+.leave_counter_card strong {
+    color: #0f3b63;
+    font-size: 22px;
+}
+
+.leave_delete_button {
+    border: 0;
+    background: #fee2e2;
+    color: #b91c1c;
+    padding: 7px 12px;
+    border-radius: 8px;
+    font-weight: 700;
+    cursor: pointer;
+}
+
+.leave_delete_button:hover {
+    background: #fecaca;
+}
+
+
+/* Phone number validation message */
+.phone_validation_error {
+    color: #d93025;
+    font-size: 13px;
+    margin: 5px 0 10px;
+    min-height: 18px;
+}
+
+/* =====================================================
+   ADMIN - ADD STUDENT
+   ===================================================== */
+
+.admin_add_student_container {
+
+    min-height: calc(100vh - 80px);
+
+    display: flex;
+
+    justify-content: center;
+
+    align-items: center;
+
+    padding: 30px;
+}
+
+
+.admin_add_student_card {
+
+    width: 500px;
+
+    padding: 30px;
+
+    border-radius: 15px;
+
+    box-shadow: 1px 1px 12px 1px black;
+
+    background: white;
+}
+
+
+.admin_add_student_card h1 {
+
+    text-align: center;
+
+    margin-bottom: 5px;
+}
+
+
+.admin_add_student_card > p {
+
+    text-align: center;
+
+    margin-bottom: 25px;
+
+    color: #555;
+}
+
+
+.admin_add_student_card form {
+
+    display: flex;
+
+    flex-direction: column;
+
+    gap: 8px;
+}
+
+
+.admin_add_student_card label {
+
+    font-weight: bold;
+
+    margin-top: 8px;
+}
+
+
+.admin_add_student_card input,
+.admin_add_student_card select {
+
+    padding: 11px;
+
+    border: 1px solid #bbb;
+
+    border-radius: 7px;
+
+    font-size: 15px;
+
+    box-sizing: border-box;
+
+    width: 100%;
+}
+
+
+.admin_add_student_card input:focus,
+.admin_add_student_card select:focus {
+
+    outline: none;
+
+    border-color: #0284c7;
+}
+
+
+.admin_add_student_card form button {
+
+    margin-top: 15px;
+
+    padding: 12px;
+
+    border: none;
+
+    border-radius: 7px;
+
+    background: #0284c7;
+
+    color: white;
+
+    font-size: 16px;
+
+    cursor: pointer;
+}
+
+
+.admin_add_student_card form button:hover {
+
+    background: #0369a1;
+}
+
+
+.admin_add_student_card > a button {
+
+    width: 100%;
+
+    margin-top: 10px;
+
+    padding: 11px;
+
+    border: 1px solid #0284c7;
+
+    border-radius: 7px;
+
+    background: transparent;
+
+    color: #0284c7;
+
+    font-size: 15px;
+
+    cursor: pointer;
+}
+
+
+.admin_add_student_error {
+
+    text-align: center;
+
+    padding: 10px;
+
+    border-radius: 6px;
+
+    background: #fee2e2;
+
+    color: #b91c1c;
+
+    font-weight: bold;
+}
+
+
+@media (max-width: 600px) {
+
+    .admin_add_student_container {
+
+        padding: 20px 15px;
+
+        align-items: flex-start;
+    }
+
+
+    .admin_add_student_card {
+
+        width: 100%;
+
+        padding: 22px;
+
+        box-sizing: border-box;
+    }
+
+}
+
+
+/* =====================================================
+   ADMIN - MANAGE STUDENTS
+   ===================================================== */
+
+/* ---------- PAGE ---------- */
+
+.admin_students_container {
+
+    min-height: calc(100vh - 70px);
+
+    box-sizing: border-box;
+
+    padding: 40px 35px;
+
+    position: relative;
+
+    overflow: hidden;
+
+    background:
+
+        radial-gradient(
+            circle at 5% 10%,
+            rgba(59, 130, 246, 0.18),
+            transparent 28%
+        ),
+
+        radial-gradient(
+            circle at 95% 20%,
+            rgba(79, 70, 229, 0.14),
+            transparent 30%
+        ),
+
+        radial-gradient(
+            circle at 50% 100%,
+            rgba(13, 148, 136, 0.12),
+            transparent 35%
+        ),
+
+        linear-gradient(
+            135deg,
+            #f8fbff,
+            #eef4ff 45%,
+            #f1fbfa
+        );
+}
+
+
+/* =====================================================
+   BACKGROUND GLOW
+   ===================================================== */
+
+.admin_students_container::before {
+
+    content: "";
+
+    position: absolute;
+
+    width: 350px;
+    height: 350px;
+
+    border-radius: 50%;
+
+    background: #0ea5e9;
+
+    opacity: 0.05;
+
+    filter: blur(70px);
+
+    top: -120px;
+    right: -100px;
+
+    pointer-events: none;
+}
+
+
+.admin_students_container::after {
+
+    content: "";
+
+    position: absolute;
+
+    width: 300px;
+    height: 300px;
+
+    border-radius: 50%;
+
+    background: #67e8f9;
+
+    opacity: 0.05;
+
+    filter: blur(70px);
+
+    bottom: -120px;
+    left: -100px;
+
+    pointer-events: none;
+}
+
+
+/* =====================================================
+   PAGE TITLE
+   ===================================================== */
+
+.admin_students_container > h1 {
+
+    position: relative;
+
+    z-index: 2;
+
+    margin: 0 0 25px;
+
+    text-align: center;
+
+    color: #111827;
+
+    font-size: 30px;
+
+    font-weight: 700;
+}
+
+.admin_students_container > a {
+    text-decoration: none;
+}
+
+/* =====================================================
+   ADD STUDENT BUTTON
+   ===================================================== */
+
+.admin_add_button {
+    
+    position: relative;
+
+    z-index: 2;
+
+    display: block;
+
+    margin: 0 auto 20px;
+
+    padding: 12px 25px;
+
+    border: none;
+
+    border-radius: 9px;
+
+    cursor: pointer;
+
+    background:
+
+        linear-gradient(
+            135deg,
+            #0ea5e9,
+            #2563eb
+        );
+
+    color: white;
+
+    font-size: 14px;
+
+    font-weight: bold;
+
+    box-shadow:
+        0 8px 20px
+        rgba(14, 165, 233, 0.18);
+
+    transition:
+        transform 0.25s ease,
+        box-shadow 0.25s ease;
+}
+
+
+.admin_add_button:hover {
+
+    transform: translateY(-2px);
+
+    box-shadow:
+        0 12px 28px
+        rgba(14, 165, 233, 0.30);
+}
+
+
+/* =====================================================
+   FLASH MESSAGE
+   ===================================================== */
+
+.admin_message {
+
+    position: relative;
+
+    z-index: 2;
+
+    max-width: 600px;
+
+    margin: 0 auto 20px;
+
+    padding: 10px 15px;
+
+    text-align: center;
+
+    border-radius: 9px;
+
+    background:
+        rgba(14, 165, 233, 0.08);
+
+    border:
+        1px solid rgba(14, 165, 233, 0.18);
+
+    color: #075985;
+
+    font-size: 14px;
+
+    font-weight: bold;
+}
+
+
+/* =====================================================
+   SEMESTER SELECTION CARD
+   ===================================================== */
+
+.admin_students_container > form {
+
+    position: relative;
+
+    z-index: 2;
+
+    width: 420px;
+
+    max-width: 100%;
+
+    margin: 0 auto 30px;
+
+    padding: 22px;
+
+    box-sizing: border-box;
+
+    display: flex;
+
+    flex-direction: column;
+
+    gap: 9px;
+
+    background:
+        rgba(255, 255, 255, 0.70);
+
+    border:
+        1px solid rgba(255, 255, 255, 0.80);
+
+    border-radius: 16px;
+
+    backdrop-filter: blur(14px);
+
+    -webkit-backdrop-filter: blur(14px);
+
+    box-shadow:
+        0 15px 35px
+        rgba(15, 23, 42, 0.10);
+}
+
+
+/* =====================================================
+   FORM LABEL
+   ===================================================== */
+
+.admin_students_container > form label {
+
+    color: #374151;
+
+    font-size: 13px;
+
+    font-weight: bold;
+}
+
+
+/* =====================================================
+   SEMESTER SELECT
+   ===================================================== */
+
+.admin_students_container > form select {
+
+    width: 100%;
+
+    padding: 12px 13px;
+
+    box-sizing: border-box;
+
+    border:
+        1px solid #d1d5db;
+
+    border-radius: 9px;
+
+    outline: none;
+
+    background: rgba(255, 255, 255, 0.80);
+
+    color: #1f2937;
+
+    font-size: 14px;
+
+    cursor: pointer;
+
+    transition: 0.25s;
+}
+
+
+/* ---------- SELECT OPTIONS ---------- */
+
+.admin_students_container > form select option {
+
+    background: white;
+
+    color: #111827;
+}
+
+
+/* ---------- SELECT FOCUS ---------- */
+
+.admin_students_container > form select:focus {
+
+    border-color: #0ea5e9;
+
+    background: white;
+
+    box-shadow:
+        0 0 0 3px
+        rgba(14, 165, 233, 0.10);
+}
+
+
+/* =====================================================
+   VIEW STUDENTS BUTTON
+   ===================================================== */
+
+.admin_students_container > form button {
+
+    width: 100%;
+
+    padding: 12px;
+
+    margin-top: 7px;
+
+    border: none;
+
+    border-radius: 9px;
+
+    cursor: pointer;
+
+    background:
+
+        linear-gradient(
+            135deg,
+            #0ea5e9,
+            #2563eb
+        );
+
+    color: white;
+
+    font-size: 14px;
+
+    font-weight: bold;
+
+    transition:
+        transform 0.25s ease,
+        box-shadow 0.25s ease;
+}
+
+
+.admin_students_container > form button:hover {
+
+    transform: translateY(-2px);
+
+    box-shadow:
+        0 10px 25px
+        rgba(14, 165, 233, 0.25);
+}
+
+
+.admin_students_container > form button:active {
+
+    transform: translateY(0);
+}
+
+
+/* =====================================================
+   SELECTED SEMESTER TITLE
+   ===================================================== */
+
+.admin_students_container > h2 {
+
+    position: relative;
+
+    z-index: 2;
+
+    margin: 25px 0 18px;
+
+    text-align: center;
+
+    color: #111827;
+
+    font-size: 21px;
+
+    font-weight: 700;
+}
+
+
+/* =====================================================
+   TABLE CARD
+   ===================================================== */
+
+.admin_students_table_card {
+
+    position: relative;
+
+    z-index: 2;
+
+    width: 100%;
+
+    max-width: 1200px;
+
+    margin: 0 auto;
+
+    padding: 10px;
+
+    box-sizing: border-box;
+
+    background:
+        rgba(255, 255, 255, 0.72);
+
+    border:
+        1px solid rgba(255, 255, 255, 0.90);
+
+    border-radius: 18px;
+
+    backdrop-filter: blur(14px);
+
+    -webkit-backdrop-filter: blur(14px);
+
+    box-shadow:
+        0 18px 40px
+        rgba(15, 23, 42, 0.12);
+
+    overflow-x: auto;
+}
+
+
+/* =====================================================
+   TABLE
+   ===================================================== */
+
+.admin_students_table {
+
+    width: 100%;
+
+    border-collapse: collapse;
+
+    color: #1f2937;
+
+    font-size: 14px;
+}
+
+
+/* =====================================================
+   TABLE HEADER
+   ===================================================== */
+
+.admin_students_table th {
+
+    padding: 14px 12px;
+
+    text-align: left;
+
+    color: #1e3a8a;
+
+    background:
+        rgba(14, 165, 233, 0.08);
+
+    border-bottom:
+        1px solid rgba(148, 163, 184, 0.25);
+
+    font-size: 13px;
+
+    font-weight: 700;
+}
+
+
+/* =====================================================
+   TABLE CELLS
+   ===================================================== */
+
+.admin_students_table td {
+
+    padding: 13px 12px;
+
+    color: #374151;
+
+    border-bottom:
+        1px solid rgba(148, 163, 184, 0.18);
+}
+
+
+/* =====================================================
+   ROW HOVER
+   ===================================================== */
+
+.admin_students_table tr:hover td {
+
+    background:
+        rgba(14, 165, 233, 0.05);
+}
+
+
+/* =====================================================
+   LAST ROW
+   ===================================================== */
+
+.admin_students_table tr:last-child td {
+
+    border-bottom: none;
+}
+
+
+/* =====================================================
+   DELETE BUTTON
+   ===================================================== */
+
+.admin_delete_button {
+
+    padding: 7px 13px;
+
+    border:
+        1px solid rgba(220, 38, 38, 0.25);
+
+    border-radius: 7px;
+
+    background:
+        rgba(239, 68, 68, 0.08);
+
+    color: #b91c1c;
+
+    font-size: 12px;
+
+    font-weight: bold;
+
+    cursor: pointer;
+
+    transition:
+        background 0.25s ease,
+        border-color 0.25s ease,
+        transform 0.25s ease;
+}
+
+
+.admin_delete_button:hover {
+
+    background:
+        rgba(239, 68, 68, 0.14);
+
+    border-color:
+        rgba(220, 38, 38, 0.40);
+
+    transform: translateY(-1px);
+}
+
+
+/* =====================================================
+   EMPTY TABLE MESSAGE
+   ===================================================== */
+
+.admin_students_table td[colspan] {
+
+    text-align: center;
+
+    padding: 25px;
+
+    color: #6b7280;
+}
+
+
+/* =====================================================
+   RESPONSIVE
+   ===================================================== */
+
+@media (max-width: 800px) {
+
+    .admin_students_container {
+
+        padding: 30px 18px;
+
+        overflow-x: hidden;
+    }
+
+
+    .admin_students_table_card {
+
+        overflow-x: auto;
+    }
+
+
+    .admin_students_table {
+
+        min-width: 800px;
+    }
+
+}
+
+
+@media (max-width: 500px) {
+
+    .admin_students_container {
+
+        padding: 25px 15px;
+    }
+
+
+    .admin_students_container > h1 {
+
+        font-size: 26px;
+    }
+
+
+    .admin_students_container > form {
+
+        padding: 18px;
+    }
+
+
+    .admin_students_container > h2 {
+
+        font-size: 19px;
+    }
+
+
+    .admin_add_button {
+
+        padding: 11px 22px;
+
+        font-size: 13px;
+    }
+
+}
+
+/* =====================================================
+   ADMIN - MANAGE TEACHERS
+   ===================================================== */
+
+.admin_teachers_container {
+
+    padding: 40px;
+
+    min-height: calc(100vh - 80px);
+
+    box-sizing: border-box;
+}
+
+
+.admin_teachers_container > h1 {
+
+    text-align: center;
+
+    margin-bottom: 25px;
+}
+
+
+.admin_add_teacher_button {
+
+    padding: 11px 18px;
+
+    border: none;
+
+    border-radius: 7px;
+
+    background: #0284c7;
+
+    color: white;
+
+    font-size: 15px;
+
+    cursor: pointer;
+
+    margin-bottom: 20px;
+}
+
+
+.admin_add_teacher_button:hover {
+
+    background: #0369a1;
+}
+
+
+.admin_teacher_message {
+
+    padding: 10px;
+
+    border-radius: 7px;
+
+    background: #dcfce7;
+
+    color: #166534;
+
+    font-weight: bold;
+
+}
+
+
+.admin_teachers_table_card {
+
+    width: 100%;
+
+    overflow-x: auto;
+
+    border-radius: 12px;
+
+    box-shadow: 1px 1px 10px 1px black;
+
+    background: white;
+}
+
+
+.admin_teachers_table {
+
+    width: 100%;
+
+    border-collapse: collapse;
+
+}
+
+
+.admin_teachers_table th {
+
+    padding: 14px;
+
+    background: #075985;
+
+    color: white;
+
+    text-align: left;
+}
+
+
+.admin_teachers_table td {
+
+    padding: 13px;
+
+    border-bottom: 1px solid #ddd;
+}
+
+
+.admin_teachers_table tr:hover {
+
+    background: #f0f9ff;
+}
+
+
+.admin_teacher_delete_button {
+
+    padding: 8px 14px;
+
+    border: none;
+
+    border-radius: 6px;
+
+    background: #dc2626;
+
+    color: white;
+
+    cursor: pointer;
+
+    font-size: 14px;
+}
+
+
+.admin_teacher_delete_button:hover {
+
+    background: #b91c1c;
+}
+
+
+@media (max-width: 600px) {
+
+    .admin_teachers_container {
+
+        padding: 25px 15px;
+
+    }
+
+
+    .admin_teachers_table_card {
+
+        overflow-x: auto;
+
+    }
+
+
+    .admin_teachers_table {
+
+        min-width: 650px;
+
+    }
+
+}
+
+/* =====================================================
+   ADMIN - ADD TEACHER
+   ===================================================== */
+
+.admin_add_teacher_container {
+
+    min-height: calc(100vh - 80px);
+
+    display: flex;
+
+    justify-content: center;
+
+    align-items: center;
+
+    padding: 30px;
+}
+
+
+.admin_add_teacher_card {
+
+    width: 500px;
+
+    padding: 30px;
+
+    border-radius: 15px;
+
+    box-shadow: 1px 1px 12px 1px black;
+
+    background: white;
+
+    box-sizing: border-box;
+}
+
+
+.admin_add_teacher_card h1 {
+
+    text-align: center;
+
+    margin-bottom: 5px;
+}
+
+
+.admin_add_teacher_card > p {
+
+    text-align: center;
+
+    color: #555;
+
+    margin-bottom: 25px;
+}
+
+
+.admin_add_teacher_card form {
+
+    display: flex;
+
+    flex-direction: column;
+
+    gap: 8px;
+}
+
+
+.admin_add_teacher_card label {
+
+    font-weight: bold;
+
+    margin-top: 8px;
+}
+
+
+.admin_add_teacher_card input {
+
+    padding: 11px;
+
+    border: 1px solid #bbb;
+
+    border-radius: 7px;
+
+    font-size: 15px;
+
+    box-sizing: border-box;
+
+    width: 100%;
+}
+
+
+.admin_add_teacher_card input:focus {
+
+    outline: none;
+
+    border-color: #0284c7;
+}
+
+
+.admin_add_teacher_card form button {
+
+    margin-top: 15px;
+
+    padding: 12px;
+
+    border: none;
+
+    border-radius: 7px;
+
+    background: #0284c7;
+
+    color: white;
+
+    font-size: 16px;
+
+    cursor: pointer;
+}
+
+
+.admin_add_teacher_card form button:hover {
+
+    background: #0369a1;
+}
+
+
+.admin_add_teacher_card > a button {
+
+    width: 100%;
+
+    margin-top: 10px;
+
+    padding: 11px;
+
+    border: 1px solid #0284c7;
+
+    border-radius: 7px;
+
+    background: transparent;
+
+    color: #0284c7;
+
+    font-size: 15px;
+
+    cursor: pointer;
+}
+
+
+.admin_add_teacher_error {
+
+    text-align: center;
+
+    padding: 10px;
+
+    border-radius: 6px;
+
+    background: #fee2e2;
+
+    color: #b91c1c;
+
+    font-weight: bold;
+}
+
+
+@media (max-width: 600px) {
+
+    .admin_add_teacher_container {
+
+        padding: 20px 15px;
+
+        align-items: flex-start;
+
+    }
+
+
+    .admin_add_teacher_card {
+
+        width: 100%;
+
+        padding: 22px;
+
+    }
+
+}
+
+/* =====================================================
+   ADMIN - MANAGE TEACHERS
+   ===================================================== */
+
+/* ---------- PAGE CONTAINER ---------- */
+
+.admin_teachers_container {
+
+    min-height: calc(100vh - 70px);
+
+    box-sizing: border-box;
+
+    padding: 45px 40px;
+
+    text-align: center;
+
+    background: #ffffff;
+
+}
+
+
+/* ---------- PAGE TITLE ---------- */
+
+.admin_teachers_container > h1 {
+
+    margin: 0 0 25px;
+
+    color: #111827;
+
+    font-size: 38px;
+
+    font-weight: 700;
+
+}
+
+
+/* =====================================================
+   ADD TEACHER BUTTON
+   ===================================================== */
+
+.admin_add_teacher_button {
+
+    padding: 13px 32px;
+
+    border: none;
+
+    border-radius: 9px;
+
+    cursor: pointer;
+
+    background:
+        linear-gradient(
+            135deg,
+            #0ea5e9,
+            #2563eb
+        );
+
+    color: white;
+
+    font-size: 16px;
+
+    font-weight: bold;
+
+    box-shadow:
+        0 8px 20px
+        rgba(14, 165, 233, 0.18);
+
+    transition:
+        transform 0.25s ease,
+        box-shadow 0.25s ease;
+
+}
+
+
+/* ---------- REMOVE LINK UNDERLINE ---------- */
+
+.admin_teachers_container > a {
+
+    text-decoration: none;
+
+}
+
+
+/* ---------- BUTTON HOVER ---------- */
+
+.admin_add_teacher_button:hover {
+
+    transform: translateY(-3px);
+
+    box-shadow:
+        0 12px 28px
+        rgba(14, 165, 233, 0.30);
+
+}
+
+
+/* =====================================================
+   FLASH MESSAGE
+   ===================================================== */
+
+.admin_teacher_message {
+
+    max-width: 700px;
+
+    margin: 22px auto;
+
+    padding: 11px 15px;
+
+    border-radius: 8px;
+
+    background: #dcfce7;
+
+    color: #166534;
+
+    font-size: 14px;
+
+    font-weight: 600;
+
+}
+
+
+/* =====================================================
+   DEPARTMENT SELECTION
+   ===================================================== */
+
+.admin_teachers_container > form {
+
+    max-width: 500px;
+
+    margin: 30px auto;
+
+    padding: 22px 25px;
+
+    border-radius: 12px;
+
+    background: #f8fafc;
+
+    border: 1px solid #e2e8f0;
+
+    box-shadow:
+        0 5px 18px
+        rgba(15, 23, 42, 0.06);
+
+    display: flex;
+
+    flex-direction: column;
+
+    gap: 9px;
+
+}
+
+
+/* ---------- LABEL ---------- */
+
+.admin_teachers_container > form label {
+
+    text-align: left;
+
+    color: #374151;
+
+    font-size: 14px;
+
+    font-weight: 600;
+
+}
+
+
+/* ---------- SELECT ---------- */
+
+.admin_teachers_container > form select {
+
+    width: 100%;
+
+    box-sizing: border-box;
+
+    padding: 11px 12px;
+
+    border: 1px solid #cbd5e1;
+
+    border-radius: 7px;
+
+    background: white;
+
+    color: #1f2937;
+
+    font-size: 14px;
+
+    outline: none;
+
+    cursor: pointer;
+
+}
+
+
+/* ---------- SELECT FOCUS ---------- */
+
+.admin_teachers_container > form select:focus {
+
+    border-color: #0ea5e9;
+
+    box-shadow:
+        0 0 0 3px
+        rgba(14, 165, 233, 0.10);
+
+}
+
+
+/* ---------- VIEW TEACHERS BUTTON ---------- */
+
+.admin_teachers_container > form button {
+
+    margin-top: 8px;
+
+    padding: 11px;
+
+    border: none;
+
+    border-radius: 7px;
+
+    background:
+        linear-gradient(
+            135deg,
+            #0ea5e9,
+            #2563eb
+        );
+
+    color: white;
+
+    font-size: 14px;
+
+    font-weight: bold;
+
+    cursor: pointer;
+
+    transition: 0.25s;
+
+}
+
+
+.admin_teachers_container > form button:hover {
+
+    transform: translateY(-2px);
+
+    box-shadow:
+        0 8px 18px
+        rgba(14, 165, 233, 0.20);
+
+}
+
+
+/* =====================================================
+   SELECTED DEPARTMENT TITLE
+   ===================================================== */
+
+.admin_teachers_container > h2 {
+
+    margin: 35px 0 20px;
+
+    color: #1e293b;
+
+    font-size: 24px;
+
+}
+
+
+/* =====================================================
+   TEACHERS TABLE CARD
+   ===================================================== */
+
+.admin_teachers_table_card {
+
+    width: 100%;
+
+    max-width: 1100px;
+
+    margin: 0 auto;
+
+    overflow-x: auto;
+
+    background: white;
+
+    border-radius: 12px;
+
+    border: 1px solid #e2e8f0;
+
+    box-shadow:
+        0 8px 25px
+        rgba(15, 23, 42, 0.08);
+
+}
+
+
+/* =====================================================
+   TEACHERS TABLE
+   ===================================================== */
+
+.admin_teachers_table {
+
+    width: 100%;
+
+    border-collapse: collapse;
+
+    font-size: 14px;
+
+}
+
+
+/* ---------- TABLE HEADER ---------- */
+
+.admin_teachers_table th {
+
+    padding: 14px 16px;
+
+    background: #f1f5f9;
+
+    color: #1e293b;
+
+    font-weight: 700;
+
+    text-align: left;
+
+    border-bottom:
+        1px solid #cbd5e1;
+
+}
+
+
+/* ---------- TABLE DATA ---------- */
+
+.admin_teachers_table td {
+
+    padding: 13px 16px;
+
+    color: #374151;
+
+    text-align: left;
+
+    border-bottom:
+        1px solid #e5e7eb;
+
+}
+
+
+/* ---------- TABLE ROW HOVER ---------- */
+
+.admin_teachers_table tr:hover td {
+
+    background: #f8fafc;
+
+}
+
+
+/* ---------- LAST ROW ---------- */
+
+.admin_teachers_table tr:last-child td {
+
+    border-bottom: none;
+
+}
+
+
+/* =====================================================
+   DELETE BUTTON
+   ===================================================== */
+
+.admin_teacher_delete_button {
+
+    padding: 7px 14px;
+
+    border: none;
+
+    border-radius: 6px;
+
+    background: #ef4444;
+
+    color: white;
+
+    font-size: 13px;
+
+    font-weight: 600;
+
+    cursor: pointer;
+
+    transition: 0.25s;
+
+}
+
+
+/* ---------- DELETE HOVER ---------- */
+
+.admin_teacher_delete_button:hover {
+
+    background: #dc2626;
+
+    transform: translateY(-1px);
+
+    box-shadow:
+        0 5px 12px
+        rgba(239, 68, 68, 0.20);
+
+}
+
+
+/* =====================================================
+   NO TEACHERS MESSAGE
+   ===================================================== */
+
+.admin_teachers_table td[colspan] {
+
+    padding: 30px;
+
+    text-align: center;
+
+    color: #64748b;
+
+    font-size: 14px;
+
+}
+
+
+/* =====================================================
+   MOBILE
+   ===================================================== */
+
+@media (max-width: 700px) {
+
+    .admin_teachers_container {
+
+        padding: 35px 18px;
+
+    }
+
+
+    .admin_teachers_container > h1 {
+
+        font-size: 30px;
+
+    }
+
+
+    .admin_add_teacher_button {
+
+        width: 100%;
+
+        max-width: 300px;
+
+    }
+
+
+    .admin_teachers_container > form {
+
+        width: 100%;
+
+        box-sizing: border-box;
+
+    }
+
+
+    .admin_teachers_table_card {
+
+        border-radius: 9px;
+
+    }
+
+
+    .admin_teachers_table {
+
+        min-width: 750px;
+
+    }
+
+}
+
+/* =====================================================
+   ADMIN - MANAGE SUBJECTS
+   ===================================================== */
+
+/* ---------- PAGE CONTAINER ---------- */
+
+.admin_subjects_container {
+
+    min-height: calc(100vh - 70px);
+
+    box-sizing: border-box;
+
+    padding: 45px 40px;
+
+    text-align: center;
+
+    background: #ffffff;
+
+}
+
+
+/* ---------- PAGE TITLE ---------- */
+
+.admin_subjects_container > h1 {
+
+    margin: 0 0 25px;
+
+    color: #111827;
+
+    font-size: 38px;
+
+    font-weight: 700;
+
+}
+
+
+/* =====================================================
+   ADD SUBJECT BUTTON
+   ===================================================== */
+
+.admin_add_subject_button {
+
+    padding: 13px 32px;
+
+    border: none;
+
+    border-radius: 9px;
+
+    cursor: pointer;
+
+    background:
+        linear-gradient(
+            135deg,
+            #0ea5e9,
+            #2563eb
+        );
+
+    color: white;
+
+    font-size: 16px;
+
+    font-weight: bold;
+
+    box-shadow:
+        0 8px 20px
+        rgba(14, 165, 233, 0.18);
+
+    transition:
+        transform 0.25s ease,
+        box-shadow 0.25s ease;
+
+}
+
+
+/* ---------- REMOVE LINK UNDERLINE ---------- */
+
+.admin_subjects_container > a {
+
+    text-decoration: none;
+
+}
+
+
+/* ---------- BUTTON HOVER ---------- */
+
+.admin_add_subject_button:hover {
+
+    transform: translateY(-3px);
+
+    box-shadow:
+        0 12px 28px
+        rgba(14, 165, 233, 0.30);
+
+}
+
+
+/* =====================================================
+   FLASH MESSAGE
+   ===================================================== */
+
+.admin_subject_message {
+
+    max-width: 700px;
+
+    margin: 22px auto;
+
+    padding: 11px 15px;
+
+    border-radius: 8px;
+
+    background: #dcfce7;
+
+    color: #166534;
+
+    font-size: 14px;
+
+    font-weight: 600;
+
+}
+
+
+/* =====================================================
+   SEMESTER SELECTION
+   ===================================================== */
+
+.admin_subjects_container > form {
+
+    max-width: 500px;
+
+    margin: 30px auto;
+
+    padding: 22px 25px;
+
+    border-radius: 12px;
+
+    background: #f8fafc;
+
+    border: 1px solid #e2e8f0;
+
+    box-shadow:
+        0 5px 18px
+        rgba(15, 23, 42, 0.06);
+
+    display: flex;
+
+    flex-direction: column;
+
+    gap: 9px;
+
+}
+
+
+/* ---------- LABEL ---------- */
+
+.admin_subjects_container > form label {
+
+    text-align: left;
+
+    color: #374151;
+
+    font-size: 14px;
+
+    font-weight: 600;
+
+}
+
+
+/* ---------- SELECT ---------- */
+
+.admin_subjects_container > form select {
+
+    width: 100%;
+
+    box-sizing: border-box;
+
+    padding: 11px 12px;
+
+    border: 1px solid #cbd5e1;
+
+    border-radius: 7px;
+
+    background: white;
+
+    color: #1f2937;
+
+    font-size: 14px;
+
+    outline: none;
+
+    cursor: pointer;
+
+}
+
+
+/* ---------- SELECT FOCUS ---------- */
+
+.admin_subjects_container > form select:focus {
+
+    border-color: #0ea5e9;
+
+    box-shadow:
+        0 0 0 3px
+        rgba(14, 165, 233, 0.10);
+
+}
+
+
+/* ---------- VIEW SUBJECTS BUTTON ---------- */
+
+.admin_subjects_container > form button {
+
+    margin-top: 8px;
+
+    padding: 11px;
+
+    border: none;
+
+    border-radius: 7px;
+
+    background:
+        linear-gradient(
+            135deg,
+            #0ea5e9,
+            #2563eb
+        );
+
+    color: white;
+
+    font-size: 14px;
+
+    font-weight: bold;
+
+    cursor: pointer;
+
+    transition: 0.25s;
+
+}
+
+
+.admin_subjects_container > form button:hover {
+
+    transform: translateY(-2px);
+
+    box-shadow:
+        0 8px 18px
+        rgba(14, 165, 233, 0.20);
+
+}
+
+
+/* =====================================================
+   SELECTED SEMESTER TITLE
+   ===================================================== */
+
+.admin_subjects_container > h2 {
+
+    margin: 35px 0 20px;
+
+    color: #1e293b;
+
+    font-size: 24px;
+
+}
+
+
+/* =====================================================
+   SUBJECTS TABLE CARD
+   ===================================================== */
+
+.admin_subjects_table_card {
+
+    width: 100%;
+
+    max-width: 1150px;
+
+    margin: 0 auto;
+
+    overflow-x: auto;
+
+    background: white;
+
+    border-radius: 12px;
+
+    border: 1px solid #e2e8f0;
+
+    box-shadow:
+        0 8px 25px
+        rgba(15, 23, 42, 0.08);
+
+}
+
+
+/* =====================================================
+   SUBJECTS TABLE
+   ===================================================== */
+
+.admin_subjects_table {
+
+    width: 100%;
+
+    border-collapse: collapse;
+
+    font-size: 14px;
+
+}
+
+
+/* ---------- TABLE HEADER ---------- */
+
+.admin_subjects_table th {
+
+    padding: 14px 16px;
+
+    background: #f1f5f9;
+
+    color: #1e293b;
+
+    font-weight: 700;
+
+    text-align: left;
+
+    border-bottom:
+        1px solid #cbd5e1;
+
+}
+
+
+/* ---------- TABLE DATA ---------- */
+
+.admin_subjects_table td {
+
+    padding: 13px 16px;
+
+    color: #374151;
+
+    text-align: left;
+
+    border-bottom:
+        1px solid #e5e7eb;
+
+}
+
+
+/* ---------- TABLE ROW HOVER ---------- */
+
+.admin_subjects_table tr:hover td {
+
+    background: #f8fafc;
+
+}
+
+
+/* ---------- LAST ROW ---------- */
+
+.admin_subjects_table tr:last-child td {
+
+    border-bottom: none;
+
+}
+
+
+/* =====================================================
+   DELETE BUTTON
+   ===================================================== */
+
+.admin_subject_delete_button {
+
+    padding: 7px 14px;
+
+    border: none;
+
+    border-radius: 6px;
+
+    background: #ef4444;
+
+    color: white;
+
+    font-size: 13px;
+
+    font-weight: 600;
+
+    cursor: pointer;
+
+    transition: 0.25s;
+
+}
+
+
+/* ---------- DELETE HOVER ---------- */
+
+.admin_subject_delete_button:hover {
+
+    background: #dc2626;
+
+    transform: translateY(-1px);
+
+    box-shadow:
+        0 5px 12px
+        rgba(239, 68, 68, 0.20);
+
+}
+
+
+/* =====================================================
+   NO SUBJECTS MESSAGE
+   ===================================================== */
+
+.admin_subjects_table td[colspan] {
+
+    padding: 30px;
+
+    text-align: center;
+
+    color: #64748b;
+
+    font-size: 14px;
+
+}
+
+
+/* =====================================================
+   MOBILE
+   ===================================================== */
+
+@media (max-width: 700px) {
+
+    .admin_subjects_container {
+
+        padding: 35px 18px;
+
+    }
+
+
+    .admin_subjects_container > h1 {
+
+        font-size: 30px;
+
+    }
+
+
+    .admin_add_subject_button {
+
+        width: 100%;
+
+        max-width: 300px;
+
+    }
+
+
+    .admin_subjects_container > form {
+
+        width: 100%;
+
+        box-sizing: border-box;
+
+    }
+
+
+    .admin_subjects_table_card {
+
+        border-radius: 9px;
+
+    }
+
+
+    .admin_subjects_table {
+
+        min-width: 850px;
+
+    }
+
+}
+
+/* =====================================================
+   ADMIN - ADD SUBJECT
+   ===================================================== */
+
+.admin_add_subject_container {
+
+    min-height: calc(100vh - 80px);
+
+    display: flex;
+
+    justify-content: center;
+
+    align-items: center;
+
+    padding: 30px;
+
+    box-sizing: border-box;
+}
+
+
+.admin_add_subject_card {
+
+    width: 500px;
+
+    padding: 30px;
+
+    border-radius: 15px;
+
+    box-shadow: 1px 1px 12px 1px black;
+
+    background: white;
+
+    box-sizing: border-box;
+}
+
+
+.admin_add_subject_card h1 {
+
+    text-align: center;
+
+    margin-bottom: 5px;
+}
+
+
+.admin_add_subject_card > p {
+
+    text-align: center;
+
+    color: #555;
+
+    margin-bottom: 25px;
+}
+
+
+.admin_add_subject_card form {
+
+    display: flex;
+
+    flex-direction: column;
+
+    gap: 8px;
+}
+
+
+.admin_add_subject_card label {
+
+    font-weight: bold;
+
+    margin-top: 8px;
+}
+
+
+.admin_add_subject_card input {
+
+    padding: 11px;
+
+    border: 1px solid #bbb;
+
+    border-radius: 7px;
+
+    font-size: 15px;
+
+    width: 100%;
+
+    box-sizing: border-box;
+}
+
+
+.admin_add_subject_card input:focus {
+
+    outline: none;
+
+    border-color: #0284c7;
+}
+
+
+.admin_add_subject_card form button {
+
+    margin-top: 15px;
+
+    padding: 12px;
+
+    border: none;
+
+    border-radius: 7px;
+
+    background: #0284c7;
+
+    color: white;
+
+    font-size: 16px;
+
+    cursor: pointer;
+}
+
+
+.admin_add_subject_card form button:hover {
+
+    background: #0369a1;
+}
+
+
+.admin_add_subject_card > a button {
+
+    width: 100%;
+
+    margin-top: 10px;
+
+    padding: 11px;
+
+    border: 1px solid #0284c7;
+
+    border-radius: 7px;
+
+    background: transparent;
+
+    color: #0284c7;
+
+    font-size: 15px;
+
+    cursor: pointer;
+}
+
+
+.admin_add_subject_error {
+
+    text-align: center;
+
+    padding: 10px;
+
+    border-radius: 6px;
+
+    background: #fee2e2;
+
+    color: #b91c1c;
+
+    font-weight: bold;
+}
+
+
+@media (max-width: 600px) {
+
+    .admin_add_subject_container {
+
+        padding: 20px 15px;
+
+        align-items: flex-start;
+
+    }
+
+
+    .admin_add_subject_card {
+
+        width: 100%;
+
+        padding: 22px;
+
+    }
+
+}
+
+/* =====================================================
+   ADMIN - STUDENT SUBJECT ENROLLMENT
+   ===================================================== */
+
+/* ---------- PAGE CONTAINER ---------- */
+
+.admin_enrollment_container {
+
+    min-height: calc(100vh - 70px);
+
+    box-sizing: border-box;
+
+    padding: 45px 40px;
+
+    text-align: center;
+
+    background: #ffffff;
+
+}
+
+
+/* =====================================================
+   PAGE TITLE
+   ===================================================== */
+
+.admin_enrollment_container > h1 {
+
+    margin: 0 0 12px;
+
+    color: #111827;
+
+    font-size: 38px;
+
+    font-weight: 700;
+
+}
+
+
+/* ---------- DESCRIPTION ---------- */
+
+.admin_enrollment_container > p {
+
+    margin: 0 0 25px;
+
+    color: #64748b;
+
+    font-size: 15px;
+
+}
+
+
+/* =====================================================
+   FLASH MESSAGE
+   ===================================================== */
+
+.admin_enrollment_container .admin_message {
+
+    max-width: 700px;
+
+    margin: 20px auto;
+
+    padding: 11px 15px;
+
+    border-radius: 8px;
+
+    background: #dcfce7;
+
+    color: #166534;
+
+    font-size: 14px;
+
+    font-weight: 600;
+
+}
+
+
+/* =====================================================
+   DEPARTMENT + SEMESTER FORM
+   ===================================================== */
+
+.admin_enrollment_container > form {
+
+    width: 100%;
+
+    max-width: 500px;
+
+    margin: 30px auto;
+
+    padding: 22px 25px;
+
+    box-sizing: border-box;
+
+    display: flex;
+
+    flex-direction: column;
+
+    gap: 9px;
+
+    background: #f8fafc;
+
+    border: 1px solid #e2e8f0;
+
+    border-radius: 12px;
+
+    box-shadow:
+        0 5px 18px
+        rgba(15, 23, 42, 0.06);
+
+}
+
+
+/* ---------- LABEL ---------- */
+
+.admin_enrollment_container > form label {
+
+    text-align: left;
+
+    color: #374151;
+
+    font-size: 14px;
+
+    font-weight: 600;
+
+}
+
+
+/* =====================================================
+   SELECT
+   ===================================================== */
+
+.admin_enrollment_container > form select {
+
+    width: 100%;
+
+    box-sizing: border-box;
+
+    padding: 11px 12px;
+
+    border: 1px solid #cbd5e1;
+
+    border-radius: 7px;
+
+    background: white;
+
+    color: #1f2937;
+
+    font-size: 14px;
+
+    outline: none;
+
+    cursor: pointer;
+
+}
+
+
+/* ---------- SELECT FOCUS ---------- */
+
+.admin_enrollment_container > form select:focus {
+
+    border-color: #0ea5e9;
+
+    box-shadow:
+        0 0 0 3px
+        rgba(14, 165, 233, 0.10);
+
+}
+
+
+/* =====================================================
+   CONTINUE BUTTON
+   ===================================================== */
+
+.admin_enrollment_container > form button {
+
+    margin-top: 8px;
+
+    padding: 11px;
+
+    border: none;
+
+    border-radius: 7px;
+
+    background:
+        linear-gradient(
+            135deg,
+            #0ea5e9,
+            #2563eb
+        );
+
+    color: white;
+
+    font-size: 14px;
+
+    font-weight: bold;
+
+    cursor: pointer;
+
+    transition:
+        transform 0.25s ease,
+        box-shadow 0.25s ease;
+
+}
+
+
+/* ---------- BUTTON HOVER ---------- */
+
+.admin_enrollment_container > form button:hover {
+
+    transform: translateY(-2px);
+
+    box-shadow:
+        0 8px 18px
+        rgba(14, 165, 233, 0.20);
+
+}
+
+
+/* =====================================================
+   SEPARATOR
+   ===================================================== */
+
+.admin_enrollment_container hr {
+
+    max-width: 1000px;
+
+    margin: 35px auto 25px;
+
+    border: none;
+
+    border-top:
+        1px solid #e2e8f0;
+
+}
+
+
+/* =====================================================
+   SUBJECTS TITLE
+   ===================================================== */
+
+.admin_enrollment_container > h2 {
+
+    margin: 0 0 20px;
+
+    color: #1e293b;
+
+    font-size: 25px;
+
+    font-weight: 700;
+
+}
+
+
+/* =====================================================
+   SUBJECT LIST
+   ===================================================== */
+
+/*
+   Your current HTML does not have a dedicated class
+   around each subject.
+
+   Therefore we style the direct div elements.
+*/
+
+.admin_enrollment_container > div {
+
+    width: 100%;
+
+    max-width: 850px;
+
+    margin: 0 auto 12px;
+
+    padding: 16px 20px;
+
+    box-sizing: border-box;
+
+    display: flex;
+
+    justify-content: space-between;
+
+    align-items: center;
+
+    gap: 15px;
+
+    background: #f8fafc;
+
+    border: 1px solid #e2e8f0;
+
+    border-radius: 10px;
+
+    box-shadow:
+        0 4px 12px
+        rgba(15, 23, 42, 0.05);
+
+    color: #475569;
+
+    text-align: left;
+
+    transition:
+        transform 0.25s ease,
+        box-shadow 0.25s ease,
+        background 0.25s ease;
+
+}
+
+
+/* ---------- SUBJECT HOVER ---------- */
+
+.admin_enrollment_container > div:hover {
+
+    transform: translateY(-2px);
+
+    background: #ffffff;
+
+    box-shadow:
+        0 7px 18px
+        rgba(15, 23, 42, 0.08);
+
+}
+
+
+/* ---------- SUBJECT NAME ---------- */
+
+.admin_enrollment_container > div strong {
+
+    color: #1e293b;
+
+    font-size: 15px;
+
+}
+
+
+/* =====================================================
+   ENROLL FORM
+   ===================================================== */
+
+.admin_enrollment_container > div form {
+
+    margin: 0;
+
+    flex-shrink: 0;
+
+}
+
+
+/* =====================================================
+   ENROLL ALL STUDENTS BUTTON
+   ===================================================== */
+
+.admin_enrollment_container > div form button {
+
+    padding: 9px 15px;
+
+    border: none;
+
+    border-radius: 7px;
+
+    background:
+        linear-gradient(
+            135deg,
+            #0ea5e9,
+            #2563eb
+        );
+
+    color: white;
+
+    font-size: 13px;
+
+    font-weight: 600;
+
+    cursor: pointer;
+
+    transition:
+        transform 0.25s ease,
+        box-shadow 0.25s ease;
+
+}
+
+
+/* ---------- BUTTON HOVER ---------- */
+
+.admin_enrollment_container > div form button:hover {
+
+    transform: translateY(-2px);
+
+    box-shadow:
+        0 7px 16px
+        rgba(14, 165, 233, 0.22);
+
+}
+
+
+/* =====================================================
+   NO SUBJECTS MESSAGE
+   ===================================================== */
+
+.admin_enrollment_container > p:last-child {
+
+    margin-top: 25px;
+
+    color: #64748b;
+
+    font-size: 14px;
+
+}
+
+
+/* =====================================================
+   MOBILE
+   ===================================================== */
+
+@media (max-width: 700px) {
+
+    .admin_enrollment_container {
+
+        padding: 35px 18px;
+
+    }
+
+
+    .admin_enrollment_container > h1 {
+
+        font-size: 30px;
+
+    }
+
+
+    .admin_enrollment_container > form {
+
+        width: 100%;
+
+        padding: 20px;
+
+    }
+
+
+    .admin_enrollment_container > div {
+
+        flex-direction: column;
+
+        align-items: stretch;
+
+        gap: 12px;
+
+    }
+
+
+    .admin_enrollment_container > div form button {
+
+        width: 100%;
+
+    }
+
+}
+
+/* =====================================================
+   ADMIN - TEACHER SUBJECT ASSIGNMENT
+   ===================================================== */
+
+
+/* =====================================================
+   PAGE CONTAINER
+   ===================================================== */
+
+.admin_subject_assignment_container {
+
+    min-height: calc(100vh - 70px);
+
+    box-sizing: border-box;
+
+    padding: 45px 40px;
+
+    text-align: center;
+
+    background: #ffffff;
+
+}
+
+
+/* =====================================================
+   PAGE TITLE
+   ===================================================== */
+
+.admin_subject_assignment_container > h1 {
+
+    margin: 0 0 25px;
+
+    color: #111827;
+
+    font-size: 38px;
+
+    font-weight: 700;
+
+}
+
+
+/* =====================================================
+   FLASH MESSAGE
+   ===================================================== */
+
+.admin_subject_assignment_container .admin_subject_message {
+
+    width: 100%;
+
+    max-width: 700px;
+
+    margin: 20px auto;
+
+    padding: 11px 15px;
+
+    box-sizing: border-box;
+
+    border-radius: 8px;
+
+    background: #dcfce7;
+
+    color: #166534;
+
+    font-size: 14px;
+
+    font-weight: 600;
+
+}
+
+
+/* =====================================================
+   DEPARTMENT + SEMESTER SELECTION FORM
+   ===================================================== */
+
+.admin_subject_assignment_container > form:first-of-type {
+
+    width: 100%;
+
+    max-width: 500px;
+
+    margin: 30px auto;
+
+    padding: 22px 25px;
+
+    box-sizing: border-box;
+
+    display: flex;
+
+    flex-direction: column;
+
+    gap: 9px;
+
+    background: #f8fafc;
+
+    border: 1px solid #e2e8f0;
+
+    border-radius: 12px;
+
+    box-shadow:
+        0 5px 18px
+        rgba(15, 23, 42, 0.06);
+
+}
+
+
+/* =====================================================
+   FORM LABELS
+   ===================================================== */
+
+.admin_subject_assignment_container form label {
+
+    text-align: left;
+
+    color: #374151;
+
+    font-size: 14px;
+
+    font-weight: 600;
+
+}
+
+
+/* =====================================================
+   SELECT BOXES
+   ===================================================== */
+
+.admin_subject_assignment_container form select {
+
+    width: 100%;
+
+    box-sizing: border-box;
+
+    padding: 11px 12px;
+
+    border: 1px solid #cbd5e1;
+
+    border-radius: 7px;
+
+    background: #ffffff;
+
+    color: #1f2937;
+
+    font-size: 14px;
+
+    outline: none;
+
+    cursor: pointer;
+
+}
+
+
+/* ---------- SELECT FOCUS ---------- */
+
+.admin_subject_assignment_container form select:focus {
+
+    border-color: #0ea5e9;
+
+    box-shadow:
+        0 0 0 3px
+        rgba(14, 165, 233, 0.10);
+
+}
+
+
+/* =====================================================
+   CONTINUE BUTTON
+   ===================================================== */
+
+.admin_subject_assignment_container > form:first-of-type button {
+
+    margin-top: 8px;
+
+    padding: 11px;
+
+    border: none;
+
+    border-radius: 7px;
+
+    background:
+        linear-gradient(
+            135deg,
+            #0ea5e9,
+            #2563eb
+        );
+
+    color: #ffffff;
+
+    font-size: 14px;
+
+    font-weight: bold;
+
+    cursor: pointer;
+
+    transition:
+        transform 0.25s ease,
+        box-shadow 0.25s ease;
+
+}
+
+
+.admin_subject_assignment_container > form:first-of-type button:hover {
+
+    transform: translateY(-2px);
+
+    box-shadow:
+        0 8px 18px
+        rgba(14, 165, 233, 0.20);
+
+}
+
+
+/* =====================================================
+   SEPARATOR
+   ===================================================== */
+
+.admin_subject_assignment_container hr {
+
+    max-width: 1100px;
+
+    margin: 35px auto 25px;
+
+    border: none;
+
+    border-top:
+        1px solid #e2e8f0;
+
+}
+
+
+/* =====================================================
+   ASSIGN TEACHER HEADING
+   ===================================================== */
+
+.admin_subject_assignment_container > h2 {
+
+    margin: 0 0 20px;
+
+    color: #1e293b;
+
+    font-size: 25px;
+
+    font-weight: 700;
+
+}
+
+
+/* =====================================================
+   ASSIGN TEACHER FORM
+   ===================================================== */
+
+/*
+   This is the second form on the page.
+*/
+
+.admin_subject_assignment_container > form:nth-of-type(2) {
+
+    width: 100%;
+
+    max-width: 600px;
+
+    margin: 0 auto 30px;
+
+    padding: 25px;
+
+    box-sizing: border-box;
+
+    display: flex;
+
+    flex-direction: column;
+
+    gap: 9px;
+
+    background: #f8fafc;
+
+    border: 1px solid #e2e8f0;
+
+    border-radius: 12px;
+
+    box-shadow:
+        0 5px 18px
+        rgba(15, 23, 42, 0.06);
+
+}
+
+
+/* =====================================================
+   ASSIGN SUBJECT BUTTON
+   ===================================================== */
+
+.admin_subject_assignment_container > form:nth-of-type(2) button {
+
+    margin-top: 10px;
+
+    padding: 12px;
+
+    border: none;
+
+    border-radius: 7px;
+
+    background:
+        linear-gradient(
+            135deg,
+            #0ea5e9,
+            #2563eb
+        );
+
+    color: #ffffff;
+
+    font-size: 14px;
+
+    font-weight: bold;
+
+    cursor: pointer;
+
+    transition:
+        transform 0.25s ease,
+        box-shadow 0.25s ease;
+
+}
+
+
+.admin_subject_assignment_container > form:nth-of-type(2) button:hover {
+
+    transform: translateY(-2px);
+
+    box-shadow:
+        0 8px 18px
+        rgba(14, 165, 233, 0.20);
+
+}
+
+
+/* =====================================================
+   CURRENT ASSIGNMENTS TABLE
+   ===================================================== */
+
+.admin_subject_assignment_container > table {
+
+    width: 100%;
+
+    max-width: 1100px;
+
+    margin: 0 auto;
+
+    border-collapse: collapse;
+
+    background: #ffffff;
+
+    border-radius: 12px;
+
+    overflow: hidden;
+
+    border: 1px solid #e2e8f0;
+
+    box-shadow:
+        0 8px 25px
+        rgba(15, 23, 42, 0.08);
+
+    font-size: 14px;
+
+}
+
+
+/* =====================================================
+   TABLE HEADER
+   ===================================================== */
+
+.admin_subject_assignment_container > table th {
+
+    padding: 14px 16px;
+
+    background: #f1f5f9;
+
+    color: #1e293b;
+
+    font-weight: 700;
+
+    text-align: left;
+
+    border-bottom:
+        1px solid #cbd5e1;
+
+}
+
+
+/* =====================================================
+   TABLE DATA
+   ===================================================== */
+
+.admin_subject_assignment_container > table td {
+
+    padding: 13px 16px;
+
+    color: #374151;
+
+    text-align: left;
+
+    border-bottom:
+        1px solid #e5e7eb;
+
+}
+
+
+/* =====================================================
+   TABLE ROW HOVER
+   ===================================================== */
+
+.admin_subject_assignment_container > table tr:hover td {
+
+    background: #f8fafc;
+
+}
+
+
+/* =====================================================
+   LAST ROW
+   ===================================================== */
+
+.admin_subject_assignment_container > table tr:last-child td {
+
+    border-bottom: none;
+
+}
+
+
+/* =====================================================
+   UNASSIGN FORM
+   ===================================================== */
+
+.admin_subject_assignment_container > table td form {
+
+    margin: 0;
+
+}
+
+
+/* =====================================================
+   UNASSIGN BUTTON
+   ===================================================== */
+
+.admin_subject_assignment_container > table td form button {
+
+    padding: 7px 14px;
+
+    border: none;
+
+    border-radius: 6px;
+
+    background: #ef4444;
+
+    color: #ffffff;
+
+    font-size: 13px;
+
+    font-weight: 600;
+
+    cursor: pointer;
+
+    transition:
+        transform 0.2s ease,
+        background 0.2s ease,
+        box-shadow 0.2s ease;
+
+}
+
+
+/* ---------- UNASSIGN HOVER ---------- */
+
+.admin_subject_assignment_container > table td form button:hover {
+
+    background: #dc2626;
+
+    transform: translateY(-1px);
+
+    box-shadow:
+        0 5px 12px
+        rgba(239, 68, 68, 0.20);
+
+}
+
+
+/* =====================================================
+   NO ASSIGNMENTS MESSAGE
+   ===================================================== */
+
+.admin_subject_assignment_container > p {
+
+    margin: 20px auto;
+
+    color: #64748b;
+
+    font-size: 14px;
+
+}
+
+
+/* =====================================================
+   MOBILE
+   ===================================================== */
+
+@media (max-width: 700px) {
+
+    .admin_subject_assignment_container {
+
+        padding: 35px 18px;
+
+    }
+
+
+    .admin_subject_assignment_container > h1 {
+
+        font-size: 30px;
+
+    }
+
+
+    .admin_subject_assignment_container > h2 {
+
+        font-size: 22px;
+
+    }
+
+
+    .admin_subject_assignment_container > form:first-of-type,
+    .admin_subject_assignment_container > form:nth-of-type(2) {
+
+        width: 100%;
+
+        padding: 20px;
+
+    }
+
+
+    /*
+       Allow the table to scroll horizontally on
+       very small screens instead of breaking layout.
+    */
+
+    .admin_subject_assignment_container > table {
+
+        display: block;
+
+        overflow-x: auto;
+
+        white-space: nowrap;
+
+    }
+
+
+    .admin_subject_assignment_container > table th,
+    .admin_subject_assignment_container > table td {
+
+        padding: 11px 13px;
+
+    }
+
+}
+
+/* =========================================================
+   ADMIN DASHBOARD
+   ========================================================= */
+
+/* ---------- PAGE RESET ---------- */
+
+html,
+body {
+    margin: 0;
+    padding: 0;
+    min-height: 100%;
+}
+
+body {
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+}
+
+
+/* =========================================================
+   ADMIN NAVBAR
+   ========================================================= */
+
+.admin_navbar {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 12px 30px;
+    min-height: 70px;
+    box-sizing: border-box;
+
+    background:
+        linear-gradient(
+            110deg,
+            #172554,
+            #1e3a8a,
+            #164e63
+        );
+
+    backdrop-filter: blur(12px);
+    border-bottom: 1px solid rgba(255, 255, 255, 0.7);
+    box-shadow: 0 5px 20px rgba(15, 23, 42, 0.10);
+    position: relative;
+    z-index: 10;
+}
+
+
+/* ---------- LEFT SIDE ---------- */
+
+.admin_nav_left h1 {
+    margin: 0;
+    font-size: 23px;
+    color: #ffffff;
+}
+
+
+/* ---------- RIGHT SIDE ---------- */
+
+.admin_nav_right {
+    display: flex;
+    align-items: center;
+}
+
+
+.admin_nav_right a {
+    text-decoration: none;
+    color: #ffffff;
+    font-weight: 600;
+    padding: 10px 18px;
+    border-radius: 10px;
+    transition: 0.3s;
+}
+
+
+.admin_nav_right a:hover {
+    background: rgba(179, 229, 252, 0.177);
+    transform: translateY(-2px);
+}
+
+
+/* =========================================================
+   ADMIN DASHBOARD PAGE
+   ========================================================= */
+
+.admin_dashboard_container {
+    /* Added flex properties to force vertical stacking */
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    
+    flex: 1;
+    box-sizing: border-box;
+    padding: 55px 40px;
+    text-align: center;
+    position: relative;
+    overflow: hidden;
+
+    background:
+        radial-gradient(
+            circle at 5% 10%,
+            rgba(59, 130, 246, 0.25),
+            transparent 28%
+        ),
+        radial-gradient(
+            circle at 95% 20%,
+            rgba(79, 70, 229, 0.20),
+            transparent 30%
+        ),
+        radial-gradient(
+            circle at 50% 100%,
+            rgba(13, 148, 136, 0.18),
+            transparent 35%
+        ),
+        linear-gradient(
+            135deg,
+            #dbeafe,
+            #e0e7ff 45%,
+            #dff7f5
+        );
+}
+
+
+/* =========================================================
+   BACKGROUND GLOW
+   ========================================================= */
+
+.admin_dashboard_container::before {
+    content: "";
+    position: absolute;
+    width: 350px;
+    height: 350px;
+    border-radius: 50%;
+    background: #0ea5e9;
+    opacity: 0.07;
+    filter: blur(70px);
+    top: -120px;
+    right: -100px;
+    pointer-events: none;
+}
+
+
+.admin_dashboard_container::after {
+    content: "";
+    position: absolute;
+    width: 300px;
+    height: 300px;
+    border-radius: 50%;
+    background: #67e8f9;
+    opacity: 0.07;
+    filter: blur(70px);
+    bottom: -120px;
+    left: -100px;
+    pointer-events: none;
+}
+
+
+/* =========================================================
+   WELCOME SECTION
+   ========================================================= */
+
+.admin_dashboard_container > h1 {
+    position: relative;
+    z-index: 2;
+    margin: 0;
+    color: rgb(0, 0, 0);
+    font-size: 32px;
+}
+
+
+.admin_dashboard_container > p {
+    position: relative;
+    z-index: 2;
+    margin-top: 8px;
+    margin-bottom: 35px;
+    color: rgba(0, 0, 0, 0.65);
+    font-size: 15px;
+}
+
+
+/* =========================================================
+   STAT CARDS CONTAINER
+   ========================================================= */
+
+.admin_stats_container {
+    position: relative;
+    z-index: 2;
+    display: flex;
+    justify-content: center;
+    align-items: stretch;
+    gap: 25px;
+    flex-wrap: nowrap;
+    width: max-content;
+    max-width: 100%;
+    
+    /* This margin-bottom will create the gap between the cards and the buttons below */
+    margin: 0 auto 40px auto; 
+}
+
+
+/* =========================================================
+   COMMON STAT CARD
+   ========================================================= */
+
+.admin_stat_card {
+    width: 280px;
+    min-width: 280px;
+    max-width: 280px;
+    flex: 0 0 280px;
+    padding: 28px 25px;
+    box-sizing: border-box;
+
+    background: rgba(255, 255, 255, 0.10);
+    border: 1px solid rgba(255, 255, 255, 0.22);
+    border-radius: 18px;
+    backdrop-filter: blur(14px);
+    -webkit-backdrop-filter: blur(14px);
+    box-shadow: 0 20px 45px rgba(0, 0, 0, 0.22);
+
+    transition:
+        transform 0.3s ease,
+        box-shadow 0.3s ease,
+        background 0.3s ease;
+
+    animation: adminCardPop 0.6s ease both;
+}
+
+
+/* ---------- CARD HOVER ---------- */
+
+.admin_stat_card:hover {
+    transform: translateY(-7px);
+    background: rgba(255, 255, 255, 0.14);
+    box-shadow: 0 25px 55px rgba(0, 0, 0, 0.30);
+}
+
+
+/* ---------- CARD TITLE ---------- */
+
+.admin_stat_card h2 {
+    margin: 0 0 12px;
+    color: rgba(0, 0, 0, 0.8);
+    font-size: 17px;
+    font-weight: 600;
+}
+
+
+/* =========================================================
+   SEMESTER STAT CARDS
+   ========================================================= */
+
+.admin_semester_card {
+    width: 280px;
+}
+
+
+/* ---------- SEMESTER LIST ---------- */
+
+.admin_semester_stats {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+    margin-top: 18px;
+}
+
+
+/* ---------- SEMESTER ITEM ---------- */
+
+.admin_semester_item {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 10px 13px;
+    border-radius: 9px;
+    background: rgba(255, 255, 255, 0.08);
+    border: 1px solid rgba(255, 255, 255, 0.10);
+    transition:
+        background 0.25s ease,
+        transform 0.25s ease;
+}
+
+
+/* ---------- SEMESTER ITEM HOVER ---------- */
+
+.admin_semester_item:hover {
+    background: rgba(255, 255, 255, 0.14);
+    transform: translateX(4px);
+}
+
+
+/* ---------- SEMESTER NAME ---------- */
+
+.admin_semester_item span {
+    color: rgba(0, 0, 0, 0.75);
+    font-size: 14px;
+}
+
+
+/* ---------- SEMESTER COUNT ---------- */
+
+.admin_semester_item strong {
+    color: #000000;
+    font-size: 20px;
+}
+
+
+/* =========================================================
+   TEACHER CARD
+   ========================================================= */
+
+.admin_teacher_card {
+    width: 280px;
+    min-width: 280px;
+    max-width: 280px;
+    flex: 0 0 280px;
+}
+
+
+/* =========================================================
+   DASHBOARD COUNT CARDS
+   ========================================================= */
+
+.admin_dashboard_count_card {
+    width: 280px;
+    min-width: 280px;
+    max-width: 280px;
+    flex: 0 0 280px;
+    padding: 25px;
+    box-sizing: border-box;
+}
+
+
+/* ---------- DROPDOWN LABEL ---------- */
+
+.admin_dashboard_count_card label {
+    display: block;
+    text-align: left;
+    margin-top: 12px;
+    margin-bottom: 6px;
+    color: rgba(0, 0, 0, 0.70);
+    font-size: 13px;
+    font-weight: bold;
+}
+
+
+/* ---------- DROPDOWNS ---------- */
+
+.admin_dashboard_count_card select {
+    width: 100%;
+    box-sizing: border-box;
+    padding: 10px 12px;
+    border: 1px solid rgba(0, 0, 0, 0.15);
+    border-radius: 8px;
+    background: rgba(255, 255, 255, 0.65);
+    color: #111827;
+    font-size: 13px;
+    outline: none;
+    cursor: pointer;
+    transition: 0.25s;
+}
+
+
+/* ---------- DROPDOWN FOCUS ---------- */
+
+.admin_dashboard_count_card select:focus {
+    border-color: #0ea5e9;
+    box-shadow: 0 0 0 3px rgba(14, 165, 233, 0.10);
+}
+
+
+/* =========================================================
+   COUNT DISPLAY
+   ========================================================= */
+
+.admin_dashboard_count {
+    margin-top: 20px;
+    padding-top: 15px;
+    border-top: 1px solid rgba(0, 0, 0, 0.10);
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+
+/* ---------- NUMBER ---------- */
+
+.admin_dashboard_count strong {
+    color: #000000;
+    font-size: 38px;
+    font-weight: bold;
+    line-height: 1;
+}
+
+
+/* ---------- TEXT ---------- */
+
+.admin_dashboard_count span {
+    margin-top: 6px;
+    color: rgba(0, 0, 0, 0.55);
+    font-size: 13px;
+}
+
+
+/* =========================================================
+   MANAGEMENT SECTION
+   ========================================================= */
+
+.admin_management_container {
+    position: relative;
+    z-index: 2;
+    width: 500px;
+    max-width: 100%;
+    margin: 0 auto;
+    
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 18px;
+    box-sizing: border-box;
+}
+
+
+/* ---------- MANAGEMENT LINKS ---------- */
+
+.admin_management_container a {
+    text-decoration: none;
+    display: block;
+    width: 100%;
+}
+
+
+/* =========================================================
+   MANAGEMENT BUTTONS
+   ========================================================= */
+
+.admin_management_container button {
+    width: 100%;
+    box-sizing: border-box;
+    padding: 15px 18px;
+    border: none;
+    border-radius: 10px;
+    cursor: pointer;
+    background: linear-gradient(135deg, #0ea5e9, #2563eb);
+    color: white;
+    font-size: 14px;
+    font-weight: bold;
+    box-shadow: 0 8px 20px rgba(14, 165, 233, 0.15);
+    transition:
+        transform 0.25s ease,
+        box-shadow 0.25s ease,
+        filter 0.25s ease;
+}
+
+
+/* ---------- BUTTON HOVER ---------- */
+
+.admin_management_container button:hover {
+    transform: translateY(-3px);
+    box-shadow: 0 12px 28px rgba(14, 165, 233, 0.30);
+    filter: brightness(1.08);
+}
+
+
+/* ---------- BUTTON CLICK ---------- */
+
+.admin_management_container button:active {
+    transform: translateY(0);
+}
+
+
+/* =========================================================
+   CARD POPUP ANIMATION
+   ========================================================= */
+
+@keyframes adminCardPop {
+    0% {
+        opacity: 0;
+        transform: translateY(25px) scale(0.95);
+    }
+    100% {
+        opacity: 1;
+        transform: translateY(0) scale(1);
+    }
+}
+
+
+/* =========================================================
+   RESPONSIVE
+   ========================================================= */
+
+@media (max-width: 950px) {
+    .admin_stats_container {
+        flex-wrap: wrap;
+        width: 100%;
+    }
+    .admin_stat_card,
+    .admin_dashboard_count_card,
+    .admin_teacher_card {
+        flex: 0 1 280px;
+    }
+}
+
+
+@media (max-width: 700px) {
+    .admin_navbar {
+        padding: 12px 18px;
+    }
+
+    .admin_nav_left h1 {
+        font-size: 18px;
+    }
+
+    .admin_dashboard_container {
+        padding: 40px 20px;
+    }
+
+    .admin_dashboard_container > h1 {
+        font-size: 27px;
+    }
+
+    .admin_stats_container {
+        gap: 15px;
+        width: 100%;
+        flex-direction: column;
+        align-items: center;
+    }
+
+    .admin_stat_card,
+    .admin_dashboard_count_card,
+    .admin_teacher_card {
+        width: 100%;
+        min-width: 0;
+        max-width: 320px;
+        flex: 0 1 auto;
+    }
+
+    .admin_management_container {
+        grid-template-columns: 1fr;
+        width: 100%;
+        max-width: 400px;
+    }
+}
+
+/* =====================================================
+   ADMIN - MANAGE DEPARTMENTS
+   ===================================================== */
+
+.admin_departments_container {
+
+    min-height: calc(100vh - 80px);
+
+    box-sizing: border-box;
+
+    padding: 45px 30px;
+
+    background: #ffffff;
+
+    text-align: center;
+}
+
+
+/* ---------- PAGE TITLE ---------- */
+
+.admin_departments_container > h1 {
+
+    margin: 0;
+
+    color: #172554;
+
+    font-size: 30px;
+}
+
+
+.admin_departments_container > p {
+
+    margin-top: 8px;
+
+    margin-bottom: 30px;
+
+    color: #64748b;
+
+    font-size: 14px;
+}
+
+
+/* =====================================================
+   ADD DEPARTMENT CARD
+   ===================================================== */
+
+.admin_department_add_card {
+
+    width: 500px;
+
+    max-width: 100%;
+
+    margin: 0 auto 25px;
+
+    padding: 25px;
+
+    box-sizing: border-box;
+
+    background: #ffffff;
+
+    border: 1px solid #dbeafe;
+
+    border-radius: 15px;
+
+    box-shadow:
+        0 8px 25px rgba(15, 23, 42, 0.08);
+
+}
+
+
+.admin_department_add_card h2 {
+
+    margin: 0 0 20px;
+
+    color: #172554;
+
+    font-size: 19px;
+
+}
+
+
+/* ---------- FORM ---------- */
+
+.admin_department_add_card form {
+
+    display: flex;
+
+    flex-direction: column;
+
+    gap: 8px;
+
+    text-align: left;
+
+}
+
+
+/* ---------- LABEL ---------- */
+
+.admin_department_add_card label {
+
+    color: #334155;
+
+    font-size: 13px;
+
+    font-weight: bold;
+
+}
+
+
+/* ---------- INPUT ---------- */
+
+.admin_department_add_card input {
+
+    width: 100%;
+
+    padding: 12px;
+
+    box-sizing: border-box;
+
+    border: 1px solid #cbd5e1;
+
+    border-radius: 8px;
+
+    outline: none;
+
+    font-size: 14px;
+
+    transition: 0.25s;
+
+}
+
+
+.admin_department_add_card input:focus {
+
+    border-color: #0ea5e9;
+
+    box-shadow:
+        0 0 0 3px rgba(14, 165, 233, 0.10);
+
+}
+
+
+/* ---------- ADD BUTTON ---------- */
+
+.admin_department_add_card form button {
+
+    margin-top: 10px;
+
+    padding: 12px;
+
+    border: none;
+
+    border-radius: 8px;
+
+    cursor: pointer;
+
+    background:
+        linear-gradient(
+            135deg,
+            #0ea5e9,
+            #2563eb
+        );
+
+    color: white;
+
+    font-size: 14px;
+
+    font-weight: bold;
+
+    transition: 0.25s;
+
+}
+
+
+.admin_department_add_card form button:hover {
+
+    transform: translateY(-2px);
+
+    box-shadow:
+        0 8px 20px rgba(14, 165, 233, 0.25);
+
+}
+
+
+/* =====================================================
+   FLASH MESSAGE
+   ===================================================== */
+
+.admin_department_message {
+
+    width: 500px;
+
+    max-width: 100%;
+
+    margin: 0 auto 20px;
+
+    padding: 11px;
+
+    box-sizing: border-box;
+
+    border-radius: 8px;
+
+    background: #eff6ff;
+
+    color: #1d4ed8;
+
+    font-size: 14px;
+
+    font-weight: bold;
+
+}
+
+
+/* =====================================================
+   DEPARTMENT TABLE CARD
+   ===================================================== */
+
+.admin_department_table_card {
+
+    width: 750px;
+
+    max-width: 100%;
+
+    margin: 0 auto;
+
+    padding: 25px;
+
+    box-sizing: border-box;
+
+    background: #ffffff;
+
+    border: 1px solid #e2e8f0;
+
+    border-radius: 15px;
+
+    box-shadow:
+        0 8px 25px rgba(15, 23, 42, 0.08);
+
+}
+
+
+.admin_department_table_card h2 {
+
+    margin: 0 0 20px;
+
+    color: #172554;
+
+    font-size: 19px;
+
+}
+
+
+/* =====================================================
+   TABLE
+   ===================================================== */
+
+.admin_department_table {
+
+    width: 100%;
+
+    border-collapse: collapse;
+
+}
+
+
+.admin_department_table th {
+
+    padding: 13px;
+
+    background: #eff6ff;
+
+    color: #1e3a8a;
+
+    font-size: 13px;
+
+    text-align: center;
+
+}
+
+
+.admin_department_table td {
+
+    padding: 13px;
+
+    border-top: 1px solid #e2e8f0;
+
+    color: #334155;
+
+    font-size: 14px;
+
+}
+
+
+.admin_department_table tr:hover td {
+
+    background: #f8fafc;
+
+}
+
+
+/* =====================================================
+   DELETE BUTTON
+   ===================================================== */
+
+.admin_department_delete_button {
+
+    padding: 7px 14px;
+
+    border: none;
+
+    border-radius: 7px;
+
+    cursor: pointer;
+
+    background: #ef4444;
+
+    color: white;
+
+    font-size: 12px;
+
+    font-weight: bold;
+
+    transition: 0.2s;
+
+}
+
+
+.admin_department_delete_button:hover {
+
+    background: #dc2626;
+
+    transform: translateY(-1px);
+
+}
+
+
+/* =====================================================
+   EMPTY STATE
+   ===================================================== */
+
+.admin_no_departments {
+
+    margin: 10px 0;
+
+    color: #64748b;
+
+    font-size: 14px;
+
+}
+
+
+/* =====================================================
+   MOBILE
+   ===================================================== */
+
+@media (max-width: 600px) {
+
+    .admin_departments_container {
+
+        padding: 35px 15px;
+
+    }
+
+
+    .admin_department_add_card {
+
+        padding: 20px;
+
+    }
+
+
+    .admin_department_table_card {
+
+        padding: 15px;
+
+        overflow-x: auto;
+
+    }
+
+
+    .admin_department_table {
+
+        min-width: 550px;
+
+    }
+
+}
+
+
+/* =====================================================
+   ADMIN LOGIN PAGE CSS
+   ===================================================== */
+
+/* ---------- PAGE ---------- */
+
+.admin_login_container {
+
+    min-height: 100vh;
+
+    margin: 0;
+
+    padding: 40px;
+
+    box-sizing: border-box;
+
+    display: flex;
+
+    justify-content: center;
+
+    align-items: center;
+
+    position: relative;
+
+    overflow: hidden;
+
+    font-family: Arial, sans-serif;
+
+    background:
+
+        radial-gradient(
+            circle at 15% 20%,
+            rgba(14, 165, 233, 0.18),
+            transparent 30%
+        ),
+
+        radial-gradient(
+            circle at 85% 80%,
+            rgba(37, 99, 235, 0.16),
+            transparent 30%
+        ),
+
+        linear-gradient(
+            135deg,
+            #071a33,
+            #0b3157,
+            #0d6078
+        );
+}
+
+
+/* ---------- BACKGROUND GLOW ---------- */
+
+.admin_login_container::before {
+
+    content: "";
+
+    position: absolute;
+
+    width: 350px;
+    height: 350px;
+
+    border-radius: 50%;
+
+    background: #0ea5e9;
+
+    opacity: 0.08;
+
+    filter: blur(70px);
+
+    top: -120px;
+
+    right: -100px;
+}
+
+
+.admin_login_container::after {
+
+    content: "";
+
+    position: absolute;
+
+    width: 300px;
+    height: 300px;
+
+    border-radius: 50%;
+
+    background: #67e8f9;
+
+    opacity: 0.07;
+
+    filter: blur(70px);
+
+    bottom: -120px;
+
+    left: -100px;
+}
+
+
+/* =====================================================
+   ADMIN LOGIN CARD
+   ===================================================== */
+
+.admin_login_card {
+
+    width: 380px;
+
+    padding: 38px;
+
+    box-sizing: border-box;
+
+    position: relative;
+
+    z-index: 2;
+
+    background:
+        rgba(255, 255, 255, 0.10);
+
+    border:
+        1px solid rgba(255, 255, 255, 0.22);
+
+    border-radius: 20px;
+
+    backdrop-filter: blur(14px);
+
+    -webkit-backdrop-filter: blur(14px);
+
+    box-shadow:
+        0 25px 60px rgba(0, 0, 0, 0.25);
+}
+
+
+/* ---------- CARD GLOW ---------- */
+
+.admin_login_card::before {
+
+    content: "";
+
+    position: absolute;
+
+    inset: -1px;
+
+    border-radius: 20px;
+
+    padding: 1px;
+
+    background:
+
+        linear-gradient(
+            135deg,
+            rgba(103, 232, 249, 0.45),
+            transparent 35%,
+            transparent 65%,
+            rgba(14, 165, 233, 0.30)
+        );
+
+    -webkit-mask:
+        linear-gradient(#fff 0 0) content-box,
+        linear-gradient(#fff 0 0);
+
+    mask:
+        linear-gradient(#fff 0 0) content-box,
+        linear-gradient(#fff 0 0);
+
+    -webkit-mask-composite: xor;
+
+    mask-composite: exclude;
+
+    pointer-events: none;
+}
+
+
+/* =====================================================
+   HEADER
+   ===================================================== */
+
+.admin_login_card h1 {
+
+    margin-top: 0;
+
+    margin-bottom: 8px;
+
+    text-align: center;
+
+    color: white;
+
+    font-size: 29px;
+}
+
+
+.admin_login_card > p {
+
+    margin-top: 0;
+
+    margin-bottom: 30px;
+
+    text-align: center;
+
+    color:
+        rgba(255, 255, 255, 0.65);
+
+    font-size: 14px;
+}
+
+
+/* =====================================================
+   FORM
+   ===================================================== */
+
+.admin_login_card form {
+
+    display: flex;
+
+    flex-direction: column;
+
+    gap: 8px;
+}
+
+
+/* ---------- LABEL ---------- */
+
+.admin_login_card label {
+
+    color:
+        rgba(255, 255, 255, 0.85);
+
+    font-size: 13px;
+
+    font-weight: bold;
+}
+
+
+/* ---------- INPUT ---------- */
+
+.admin_login_card input {
+
+    width: 100%;
+
+    box-sizing: border-box;
+
+    padding: 13px 14px;
+
+    margin-bottom: 12px;
+
+    border-radius: 9px;
+
+    border:
+        1px solid rgba(255, 255, 255, 0.20);
+
+    outline: none;
+
+    background:
+        rgba(255, 255, 255, 0.08);
+
+    color: white;
+
+    font-size: 14px;
+
+    transition: 0.25s;
+}
+
+
+/* ---------- PLACEHOLDER ---------- */
+
+.admin_login_card input::placeholder {
+
+    color:
+        rgba(255, 255, 255, 0.40);
+}
+
+
+/* ---------- INPUT FOCUS ---------- */
+
+.admin_login_card input:focus {
+
+    border-color: #67e8f9;
+
+    background:
+        rgba(255, 255, 255, 0.12);
+
+    box-shadow:
+        0 0 0 3px rgba(103, 232, 249, 0.08);
+}
+
+
+/* =====================================================
+   LOGIN BUTTON
+   ===================================================== */
+
+.admin_login_card button {
+
+    width: 100%;
+
+    padding: 13px;
+
+    margin-top: 8px;
+
+    border: none;
+
+    border-radius: 9px;
+
+    cursor: pointer;
+
+    background:
+
+        linear-gradient(
+            135deg,
+            #0ea5e9,
+            #2563eb
+        );
+
+    color: white;
+
+    font-size: 15px;
+
+    font-weight: bold;
+
+    transition: 0.25s;
+}
+
+
+.admin_login_card button:hover {
+
+    transform: translateY(-2px);
+
+    box-shadow:
+        0 10px 25px rgba(14, 165, 233, 0.25);
+}
+
+
+.admin_login_card button:active {
+
+    transform: translateY(0);
+}
+
+
+/* =====================================================
+   ERROR MESSAGE
+   ===================================================== */
+
+.admin_login_error {
+
+    margin-top: 18px;
+
+    margin-bottom: 0;
+
+    padding: 10px 12px;
+
+    border-radius: 8px;
+
+    text-align: center;
+
+    background:
+        rgba(239, 68, 68, 0.12);
+
+    border:
+        1px solid rgba(248, 113, 113, 0.25);
+
+    color: #fecaca;
+
+    font-size: 13px;
+}
+
+
+/* =====================================================
+   MOBILE
+   ===================================================== */
+
+@media (max-width: 500px) {
+
+    .admin_login_container {
+
+        padding: 20px;
+    }
+
+    .admin_login_card {
+
+        width: 100%;
+
+        padding: 30px 25px;
+    }
+
+    .admin_login_card h1 {
+
+        font-size: 26px;
+    }
+}
+
+/* =========================================================
+   GLOBAL FORM UTILITIES
+   ========================================================= */
+.inline_form { display: inline; }
+
+/* Notification bell shared by all role navbars */
+.notification_bell_link{position:relative;display:inline-flex;align-items:center;justify-content:center;text-decoration:none!important;margin-right:12px;width:42px;height:42px;border-radius:50%;background:rgba(255,255,255,.12);color:inherit!important;transition:.2s}.notification_bell_link:hover{transform:translateY(-1px);background:rgba(255,255,255,.2)}.notification_bell_icon{font-size:20px;line-height:1}.notification_badge{position:absolute;top:-3px;right:-3px;min-width:18px;height:18px;padding:0 5px;border-radius:20px;background:#e53935;color:#fff;font-size:11px;font-weight:800;display:flex;align-items:center;justify-content:center;border:2px solid #fff}
+
+
+/* HOD leave history actions */
+.leave_table_actions{white-space:nowrap}
+.inline_delete_form{display:inline-block;margin-left:6px}
+.table_delete_button{padding:7px 10px;font-size:12px}
+
+
+/* =========================================================
+   NOTIFICATIONS STYLES
+   Merged into static/css/style.css
+   ========================================================= */
+
+/* =========================================================
+   NOTIFICATIONS
+   Uses the same blue/white dashboard language as style.css.
+   ========================================================= */
+.notification_bell_link{position:relative;display:inline-flex;align-items:center;justify-content:center;text-decoration:none!important;margin-right:12px;width:42px;height:42px;border-radius:50%;background:rgba(255,255,255,.12);color:inherit!important;transition:.2s}.notification_bell_link:hover{transform:translateY(-1px);background:rgba(255,255,255,.2)}.notification_bell_icon{font-size:20px;line-height:1}.notification_badge{position:absolute;top:-3px;right:-3px;min-width:18px;height:18px;padding:0 5px;border-radius:20px;background:#e53935;color:#fff;font-size:11px;font-weight:800;display:flex;align-items:center;justify-content:center;border:2px solid #fff}.notification_page_shell{min-height:100vh;background:linear-gradient(135deg,#eef5ff 0%,#f7fbff 45%,#eaf7fb 100%)}.notification_navbar{padding:14px 5%;display:flex;align-items:center;justify-content:space-between;background:linear-gradient(135deg,#071a33,#0b3157,#0d6078);box-shadow:0 4px 18px rgba(7,26,51,.16)}.notification_brand{font-size:22px;font-weight:800;color:#fff}.notification_container{width:min(1050px,92%);margin:40px auto 70px}.notification_heading,.assignment_header{display:flex;justify-content:space-between;align-items:flex-start;gap:20px;margin-bottom:25px}.notification_heading h1,.assignment_header h1{margin:0 0 7px;color:#0f2942}.notification_heading p,.assignment_header p{margin:0;color:#607086}.notification_primary_button,.assignment_action{display:inline-flex;align-items:center;justify-content:center;border:0;border-radius:10px;padding:11px 17px;background:linear-gradient(135deg,#0284c7,#0ea5e9);color:#fff!important;text-decoration:none!important;font-weight:700;cursor:pointer;box-shadow:0 7px 16px rgba(14,165,233,.18);transition:.2s}.notification_primary_button:hover,.assignment_action:hover{transform:translateY(-1px);filter:brightness(.96);box-shadow:0 10px 20px rgba(14,165,233,.24)}.notification_section_heading{display:flex;justify-content:space-between;align-items:flex-end;margin:28px 0 14px}.notification_section_heading h2{margin:0 0 5px;color:#12395c}.notification_section_heading p{margin:0;color:#718096;font-size:14px}.notification_list{display:grid;gap:15px}.notification_card{background:#fff;border:1px solid #dbe7f2;border-radius:16px;padding:20px 22px;box-shadow:0 7px 22px rgba(25,45,75,.07)}.sent_notification_card{border-left:4px solid #0284c7}.notification_card_top{display:flex;justify-content:space-between;gap:20px}.notification_card_top h2{margin:4px 0 8px;font-size:19px;color:#173b5f}.notification_sender{font-size:12px;text-transform:uppercase;letter-spacing:.08em;font-weight:800;color:#1f6feb}.sent_label{color:#0284c7}.notification_card_top time{color:#7b8494;font-size:12px;white-space:nowrap}.notification_card>p{line-height:1.65;color:#394150;margin:8px 0 18px;white-space:pre-wrap}.notification_card_bottom{display:flex;align-items:center;justify-content:space-between;gap:15px;border-top:1px solid #edf0f4;padding-top:13px;color:#64748b;font-size:13px}.notification_delete_button,.warning_button{border:0;border-radius:8px;padding:8px 12px;background:#fbe9e9;color:#b42318;font-weight:700;cursor:pointer}.notification_delete_button:hover{background:#f8dada}.sent_saved_badge{display:inline-flex;padding:6px 10px;border-radius:20px;background:#e8f7ef;color:#16734a;font-weight:800;font-size:12px}.notification_empty{background:#fff;border:1px dashed #c7d5e4;border-radius:16px;padding:50px;text-align:center;color:#6b7280}.notification_empty_compact{padding:30px}.notification_empty h2{color:#273142;margin-top:0}.compose_container{max-width:800px}.notification_form{background:#fff;border:1px solid #dbe7f2;border-radius:18px;padding:26px;display:grid;gap:18px;box-shadow:0 7px 22px rgba(25,45,75,.07)}.notification_form label{display:grid;gap:8px;font-weight:700;color:#293241}.notification_form input,.notification_form textarea,.notification_form select{font:inherit;border:1px solid #ccd8e5;border-radius:9px;padding:11px 12px;background:#fff}.notification_form input:focus,.notification_form textarea:focus,.notification_form select:focus{outline:none;border-color:#0ea5e9;box-shadow:0 0 0 3px rgba(14,165,233,.10)}.notification_form textarea{resize:vertical}.notification_locked{background:#f3f8fd;border:1px solid #d5e5f4;border-radius:10px;padding:13px;color:#41536b}.notification_nav_link{margin-left:12px;text-decoration:none;color:inherit;font-weight:700}.leave_detail_actions{margin:15px 0}.leave_detail_actions form{display:inline}.portal_message{padding:11px 14px;background:#eef7ff;border:1px solid #d7e9f8;border-radius:9px;color:#24527a}
+@media(max-width:700px){.notification_heading{display:block}.notification_heading .notification_primary_button{margin-top:15px}.notification_card_top{display:block}.notification_card_top time{display:block;margin-top:8px}.notification_card_bottom{align-items:flex-start;flex-direction:column}.notification_navbar{padding:12px 4%}.notification_brand{font-size:18px}.notification_container{margin-top:28px}.notification_section_heading{display:block}}
+
+
+/* =========================================================
+   ASSIGNMENTS STYLES
+   Merged into static/css/style.css
+   ========================================================= */
+
+/* =========================================================
+   ASSIGNMENTS
+   Same visual language as the main SMS dashboard.
+   ========================================================= */
+.assignment_page_shell{min-height:100vh;background:linear-gradient(135deg,#eef5ff 0%,#f8fbff 48%,#eaf7fb 100%)}
+.assignment_navbar{padding:14px 5%;display:flex;align-items:center;justify-content:space-between;background:linear-gradient(135deg,#071a33,#0b3157,#0d6078);box-shadow:0 4px 18px rgba(7,26,51,.16)}
+.assignment_brand{font-size:22px;font-weight:800;color:#fff}
+.assignment_container,.assignment_detail_container{width:min(1120px,92%);margin:40px auto 70px}
+.assignment_detail_container{max-width:900px}.wide_assignment_detail{max-width:1100px}
+.assignment_header{display:flex;justify-content:space-between;align-items:flex-start;gap:20px;margin-bottom:25px}.assignment_header h1{margin:0 0 7px;color:#0f2942}.assignment_header p{margin:0;color:#607086}
+.assignment_grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(290px,1fr));gap:20px}
+.assignment_card,.assignment_create_card,.assignment_detail_card,.teacher_assignment_card{background:#fff;border:1px solid #dbe7f2;border-radius:16px;padding:20px;box-shadow:0 7px 22px rgba(25,45,75,.07)}
+.assignment_card{transition:.2s}.assignment_card:hover{transform:translateY(-2px);box-shadow:0 12px 28px rgba(25,45,75,.10)}
+.assignment_card_top{display:flex;justify-content:space-between;gap:10px;align-items:center}.semester_badge{display:inline-flex;padding:5px 9px;border-radius:20px;background:#eaf4ff;color:#075985;font-size:12px;font-weight:800}.submission_badge{display:inline-flex;padding:5px 9px;border-radius:20px;font-size:11px;font-weight:800}.submitted_badge{background:#e9f8ef;color:#19703b}.pending_badge{background:#fff4d9;color:#8a5a00}.overdue_badge{background:#fdecec;color:#b42318}
+.assignment_card h2{margin:16px 0 7px;color:#12395c}.assignment_subject{color:#25618b;font-weight:700}.assignment_card p{line-height:1.55;color:#4b5563}.assignment_due{padding:10px 0 16px;color:#667085}.assignment_action{display:inline-flex;align-items:center;justify-content:center;border:0;border-radius:10px;padding:10px 15px;background:linear-gradient(135deg,#0284c7,#0ea5e9);color:#fff!important;text-decoration:none!important;font-weight:700;cursor:pointer;box-shadow:0 7px 16px rgba(14,165,233,.18);transition:.2s}.assignment_action:hover{transform:translateY(-1px);filter:brightness(.96)}
+.assignment_create_card{margin-bottom:25px}.assignment_create_card h2{margin-top:0;color:#12395c}.assignment_create_form{display:grid;grid-template-columns:1fr 1fr;gap:15px}.assignment_create_form label{display:grid;gap:7px;font-weight:700;color:#293241}.assignment_create_form label:nth-child(3){grid-column:1/-1}.assignment_create_form input,.assignment_create_form textarea,.assignment_create_form select,.assignment_filter select{font:inherit;border:1px solid #ccd8e5;border-radius:9px;padding:11px;background:#fff}.assignment_create_form input:focus,.assignment_create_form textarea:focus,.assignment_create_form select:focus,.assignment_filter select:focus{outline:none;border-color:#0ea5e9;box-shadow:0 0 0 3px rgba(14,165,233,.10)}.assignment_create_form textarea{resize:vertical}.assignment_create_form button{width:max-content}
+.assignment_filter{display:flex;align-items:center;justify-content:space-between;gap:15px;margin:25px 0 15px}.assignment_filter h2{margin:0;color:#12395c}.assignment_filter form{display:flex;gap:8px;flex-wrap:wrap}.assignment_filter button{border:0;border-radius:8px;padding:10px 13px;background:#075985;color:#fff;font-weight:700;cursor:pointer}.assignment_filter button:hover{background:#0369a1}
+.teacher_assignment_list{display:grid;gap:13px}.teacher_assignment_card{display:flex;align-items:center;justify-content:space-between;gap:20px}.teacher_assignment_card h3{margin:10px 0 5px;color:#173b5f}.teacher_assignment_card p{margin:0 0 8px;color:#5f6b7a}
+.assignment_detail_card h1{margin:15px 0 7px;color:#12395c}.assignment_meta{display:flex;gap:25px;flex-wrap:wrap;background:#f3f8fd;border:1px solid #dbe7f2;border-radius:10px;padding:12px;margin:18px 0}.assignment_description{line-height:1.7;color:#3f4753}.assignment_description h3{color:#12395c}.submission_info{margin:20px 0;padding:15px;background:#edf8f0;border:1px solid #cdebd5;border-radius:10px;line-height:1.8}.submission_info a,.submission_table a{color:#075985;font-weight:700}.upload_assignment_form{display:grid;gap:12px;margin-top:20px}.upload_assignment_form label{display:grid;gap:7px;font-weight:700;color:#293241}.upload_assignment_form input{padding:10px;border:1px dashed #9fb2c5;border-radius:9px;background:#fafbfd}.submission_table_wrap{overflow-x:auto;margin-top:20px}.submission_table{width:100%;border-collapse:collapse;background:#fff}.submission_table th,.submission_table td{padding:12px 10px;border-bottom:1px solid #e8ebf0;text-align:left;vertical-align:middle}.submission_table th{background:#f1f6fb;color:#173b5f}.submission_table tr:hover td{background:#f9fcff}.warning_button{background:#fff1d6;color:#8a5a00}.warning_button:hover{background:#ffe8bb}.assignment_back_link{display:inline-flex;margin-bottom:15px;color:#075985;text-decoration:none;font-weight:700}.assignment_back_link:hover{text-decoration:underline}.assignment_message{padding:11px 14px;background:#eef7ff;border:1px solid #d7e9f8;border-radius:9px;color:#24527a;margin-bottom:18px}
+@media(max-width:700px){.assignment_navbar{padding:12px 4%}.assignment_brand{font-size:18px}.assignment_container,.assignment_detail_container{margin-top:28px}.assignment_create_form{grid-template-columns:1fr}.assignment_create_form label:nth-child(3){grid-column:auto}.assignment_filter{display:block}.assignment_filter form{margin-top:12px}.teacher_assignment_card{align-items:flex-start;flex-direction:column}.assignment_header{display:block}.assignment_header .assignment_action{margin-top:15px}.assignment_card_top{align-items:flex-start;flex-direction:column}}
+
+
+/* Teacher assignment deletion */
+.teacher_assignment_actions{display:flex;align-items:center;justify-content:flex-end;gap:10px;flex-wrap:wrap;margin-top:12px}
+.assignment_delete_button{border:1px solid #f0b7b7;background:#fff1f1;color:#b42318;border-radius:8px;padding:9px 13px;font-weight:700;cursor:pointer}
+.assignment_delete_button:hover{background:#ffe1e1}
+.assignment_complete_actions{display:flex;align-items:center;justify-content:space-between;gap:14px;flex-wrap:wrap;margin:18px 0;padding:13px 15px;border:1px solid #d7e7f5;border-radius:10px;background:#f7fbff}
+.assignment_complete_note{margin:0;color:#285477;font-weight:700}
+@media (max-width:700px){.teacher_assignment_actions{justify-content:flex-start}}

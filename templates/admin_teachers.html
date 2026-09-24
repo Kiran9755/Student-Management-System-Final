@@ -1,0 +1,131 @@
+<!DOCTYPE html>
+
+<html lang="en">
+<head>
+<title>Manage Teachers</title>
+<link href="{{ url_for('static', filename='css/style.css') }}" rel="stylesheet"/>
+<link href="{{ url_for('static', filename='images/icon.png') }}" rel="icon" type="image/png"/>
+</head>
+<body>
+<div class="admin_navbar global_role_navbar"><div class="admin_nav_left"><h1>Student Management System</h1></div><div class="admin_nav_right global_nav_right"><a class="global_home_link" href="/admin_dashboard">Home</a><div class="global_nav_dropdown"><button class="global_nav_dropdown_button" type="button">Menu ▾</button><div class="global_nav_dropdown_menu"><a href="/admin_students">Students</a><a href="/admin_teachers">Teachers</a><a href="/admin_subjects">Subjects</a><a href="/admin_enrollment">Enrollment</a><a href="/admin_teacher_subjects">Teacher Subjects</a><a href="/admin_departments">Departments</a><a href="/admin_hods">HODs</a><a href="/logout?role=admin">Logout</a></div></div></div></div>
+<div class="admin_teachers_container">
+<h1>Manage Teachers</h1>
+<a href="/admin_add_teacher">
+<button class="admin_add_teacher_button">
+                Add Teacher
+            </button>
+</a>
+
+
+        {% with messages = get_flashed_messages() %}
+
+            {% if messages %}
+
+                {% for message in messages %}
+
+                    <p class="admin_teacher_message">
+                        {{ message }}
+                    </p>
+
+                {% endfor %}
+
+            {% endif %}
+
+        {% endwith %}
+
+
+        <!-- Department Selection -->
+<form action="/admin_teachers" method="POST">
+<label for="department">
+                Select Department
+            </label>
+<select id="department" name="department" required="">
+<option value="">
+                    Select Department
+                </option>
+
+                {% for department in departments %}
+
+                    <option jinjatoken11end="" jinjatoken12end="" selected="" value="{{ department['department'] }}">
+
+                        {{ department['department'] }}
+
+                    </option>
+
+                {% endfor %}
+
+            </select>
+<button type="submit">
+                View Teachers
+            </button>
+</form>
+
+
+        {% if selected_department %}
+
+            <h2>
+                {{ selected_department }} Teachers
+            </h2>
+<div class="admin_teachers_table_card">
+<table class="admin_teachers_table">
+<tr>
+<th>Teacher ID</th>
+<th>Name</th>
+<th>Department</th>
+<th>Email</th>
+<th>Action</th>
+</tr>
+
+
+                    {% for teacher in teachers %}
+
+                    <tr>
+<td>
+                            {{ teacher["teacher_id"] }}
+                        </td>
+<td>
+                            {{ teacher["name"] }}
+                        </td>
+<td>
+                            {{ teacher["department"] }}
+                        </td>
+<td>
+                            {{ teacher["email"] }}
+                        </td>
+<td>
+<form action="/admin_delete_teacher" method="POST">
+<input name="teacher_id" type="hidden" value="{{ teacher['teacher_id'] }}"/>
+<button class="admin_teacher_delete_button" data-confirm="Are you sure you want to delete this teacher?" type="submit">
+
+                                    Delete
+
+                                </button>
+</form>
+</td>
+</tr>
+
+                    {% endfor %}
+
+
+                    {% if not teachers %}
+
+                    <tr>
+<td colspan="5">
+
+                            No teachers found for this department.
+
+                        </td>
+</tr>
+
+                    {% endif %}
+
+                </table>
+</div>
+
+        {% endif %}
+
+
+    </div>
+<script src="{{ url_for('static', filename='js/common.js') }}" defer></script>
+</body>
+</html>

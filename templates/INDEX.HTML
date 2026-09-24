@@ -1,0 +1,184 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="icon"
+          type="image/png"
+          href="{{ url_for('static', filename='images/icon.png') }}">
+    <title>Student Management System</title>
+    <link rel="stylesheet"
+          href="{{ url_for('static', filename='css/style.css') }}">
+</head>
+
+<body class="home-page">
+    <div class="home-container">
+
+        <!--NAVBAR -->
+        <div class="navbar">
+            <div class="nav_left">
+                <img class="logo"
+                     src="{{ url_for('static', filename='images/final_logo.png') }}"
+                     width="300"
+                     height="75">
+            </div>
+
+            <div class="nav_right">
+                <a id="h" href="/" class="global_home_link">Home</a>
+                <div class="home_global_nav_dropdown">
+                    <button type="button" class="home_global_nav_button">Menu ▾</button>
+                    <div class="home_global_nav_menu">
+                        <a href="#about">About Us</a>
+                        <a href="/student_login">Student Login</a>
+                        <a href="/teacher_login">Teacher Login</a>
+                        <a href="/hod_login">HOD Login</a>
+                        <a href="/admin_login">Admin Login</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!--HERO SECTION-->
+        <section class="home_hero">
+            <div class="hero_content">
+                <p class="hero_small_title">
+                    SMART • SIMPLE • CONNECTED
+                </p>
+
+                <h1>
+                    Student Management
+                    <span>System</span>
+                </h1>
+
+                <p class="hero_description">
+                    A centralized platform for managing
+                    student information, attendance,
+                    academic marks and leave applications.
+                </p>
+            </div>
+
+            <!--VISUAL CARD-->
+            <div class="hero_visual">
+                <div class="visual_card">
+                    <div class="visual_header">
+                        <div class="status_dot"></div>
+                        <span>
+                            Student Portal
+                        </span>
+                    </div>
+
+                    <div class="visual_profile">
+                        <div class="profile_circle">
+                            S
+                        </div>
+                        <div>
+                            <h3>
+                                Academic Overview
+                            </h3>
+                            <p>
+                                Manage your academic information
+                            </p>
+                        </div>
+                    </div>
+
+                    <div class="visual_stats">
+                        <div class="stat_box">
+                            <strong>
+                                Attendance
+                            </strong>
+                            <span>
+                                Track
+                            </span>
+                        </div>
+
+                        <div class="stat_box">
+                            <strong>
+                                Marks
+                            </strong>
+                            <span>
+                                View
+                            </span>
+                        </div>
+
+                        <div class="stat_box">
+                            <strong>
+                                Profile
+                            </strong>
+                            <span>
+                                Manage
+                            </span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!--ABOUT SECTION -->
+        <section class="about_section" id="about">
+            <div class="about_content">
+                <p class="section_label">
+                    ABOUT THE SYSTEM
+                </p>
+                <h2>
+                    One connected system for the entire department.
+                </h2>
+                <p>
+                    The Student Management System brings students, teachers, HODs and administrators
+                    together in one platform for managing academic information, attendance, marks,
+                    department data and leave applications.
+                </p>
+            </div>
+
+            <div class="about_cards">
+                <div class="about_card">
+                    <div class="about_icon">
+                        01
+                    </div>
+                    <h3>
+                        Student & Department Management
+                    </h3>
+                    <p>
+                        Manage students, teachers, departments, subjects and semester-wise academic data
+                        through a centralized system.
+                    </p>
+                </div>
+
+                <div class="about_card">
+                    <div class="about_icon">
+                        02
+                    </div>
+
+                    <h3>
+                        Academic Management
+                    </h3>
+
+                    <p>
+                        Students can view attendance and marks while teachers can update academic records
+                        for their assigned subjects.
+                    </p>
+                </div>
+
+                <div class="about_card">
+                    <div class="about_icon">
+                        03
+                    </div>
+                    <h3>
+                        Leave & HOD Approval
+                    </h3>
+                    <p>
+                        Students and teachers can apply for leave, while the department HOD can review,
+                        approve or reject requests.
+                    </p>
+                </div>
+            </div>
+        </section>
+
+        <!-- FOOTER -->
+        <footer class="footer">
+            <p>
+                © 2026 Student Management System
+            </p>
+        </footer>
+    </div>
+</body>
+</html>

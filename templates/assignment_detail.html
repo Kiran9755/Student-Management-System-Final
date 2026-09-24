@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html lang="en">
+<head><meta charset="utf-8"><title>Assignment</title><link rel="stylesheet" href="{{ url_for('static', filename='css/style.css') }}"><link rel="stylesheet" href="{{ url_for('static', filename='css/style.css') }}"><link rel="icon" href="{{ url_for('static', filename='images/icon.png') }}"></head>
+<body>
+<div class="assignment_page_shell">
+<div class="global_role_navbar assignment_navbar">
+    <div class="assignment_brand">Student Management System</div>
+    <div class="global_nav_right">
+        <a class="global_home_link" href="/dashboard">Home</a>
+        <div class="global_nav_dropdown"><button class="global_nav_dropdown_button" type="button">Menu ▾</button><div class="global_nav_dropdown_menu"><a href="/notifications">Notifications</a><a href="/assignments">Assignments</a><a href="/logout?role=student">Logout</a></div></div>
+    </div>
+</div>
+<main class="assignment_detail_container">
+<a class="assignment_back_link" href="/assignments">← Back to Assignments</a>
+{% with messages=get_flashed_messages() %}{% for m in messages %}<p class="assignment_message">{{ m }}</p>{% endfor %}{% endwith %}
+<article class="assignment_detail_card">
+<div class="assignment_card_top"><span class="semester_badge">Semester {{ assignment['semester'] }}</span>{% if assignment['submission_id'] %}<span class="submission_badge submitted_badge">Submitted</span>{% endif %}</div>
+<h1>{{ assignment['title'] }}</h1><p class="assignment_subject">{{ assignment['subject_name'] }} · {{ assignment['teacher_name'] }}</p>
+<div class="assignment_meta"><span>Department: {{ assignment['student_department'] }}</span><span>Due: {{ assignment['due_date'] }}</span></div>
+<div class="assignment_description"><h3>Instructions</h3><p>{{ assignment['description'] }}</p></div>
+{% if assignment['submission_id'] %}<div class="submission_info"><strong>Your PDF:</strong> {{ assignment['file_name'] }}<br>Submitted: {{ assignment['submitted_at'] }}<br><a href="/assignment_file/{{ assignment['submission_id'] }}">Download your submission</a></div>{% endif %}
+<form class="upload_assignment_form" action="/submit_assignment" method="POST" enctype="multipart/form-data"><input type="hidden" name="assignment_id" value="{{ assignment['assignment_id'] }}"><label>Upload PDF{% if assignment['submission_id'] %} (upload again to replace your submission){% endif %}<input type="file" name="assignment_file" accept="application/pdf,.pdf" required></label><button class="assignment_action" type="submit">Submit Assignment</button></form>
+</article></main></div><script src="{{ url_for('static', filename='js/common.js') }}" defer></script></body></html>

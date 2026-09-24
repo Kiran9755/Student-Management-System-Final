@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+
+<html>
+<head>
+<title>Teacher Dashboard</title>
+<link href="{{ url_for('static', filename='css/style.css') }}" rel="stylesheet"/>
+<link href="{{ url_for('static', filename='images/icon.png') }}" rel="icon" type="image/png"/>
+</head>
+<body>
+<div class="tdash_navbar global_role_navbar"><div class="tdash_nav_left"><h1>Student Management System</h1></div><div class="tdash_nav_right global_nav_right"><a class="global_home_link" href="/teacher_dashboard">Home</a><div class="global_nav_dropdown"><button class="global_nav_dropdown_button" type="button">Menu ▾</button><div class="global_nav_dropdown_menu"><a href="/teacher_leave_request">Apply Leave</a><a href="/my_teacher_leave_requests">My Leave Requests</a><a href="/logout?role=teacher">Logout</a></div></div></div></div>
+<div class="Tdash_container">
+<div class="Tdash_content">
+<h1 class="Tdash_title">
+                Welcome {{ teacher["name"] }}
+            </h1>
+<div class="Tdash_details">
+<p>
+                    Teacher ID :
+                    {{ teacher["teacher_id"] }}
+                </p>
+<p>
+                    Department :
+                    {{ teacher["department"] }}
+                </p>
+<p>
+                    Email :
+                    {{ teacher["email"] }}
+                </p>
+</div>
+<div class="Tdash_search">
+<h2>
+                    Search Student
+                </h2>
+<form action="/search_student" method="post">
+<input class="Tdash_input" name="student_id" placeholder="Enter Student ID" required="" type="text"/>
+<button class="Tdash_button">
+
+                        Search
+
+                    </button>
+</form>
+                {% with messages = get_flashed_messages() %}
+                {% if messages %}
+                {% for message in messages %}
+
+                <p class="login_error">
+                    {{ message }}
+                </p>
+
+                {% endfor %}
+                {% endif %}
+                {% endwith %}
+
+            </div>
+<div class="Tdash_search teacher_leave_shortcut">
+<h2>Leave Management</h2>
+<p>Apply for your own leave and track the HOD's decision.</p>
+<div class="teacher_leave_dashboard_buttons">
+<a class="Tdash_button teacher_leave_button" href="/teacher_leave_request">Apply for Leave</a>
+<a class="Tdash_button teacher_leave_button secondary_leave_button" href="/my_teacher_leave_requests">My Leave Requests</a>
+</div>
+</div>
+</div>
+</div>
+<script src="{{ url_for('static', filename='js/common.js') }}" defer></script>
+</body>
+</html>

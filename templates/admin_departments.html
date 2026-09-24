@@ -1,0 +1,97 @@
+<!DOCTYPE html>
+
+<html lang="en">
+<head>
+<title>Manage Departments</title>
+<link href="{{ url_for('static', filename='css/style.css') }}" rel="stylesheet"/>
+<link href="{{ url_for('static', filename='images/icon.png') }}" rel="icon" type="image/png"/>
+</head>
+<body>
+<div class="admin_navbar global_role_navbar"><div class="admin_nav_left"><h1>Student Management System</h1></div><div class="admin_nav_right global_nav_right"><a class="global_home_link" href="/admin_dashboard">Home</a><div class="global_nav_dropdown"><button class="global_nav_dropdown_button" type="button">Menu ▾</button><div class="global_nav_dropdown_menu"><a href="/admin_students">Students</a><a href="/admin_teachers">Teachers</a><a href="/admin_subjects">Subjects</a><a href="/admin_enrollment">Enrollment</a><a href="/admin_teacher_subjects">Teacher Subjects</a><a href="/admin_departments">Departments</a><a href="/admin_hods">HODs</a><a href="/logout?role=admin">Logout</a></div></div></div></div>
+<div class="admin_departments_container">
+<h1>Manage Departments</h1>
+<p>
+            Add and manage departments used throughout the system.
+        </p>
+<!-- ================= ADD DEPARTMENT ================= -->
+<div class="admin_department_add_card">
+<h2>Add Department</h2>
+<form action="/admin_departments" method="POST">
+<label for="department">
+                    Department Name
+                </label>
+<input id="department" name="department" placeholder="Enter Department Name" required="" type="text"/>
+<button type="submit">
+                    Add Department
+                </button>
+</form>
+</div>
+<!-- ================= FLASH MESSAGES ================= -->
+
+        {% with messages = get_flashed_messages() %}
+
+            {% if messages %}
+
+                {% for message in messages %}
+
+                    <p class="admin_department_message">
+                        {{ message }}
+                    </p>
+
+                {% endfor %}
+
+            {% endif %}
+
+        {% endwith %}
+
+
+        <!-- ================= DEPARTMENT LIST ================= -->
+<div class="admin_department_table_card">
+<h2>Departments</h2>
+
+            {% if departments %}
+
+            <table class="admin_department_table">
+<tr>
+<th>Department ID</th>
+<th>Department Name</th>
+<th>Action</th>
+</tr>
+
+
+                {% for department in departments %}
+
+                <tr>
+<td>
+                        {{ department["department_id"] }}
+                    </td>
+<td>
+                        {{ department["department_name"] }}
+                    </td>
+<td>
+<form action="/admin_delete_department" method="POST">
+<input name="department_id" type="hidden" value="{{ department['department_id'] }}"/>
+<button class="admin_department_delete_button" data-confirm="Are you sure you want to delete this department?" type="submit">
+                                Delete
+                            </button>
+</form>
+</td>
+</tr>
+
+                {% endfor %}
+
+            </table>
+
+            {% else %}
+
+                <p class="admin_no_departments">
+                    No departments have been created yet.
+                </p>
+
+            {% endif %}
+
+        </div>
+</div>
+<script src="{{ url_for('static', filename='js/common.js') }}" defer></script>
+</body>
+</html>

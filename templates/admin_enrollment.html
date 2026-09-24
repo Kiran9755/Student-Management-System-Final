@@ -1,0 +1,100 @@
+<!DOCTYPE html>
+
+<html lang="en">
+<head>
+<title>Student Enrollment</title>
+<link href="{{ url_for('static', filename='css/style.css') }}" rel="stylesheet"/>
+<link href="{{ url_for('static', filename='images/icon.png') }}" rel="icon" type="image/png"/>
+</head>
+<body>
+<div class="admin_navbar global_role_navbar"><div class="admin_nav_left"><h1>Student Management System</h1></div><div class="admin_nav_right global_nav_right"><a class="global_home_link" href="/admin_dashboard">Home</a><div class="global_nav_dropdown"><button class="global_nav_dropdown_button" type="button">Menu ▾</button><div class="global_nav_dropdown_menu"><a href="/admin_students">Students</a><a href="/admin_teachers">Teachers</a><a href="/admin_subjects">Subjects</a><a href="/admin_enrollment">Enrollment</a><a href="/admin_teacher_subjects">Teacher Subjects</a><a href="/admin_departments">Departments</a><a href="/admin_hods">HODs</a><a href="/logout?role=admin">Logout</a></div></div></div></div>
+<div class="admin_enrollment_container">
+<h1>Student Subject Enrollment</h1>
+        {% with messages = get_flashed_messages() %}
+
+        {% if messages %}
+
+        {% for message in messages %}
+
+        <p class="admin_message">
+            {{ message }}
+        </p>
+
+        {% endfor %}
+
+        {% endif %}
+
+        {% endwith %}
+        <p>
+            Select a department and semester.
+        </p>
+<form action="/admin_enrollment" method="POST">
+<label>Department</label>
+<select name="department" required="">
+<option value="">Select Department</option>
+
+                {% for department in departments %}
+
+                <option value="{{ department['department'] }}">
+                    {{ department['department'] }}
+                </option>
+
+                {% endfor %}
+
+            </select>
+<label>Semester</label>
+<select name="semester" required="">
+<option value="">Select Semester</option>
+
+                {% for semester in semesters %}
+
+                <option value="{{ semester['semester'] }}">
+                    {{ semester['semester'] }}
+                </option>
+
+                {% endfor %}
+
+            </select>
+<button type="submit">
+                Continue
+            </button>
+</form>
+
+        {% if subjects %}
+
+        <hr/>
+<h2>Subjects</h2>
+
+        {% for subject in subjects %}
+
+        <div>
+<strong>
+                {{ subject["subject_name"] }}
+            </strong>
+
+            ({{ subject["subject_id"] }})
+
+            <form action="/admin_enroll_students" method="POST" class="inline_form">
+<input name="subject_id" type="hidden" value="{{ subject['subject_id'] }}"/>
+<button type="submit">
+                    Enroll All Students
+                </button>
+</form>
+</div>
+<br/>
+
+        {% endfor %}
+
+
+        {% elif selected_department %}
+
+        <p>
+            No subjects found for this department and semester.
+        </p>
+
+        {% endif %}
+
+    </div>
+<script src="{{ url_for('static', filename='js/common.js') }}" defer></script>
+</body>
+</html>

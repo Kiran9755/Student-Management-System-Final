@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+
+<html lang="en">
+<head>
+<meta charset="utf-8"/>
+<title>Apply for Leave</title>
+<link href="{{ url_for('static', filename='css/style.css') }}" rel="stylesheet"/>
+<link href="{{ url_for('static', filename='images/icon.png') }}" rel="icon" type="image/png"/>
+</head>
+<body>
+<div class="tdash_navbar global_role_navbar"><div class="tdash_nav_left"><h1>Student Management System</h1></div><div class="tdash_nav_right global_nav_right"><a class="global_home_link" href="/teacher_dashboard">Home</a><div class="global_nav_dropdown"><button class="global_nav_dropdown_button" type="button">Menu ▾</button><div class="global_nav_dropdown_menu"><a href="/teacher_leave_request">Apply Leave</a><a href="/my_teacher_leave_requests">My Leave Requests</a><a href="/logout?role=teacher">Logout</a></div></div></div></div>
+<div class="Tdash_container teacher_leave_form_container">
+<div class="Tdash_content">
+<h1 class="Tdash_title">Apply for Leave</h1>
+<div class="Tdash_details">
+<p>Teacher ID : {{ teacher['teacher_id'] }}</p>
+<p>Name : {{ teacher['name'] }}</p>
+<p>Department : {{ teacher['department'] }}</p>
+</div>
+
+            {% with messages = get_flashed_messages() %}
+            {% if messages %}{% for message in messages %}<p class="login_error">{{ message }}</p>{% endfor %}{% endif %}
+            {% endwith %}
+
+            {% if is_hod %}
+            <div class="teacher_leave_notice">
+<strong>You are the HOD of this department.</strong>
+<p>Your own leave cannot be approved by yourself. Please contact the administrator for HOD leave handling.</p>
+</div>
+            {% else %}
+            <div class="Tdash_search teacher_leave_panel">
+<h2>Leave Application</h2>
+<form action="/apply_teacher_leave" class="teacher_leave_form" method="POST">
+<label for="from_date">From Date</label>
+<input id="from_date" name="from_date" required="" type="date"/>
+<label for="to_date">To Date</label>
+<input id="to_date" name="to_date" required="" type="date"/>
+<label for="reason">Reason</label>
+<textarea id="reason" name="reason" placeholder="Enter reason for leave" required="" rows="5"></textarea>
+<button class="Tdash_button" type="submit">Apply for Leave</button>
+</form>
+</div>
+            {% endif %}
+        </div>
+</div>
+<script src="{{ url_for('static', filename='js/common.js') }}" defer></script>
+</body>
+</html>

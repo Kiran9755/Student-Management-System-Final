@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+
+<html>
+<head>
+<title>Student Details</title>
+<link href="{{ url_for('static', filename='css/style.css') }}" rel="stylesheet"/>
+<link href="{{ url_for('static', filename='images/icon.png') }}" rel="icon" type="image/png"/>
+</head>
+<body>
+<div class="tdash_navbar global_role_navbar"><div class="tdash_nav_left"><h1>Student Management System</h1></div><div class="tdash_nav_right global_nav_right"><a class="global_home_link" href="/teacher_dashboard">Home</a><div class="global_nav_dropdown"><button class="global_nav_dropdown_button" type="button">Menu ▾</button><div class="global_nav_dropdown_menu"><a href="/teacher_leave_request">Apply Leave</a><a href="/my_teacher_leave_requests">My Leave Requests</a><a href="/logout?role=teacher">Logout</a></div></div></div></div>
+<div class="Tstudent_container">
+<h1 class="Tstudent_title">
+            Student Details
+        </h1>
+<div class="Tstudent_info">
+<div class="Tstudent_row">
+<span class="Tstudent_label">Name</span>
+<span class="Tstudent_value">
+                    {{ student["name"] }}
+                </span>
+</div>
+<div class="Tstudent_row">
+<span class="Tstudent_label">Student ID</span>
+<span class="Tstudent_value">
+                    {{ student["student_id"] }}
+                </span>
+</div>
+<div class="Tstudent_row">
+<span class="Tstudent_label">Department</span>
+<span class="Tstudent_value">
+                    {{ student["department"] }}
+                </span>
+</div>
+<div class="Tstudent_row">
+<span class="Tstudent_label">Semester</span>
+<span class="Tstudent_value">
+                    {{ student["semester"] }}
+                </span>
+</div>
+<div class="Tstudent_row">
+<span class="Tstudent_label">Email</span>
+<span class="Tstudent_value">
+                    {{ student["email"] }}
+                </span>
+</div>
+<div class="Tstudent_row">
+<span class="Tstudent_label">Phone</span>
+<span class="Tstudent_value">
+                    {{ student["phone"] }}
+                </span>
+</div>
+</div>
+<div class="Tstudent_options">
+<h2>
+                Teacher Options
+            </h2>
+<div class="Tstudent_buttons">
+<a href="/teacher_attendance/{{ student['student_id'] }}">
+<button class="Tstudent_button">
+                        Update Attendance
+                    </button>
+</a>
+<a href="/teacher_marks/{{ student['student_id'] }}">
+<button class="Tstudent_button">
+                        Update Marks
+                    </button>
+</a>
+</div>
+</div>
+</div>
+<script src="{{ url_for('static', filename='js/common.js') }}" defer></script>
+</body>
+</html>

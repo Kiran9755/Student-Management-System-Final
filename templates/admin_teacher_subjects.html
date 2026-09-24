@@ -1,0 +1,214 @@
+<!DOCTYPE html>
+
+<html lang="en">
+<head>
+<title>Teacher Subject Assignment</title>
+<link href="{{ url_for('static', filename='css/style.css') }}" rel="stylesheet"/>
+<link href="{{ url_for('static', filename='images/icon.png') }}" rel="icon" type="image/png"/>
+</head>
+<body>
+<div class="admin_navbar global_role_navbar"><div class="admin_nav_left"><h1>Student Management System</h1></div><div class="admin_nav_right global_nav_right"><a class="global_home_link" href="/admin_dashboard">Home</a><div class="global_nav_dropdown"><button class="global_nav_dropdown_button" type="button">Menu ▾</button><div class="global_nav_dropdown_menu"><a href="/admin_students">Students</a><a href="/admin_teachers">Teachers</a><a href="/admin_subjects">Subjects</a><a href="/admin_enrollment">Enrollment</a><a href="/admin_teacher_subjects">Teacher Subjects</a><a href="/admin_departments">Departments</a><a href="/admin_hods">HODs</a><a href="/logout?role=admin">Logout</a></div></div></div></div>
+<div class="admin_subject_assignment_container">
+<h1>Teacher Subject Assignment</h1>
+<!-- FLASH MESSAGES -->
+
+        {% with messages = get_flashed_messages() %}
+
+        {% if messages %}
+
+        {% for message in messages %}
+
+        <p class="admin_subject_message">
+            {{ message }}
+        </p>
+
+        {% endfor %}
+
+        {% endif %}
+
+        {% endwith %}
+
+
+
+        <!-- DEPARTMENT + SEMESTER SELECTION -->
+<form action="/admin_teacher_subjects" method="POST">
+<label>Department</label>
+<select name="department" required="">
+<option value="">
+                    Select Department
+                </option>
+
+                {% for department in departments %}
+
+                <option jinjatoken11end="" jinjatoken12end="" selected="" value="{{ department['department'] }}">
+
+                    {{ department['department'] }}
+
+                </option>
+
+                {% endfor %}
+
+            </select>
+<label>Semester</label>
+<select name="semester" required="">
+<option value="">
+                    Select Semester
+                </option>
+
+                {% for semester in semesters %}
+
+                <option jinjatoken17end="" jinjatoken18end="" selected="" value="{{ semester['semester'] }}">
+
+                    Semester {{ semester['semester'] }}
+
+                </option>
+
+                {% endfor %}
+
+            </select>
+<button type="submit">
+                Continue
+            </button>
+</form>
+<!-- SHOW ASSIGNMENT SECTION ONLY AFTER SELECTION -->
+
+        {% if selected_department and selected_semester %}
+
+        <hr/>
+<h2>
+            Assign Teacher -
+            {{ selected_department }}
+            -
+            Semester {{ selected_semester }}
+        </h2>
+<!-- ASSIGN TEACHER -->
+
+        {% if subjects and teachers %}
+
+        <form action="/admin_assign_teacher_subject" method="POST">
+<input name="department" type="hidden" value="{{ selected_department }}"/>
+<input name="semester" type="hidden" value="{{ selected_semester }}"/>
+<label>Teacher</label>
+<select name="teacher_id" required="">
+<option value="">
+                    Select Teacher
+                </option>
+
+                {% for teacher in teachers %}
+
+                <option value="{{ teacher['teacher_id'] }}">
+
+                    {{ teacher['name'] }}
+                    ({{ teacher['teacher_id'] }})
+
+                </option>
+
+                {% endfor %}
+
+            </select>
+<label>Subject</label>
+<select name="subject_id" required="">
+<option value="">
+                    Select Subject
+                </option>
+
+                {% for subject in subjects %}
+
+                <option value="{{ subject['subject_id'] }}">
+
+                    {{ subject['subject_name'] }}
+                    ({{ subject['subject_id'] }})
+
+                </option>
+
+                {% endfor %}
+
+            </select>
+<button type="submit">
+                Assign Subject
+            </button>
+</form>
+
+
+        {% elif not teachers %}
+
+        <p>
+            No teachers found for this department.
+        </p>
+
+
+        {% elif not subjects %}
+
+        <p>
+            No subjects found for this department and semester.
+        </p>
+
+        {% endif %}
+
+
+
+        <!-- CURRENT ASSIGNMENTS -->
+<hr/>
+<h2>
+            Current Assignments
+        </h2>
+
+
+        {% if assignments %}
+
+        <table>
+<tr>
+<th>Teacher ID</th>
+<th>Teacher</th>
+<th>Subject ID</th>
+<th>Subject</th>
+<th>Action</th>
+</tr>
+
+
+            {% for assignment in assignments %}
+
+            <tr>
+<td>
+                    {{ assignment["teacher_id"] }}
+                </td>
+<td>
+                    {{ assignment["teacher_name"] }}
+                </td>
+<td>
+                    {{ assignment["subject_id"] }}
+                </td>
+<td>
+                    {{ assignment["subject_name"] }}
+                </td>
+<td>
+<form action="/admin_unassign_teacher_subject" method="POST">
+<input name="assignment_id" type="hidden" value="{{ assignment['assignment_id'] }}"/>
+<button data-confirm="Are you sure you want to unassign this teacher from this subject?" type="submit">
+                            Unassign
+                        </button>
+</form>
+</td>
+</tr>
+
+            {% endfor %}
+
+        </table>
+
+
+        {% else %}
+
+        <p>
+            No teachers have been assigned to subjects
+            for this department and semester yet.
+        </p>
+
+        {% endif %}
+
+        {% endif %}
+
+
+    </div>
+<script src="{{ url_for('static', filename='js/common.js') }}" defer></script>
+</body>
+</html>

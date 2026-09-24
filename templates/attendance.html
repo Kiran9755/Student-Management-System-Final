@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+
+<html>
+
+<head>
+
+    <title>Attendance</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/style.css') }}">
+    <link rel="icon" type="image/png" href="{{ url_for('static', filename='images/icon.png') }}">
+</head>
+
+<body>
+<div class="Sdash_navbar global_role_navbar"><h2>Student Management System</h2><div class="Sdash_nav_right global_nav_right"><a href="/dashboard" class="global_home_link">Home</a><div class="global_nav_dropdown"><button type="button" class="global_nav_dropdown_button">Menu ▾</button><div class="global_nav_dropdown_menu"><a href="/profile">Profile</a><a href="/attendance">Attendance</a><a href="/marks">Marks</a><a href="/leave_request">Leave Request</a><a href="/my_leave_requests">My Leaves</a><a href="/logout?role=student">Logout</a></div></div></div></div>
+    <div class="Satt_container">
+
+        <h1 class="Satt_title">
+            Attendance
+        </h1>
+
+
+        <div class="Satt_table_card">
+
+            <table class="Satt_table">
+
+                <tr>
+
+                    <th>Subject</th>
+
+                    <th>Total Classes</th>
+
+                    <th>Present</th>
+
+                    <th>Attendance %</th>
+
+                </tr>
+
+
+                {% for row in attendance %}
+
+                <tr>
+
+                    <td>{{ row["subject_name"] }}</td>
+
+                    <td>{{ row["total_classes"] }}</td>
+
+                    <td>{{ row["present_classes"] }}</td>
+
+                    <td>
+
+                        {% if row["total_classes"] > 0 %}
+
+                        {{ (row["present_classes"] * 100 / row["total_classes"])|round(1) }} %
+
+                        {% else %}
+
+                        0 %
+
+                        {% endif %}
+
+                    </td>
+
+                </tr>
+
+                {% endfor %}
+
+
+            </table>
+
+        </div>
+
+
+        <a class="Satt_back" href="/student_dashboard">
+            ← Back to Dashboard
+        </a>
+
+
+    </div>
+<script src="{{ url_for('static', filename='js/common.js') }}" defer></script>
+</body>
+
+</html>

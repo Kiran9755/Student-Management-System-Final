@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+    <title>Admin Login</title>
+
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/style.css') }}">
+
+    <link rel="icon" type="image/png" href="{{ url_for('static', filename='images/icon.png') }}">
+
+</head>
+
+<body>
+
+    <div class="admin_login_container">
+
+        <div class="admin_login_card">
+
+            <h1>Admin Login</h1>
+
+            <p>Student Management System</p>
+
+            <form action="/admin_login" method="POST">
+
+                <label>Admin ID</label>
+
+                <input type="text" name="admin_id" placeholder="Enter Admin ID" required>
+
+                <label>Password</label>
+
+                <input type="password" name="password" placeholder="Enter Password" required>
+
+                <button type="submit">
+                    Login
+                </button>
+
+            </form>
+
+
+            {% with messages = get_flashed_messages() %}
+
+            {% if messages %}
+
+            {% for message in messages %}
+
+            <p class="admin_login_error">
+                {{ message }}
+            </p>
+
+            {% endfor %}
+
+            {% endif %}
+
+            {% endwith %}
+            
+            <div class="login_footer">
+
+                <a href="/">
+                    ← Back to Home
+                </a>
+
+            </div>
+        </div>
+
+    </div>
+
+<script src="{{ url_for('static', filename='js/common.js') }}" defer></script>
+</body>
+
+</html>

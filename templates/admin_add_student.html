@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+
+<html lang="en">
+<head>
+<title>Add Student</title>
+<link href="{{ url_for('static', filename='css/style.css') }}" rel="stylesheet"/>
+<link href="{{ url_for('static', filename='images/icon.png') }}" rel="icon" type="image/png"/>
+</head>
+<body>
+<div class="admin_navbar global_role_navbar"><div class="admin_nav_left"><h1>Student Management System</h1></div><div class="admin_nav_right global_nav_right"><a class="global_home_link" href="/admin_dashboard">Home</a><div class="global_nav_dropdown"><button class="global_nav_dropdown_button" type="button">Menu ▾</button><div class="global_nav_dropdown_menu"><a href="/admin_students">Students</a><a href="/admin_teachers">Teachers</a><a href="/admin_subjects">Subjects</a><a href="/admin_enrollment">Enrollment</a><a href="/admin_teacher_subjects">Teacher Subjects</a><a href="/admin_departments">Departments</a><a href="/admin_hods">HODs</a><a href="/logout?role=admin">Logout</a></div></div></div></div>
+<div class="admin_add_student_container">
+<div class="admin_add_student_card">
+<h1>Add Student</h1>
+<p>Create a new student account</p>
+
+
+            {% with messages = get_flashed_messages() %}
+
+            {% if messages %}
+
+            {% for message in messages %}
+
+            <p class="admin_add_student_error">
+                {{ message }}
+            </p>
+
+            {% endfor %}
+
+            {% endif %}
+
+            {% endwith %}
+
+
+            <form action="/admin_add_student" method="POST">
+<label>Student ID</label>
+<input name="student_id" placeholder="Enter Student ID" required="" type="text"/>
+<label>Password</label>
+<input name="password" placeholder="Enter Password" required="" type="password"/>
+<label>Name</label>
+<input name="name" placeholder="Enter Student Name" required="" type="text"/>
+<label>Department</label>
+<select name="department" required="">
+<option value="">
+                        Select Department
+                    </option>
+
+                    {% for department in departments %}
+
+                    <option value="{{ department['department_name'] }}">
+                        {{ department['department_name'] }}
+                    </option>
+
+                    {% endfor %}
+
+                </select>
+<label>Semester</label>
+<select name="semester" required="">
+<option value="">Select Semester</option>
+<option value="1">1st Semester</option>
+<option value="2">2nd Semester</option>
+<option value="3">3rd Semester</option>
+<option value="4">4th Semester</option>
+<option value="5">5th Semester</option>
+<option value="6">6th Semester</option>
+</select>
+<label>Email</label>
+<input name="email" placeholder="Enter Email" required="" type="email"/>
+<label>Phone</label>
+<input id="student_phone" data-phone-validation="true" data-error-target="student_phone_error" inputmode="numeric" maxlength="10" name="phone" pattern="[0-9]{10}" placeholder="Enter 10-digit Phone Number" required="" type="tel"/>
+<p class="phone_validation_error" id="student_phone_error"></p>
+<button type="submit">
+                    Add Student
+                </button>
+</form>
+<a href="/admin_students">
+<button type="button">
+                    Back to Students
+                </button>
+</a>
+</div>
+</div>
+<script src="{{ url_for('static', filename='js/phone_validation.js') }}" defer></script>
+<script src="{{ url_for('static', filename='js/common.js') }}" defer></script>
+</body>
+</html>

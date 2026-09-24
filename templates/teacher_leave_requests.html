@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+
+<html>
+<head>
+<title>Leave Requests</title>
+<link href="{{ url_for('static', filename='css/style.css') }}" rel="stylesheet"/>
+<link href="{{ url_for('static', filename='images/icon.png') }}" rel="icon" type="image/png"/>
+</head>
+<body>
+<div class="tdash_navbar global_role_navbar"><div class="tdash_nav_left"><h1>Student Management System</h1></div><div class="tdash_nav_right global_nav_right"><a class="global_home_link" href="/teacher_dashboard">Home</a><div class="global_nav_dropdown"><button class="global_nav_dropdown_button" type="button">Menu ▾</button><div class="global_nav_dropdown_menu"><a href="/teacher_leave_request">Apply Leave</a><a href="/my_teacher_leave_requests">My Leave Requests</a><a href="/logout?role=teacher">Logout</a></div></div></div></div>
+<div class="Tdash_container teacher_leave_container">
+<div class="Tdash_content">
+<h1 class="Tdash_title">Department Leave Requests</h1>
+<div class="Tdash_details">
+<p>Teacher ID : {{ teacher['teacher_id'] }}</p>
+<p>Department : {{ teacher['department'] }}</p>
+</div>
+
+            {% with messages = get_flashed_messages() %}
+            {% if messages %}
+                {% for message in messages %}
+                    <p class="login_error">{{ message }}</p>
+                {% endfor %}
+            {% endif %}
+            {% endwith %}
+
+            <div class="Tdash_search teacher_leave_panel">
+<h2>Student Leave Applications</h2>
+<p class="teacher_leave_intro">Leave requests from students in your department. Approval and rejection are handled by the HOD.</p>
+
+                {% if leave_requests %}
+                <div class="teacher_leave_table_wrap">
+<table class="teacher_leave_table">
+<thead>
+<tr>
+<th>Student</th>
+<th>Dates</th>
+<th>Reason</th>
+<th>HOD</th>
+<th>Status</th>
+<th>Remark</th>
+</tr>
+</thead>
+<tbody>
+                        {% for leave in leave_requests %}
+                            <tr>
+<td><strong>{{ leave['student_name'] }}</strong><br/><small>{{ leave['student_id'] }} · Sem {{ leave['semester'] }}</small></td>
+<td>{{ leave['from_date'] }} → {{ leave['to_date'] }}</td>
+<td>{{ leave['reason'] }}</td>
+<td>{{ leave['hod_name'] or 'Not assigned' }}</td>
+<td>
+                                    {% if leave['status'] == 'Approved' %}
+                                        <span class="status_badge status_approved">Leave Granted</span>
+                                    {% elif leave['status'] == 'Rejected' %}
+                                        <span class="status_badge status_rejected">Rejected</span>
+                                    {% else %}
+                                        <span class="status_badge status_pending">Pending</span>
+                                    {% endif %}
+                                </td>
+<td>{{ leave['hod_remark'] or '—' }}</td>
+</tr>
+                        {% endfor %}
+                        </tbody>
+</table>
+</div>
+                {% else %}
+                    <div class="teacher_leave_empty">No leave requests have been submitted by students in your department.</div>
+                {% endif %}
+            </div>
+</div>
+</div>
+<script src="{{ url_for('static', filename='js/common.js') }}" defer></script>
+</body>
+</html>

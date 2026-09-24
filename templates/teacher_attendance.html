@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+
+<html>
+<head>
+<title>Update Attendance</title>
+<link href="{{ url_for('static', filename='css/style.css') }}" rel="stylesheet"/>
+<link href="{{ url_for('static', filename='images/icon.png') }}" rel="icon" type="image/png"/>
+</head>
+<body>
+<div class="tdash_navbar global_role_navbar"><div class="tdash_nav_left"><h1>Student Management System</h1></div><div class="tdash_nav_right global_nav_right"><a class="global_home_link" href="/teacher_dashboard">Home</a><div class="global_nav_dropdown"><button class="global_nav_dropdown_button" type="button">Menu ▾</button><div class="global_nav_dropdown_menu"><a href="/teacher_leave_request">Apply Leave</a><a href="/my_teacher_leave_requests">My Leave Requests</a><a href="/logout?role=teacher">Logout</a></div></div></div></div>
+<div class="Tatt_container">
+<h1 class="Tatt_title">
+            Update Attendance
+        </h1>
+<form action="/save_attendance" class="Tatt_form" method="POST">
+<input name="student_id" type="hidden" value="{{ student_id }}"/>
+<div class="Tatt_table_card">
+<table class="Tatt_table">
+<tr>
+<th>Subject</th>
+<th>Total Classes</th>
+<th>Present Classes</th>
+</tr>
+
+
+                    {% for row in attendance %}
+
+                    <tr>
+<td>
+
+                            {{ row["subject_name"] }}
+
+                            <input name="attendance_id" type="hidden" value="{{ row['attendance_id'] }}"/>
+</td>
+<td>
+<input class="Tatt_input total_classes" min="0" name="total_classes" required="" type="number" value="{{ row['total_classes'] }}"/>
+</td>
+<td>
+<input class="Tatt_input present_classes" min="0" name="present_classes" required="" type="number" value="{{ row['present_classes'] }}"/>
+</td>
+</tr>
+
+                    {% endfor %}
+
+                </table>
+</div>
+<button class="Tatt_button" type="submit">
+                Save Attendance
+            </button>
+</form>
+        {% with messages = get_flashed_messages() %}
+        {% if messages %}
+        {% for message in messages %}
+
+        <p class="login_error">
+            {{ message }}
+        </p>
+
+        {% endfor %}
+        {% endif %}
+        {% endwith %}
+    </div>
+<script src="{{ url_for('static', filename='js/attendance.js') }}"></script>
+<script src="{{ url_for('static', filename='js/common.js') }}" defer></script>
+</body>
+</html>

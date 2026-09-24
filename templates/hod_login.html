@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>HOD Login</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/style.css') }}">
+    <link rel="icon" type="image/png" href="{{ url_for('static', filename='images/icon.png') }}">
+</head>
+<body class="login-page">
+    <div class="login_background">
+        <div class="login_card">
+            <div class="login_header">
+                <div class="login_icon">H</div>
+                <h1>HOD Login</h1>
+                <p>Access your department dashboard</p>
+            </div>
+
+            <form action="/hod_login" method="post" class="login_form">
+                <div class="input_group">
+                    <label for="hod_id">HOD ID</label>
+                    <input type="text" id="hod_id" name="hod_id" placeholder="Enter your HOD ID" required>
+                </div>
+                <div class="input_group">
+                    <label for="password">Password</label>
+                    <input type="password" id="password" name="password" placeholder="Enter your password" required>
+                </div>
+                <button type="submit" class="login_button">Login</button>
+            </form>
+
+            {% with messages = get_flashed_messages() %}
+            {% if messages %}
+            {% for message in messages %}
+            <p class="login_error">{{ message }}</p>
+            {% endfor %}
+            {% endif %}
+            {% endwith %}
+
+            <div class="login_footer">
+                <a href="/">← Back to Home</a>
+                <a href="/teacher_login">Teacher Login</a>
+            </div>
+        </div>
+    </div>
+<script src="{{ url_for('static', filename='js/common.js') }}" defer></script>
+</body>
+</html>

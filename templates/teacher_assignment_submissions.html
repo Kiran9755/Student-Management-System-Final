@@ -1,0 +1,19 @@
+<!DOCTYPE html>
+<html lang="en">
+<head><meta charset="utf-8"><title>Assignment Submissions</title><link rel="stylesheet" href="{{ url_for('static', filename='css/style.css') }}"><link rel="stylesheet" href="{{ url_for('static', filename='css/style.css') }}"><link rel="icon" href="{{ url_for('static', filename='images/icon.png') }}"></head>
+<body>
+<div class="assignment_page_shell">
+<div class="global_role_navbar assignment_navbar">
+    <div class="assignment_brand">Student Management System</div>
+    <div class="global_nav_right">
+        <a class="global_home_link" href="/teacher_dashboard">Home</a>
+        <div class="global_nav_dropdown"><button class="global_nav_dropdown_button" type="button">Menu ▾</button><div class="global_nav_dropdown_menu"><a href="/notifications">Notifications</a><a href="/teacher_assignments">Assignments</a><a href="/logout?role=teacher">Logout</a></div></div>
+    </div>
+</div>
+<main class="assignment_detail_container wide_assignment_detail">
+<a class="assignment_back_link" href="/teacher_assignments">← Back to My Assignments</a>
+{% with messages=get_flashed_messages() %}{% for m in messages %}<p class="assignment_message">{{ m }}</p>{% endfor %}{% endwith %}
+<article class="assignment_detail_card"><span class="semester_badge">Semester {{ assignment['semester'] }}</span><h1>{{ assignment['title'] }}</h1><p class="assignment_subject">{{ assignment['subject_name'] }} · Due {{ assignment['due_date'] }}</p><p>{{ assignment['description'] }}</p>
+{% if students|length > 0 and students|selectattr('submission_id')|list|length == students|length %}<div class="assignment_complete_actions"><p class="assignment_complete_note">All students have submitted this assignment.</p><form action="/delete_assignment" method="POST" data-confirm="All students have submitted this assignment. Delete the assignment and all submitted PDFs?"><input type="hidden" name="assignment_id" value="{{ assignment['assignment_id'] }}"><button class="assignment_delete_button" type="submit">Delete Assignment</button></form></div>{% endif %}
+<div class="submission_table_wrap"><table class="submission_table"><thead><tr><th>Student</th><th>ID</th><th>Status</th><th>Submitted</th><th>PDF</th><th>Action</th></tr></thead><tbody>{% for student in students %}<tr><td>{{ student['name'] }}</td><td>{{ student['student_id'] }}</td>{% if student['submission_id'] %}<td><span class="submission_badge submitted_badge">Submitted</span></td><td>{{ student['submitted_at'] }}</td><td><a href="/assignment_file/{{ student['submission_id'] }}">Download PDF</a></td><td>—</td>{% else %}<td><span class="submission_badge pending_badge">Not Submitted</span></td><td>—</td><td>—</td><td><form method="POST" action="/send_assignment_warning"><input type="hidden" name="assignment_id" value="{{ assignment['assignment_id'] }}"><input type="hidden" name="student_id" value="{{ student['student_id'] }}"><button class="warning_button" type="submit" data-confirm="Send an assignment warning to this student?">Send Warning</button></form></td>{% endif %}</tr>{% endfor %}</tbody></table></div>
+</article></main></div><script src="{{ url_for('static', filename='js/common.js') }}" defer></script></body></html>

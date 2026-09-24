@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+
+    <title>Profile</title>
+
+    <link rel="stylesheet"
+          href="{{ url_for('static', filename='css/style.css') }}">
+
+    <link rel="icon"
+          type="image/png"
+          href="{{ url_for('static', filename='images/icon.png') }}">
+
+</head>
+
+<body>
+<div class="Sdash_navbar global_role_navbar"><h2>Student Management System</h2><div class="Sdash_nav_right global_nav_right"><a href="/dashboard" class="global_home_link">Home</a><div class="global_nav_dropdown"><button type="button" class="global_nav_dropdown_button">Menu ▾</button><div class="global_nav_dropdown_menu"><a href="/profile">Profile</a><a href="/attendance">Attendance</a><a href="/marks">Marks</a><a href="/leave_request">Leave Request</a><a href="/my_leave_requests">My Leaves</a><a href="/logout?role=student">Logout</a></div></div></div></div>
+
+    <div class="Sprofile_container">
+
+        <h1 class="Sprofile_title">
+            Student Profile
+        </h1>
+
+        <div class="Sprofile_card">
+
+            <div class="Sprofile_row">
+                <span class="Sprofile_label">Name</span>
+                <span class="Sprofile_value">
+                    {{ student["name"] }}
+                </span>
+            </div>
+
+            <div class="Sprofile_row">
+                <span class="Sprofile_label">Student ID</span>
+                <span class="Sprofile_value">
+                    {{ student["student_id"] }}
+                </span>
+            </div>
+
+            <div class="Sprofile_row">
+                <span class="Sprofile_label">Department</span>
+                <span class="Sprofile_value">
+                    {{ student["department"] }}
+                </span>
+            </div>
+
+            <div class="Sprofile_row">
+                <span class="Sprofile_label">Semester</span>
+                <span class="Sprofile_value">
+                    {{ student["semester"] }}
+                </span>
+            </div>
+
+            <div class="Sprofile_row">
+                <span class="Sprofile_label">Email</span>
+                <span class="Sprofile_value">
+                    {{ student["email"] }}
+                </span>
+            </div>
+
+            <div class="Sprofile_row">
+                <span class="Sprofile_label">Phone</span>
+                <span class="Sprofile_value">
+                    {{ student["phone"] }}
+                </span>
+            </div>
+
+        </div>
+
+        <a class="Sprofile_back"
+           href="/student_dashboard">
+            ← Back to Dashboard
+        </a>
+
+    </div>
+
+<script src="{{ url_for('static', filename='js/common.js') }}" defer></script>
+</body>
+
+</html>

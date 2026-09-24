@@ -1,0 +1,108 @@
+<!DOCTYPE html>
+
+<html>
+<head>
+<title>Update Marks</title>
+<link href="{{ url_for('static', filename='css/style.css') }}" rel="stylesheet"/>
+<link href="{{ url_for('static', filename='images/icon.png') }}" rel="icon"/>
+</head>
+<body>
+<div class="tdash_navbar global_role_navbar"><div class="tdash_nav_left"><h1>Student Management System</h1></div><div class="tdash_nav_right global_nav_right"><a class="global_home_link" href="/teacher_dashboard">Home</a><div class="global_nav_dropdown"><button class="global_nav_dropdown_button" type="button">Menu ▾</button><div class="global_nav_dropdown_menu"><a href="/teacher_leave_request">Apply Leave</a><a href="/my_teacher_leave_requests">My Leave Requests</a><a href="/logout?role=teacher">Logout</a></div></div></div></div>
+<div class="Tmarks_container">
+<h1 class="Tmarks_title">
+            Update Marks
+        </h1>
+<form action="/save_marks" class="Tmarks_form" method="POST">
+<input name="student_id" type="hidden" value="{{ student_id }}"/>
+<div class="Tmarks_table_card">
+<table class="Tmarks_table">
+<tr>
+<th>Subject</th>
+<th>Type</th>
+<th>Internal Marks</th>
+<th>External Marks</th>
+<th>Total Marks</th>
+</tr>
+
+
+                    {% for row in marks %}
+
+                    <tr>
+<!-- SUBJECT -->
+<td>
+
+                            {{ row["subject_name"] }}
+
+                            <input name="mark_id" type="hidden" value="{{ row['mark_id'] }}"/>
+</td>
+<!-- SUBJECT TYPE -->
+<td>
+
+                            {{ row["subject_type"] }}
+
+                        </td>
+<!-- INTERNAL -->
+<td>
+
+                            {% if row["subject_type"] == "Theory" %}
+
+                            <input class="Tmarks_input internal_mark" max="20" min="0" name="internal_marks" required="" type="number" value="{{ row['internal_marks'] }}"/>
+
+                            {% elif row["subject_type"] == "Practical" %}
+
+                            <input class="Tmarks_input internal_mark" max="10" min="0" name="internal_marks" required="" type="number" value="{{ row['internal_marks'] }}"/>
+
+                            {% endif %}
+
+                        </td>
+<!-- EXTERNAL -->
+<td>
+
+                            {% if row["subject_type"] == "Theory" %}
+
+                            <input class="Tmarks_input external_mark" max="80" min="0" name="external_marks" required="" type="number" value="{{ row['external_marks'] }}"/>
+
+                            {% elif row["subject_type"] == "Practical" %}
+
+                            <input class="Tmarks_input external_mark" max="40" min="0" name="external_marks" required="" type="number" value="{{ row['external_marks'] }}"/>
+
+                            {% endif %}
+
+                        </td>
+<!-- TOTAL -->
+<td>
+<input class="Tmarks_input total_mark" readonly="" type="number" value="{{ row['total_marks'] }}"/>
+</td>
+</tr>
+
+                    {% endfor %}
+
+                </table>
+</div>
+<button class="Tmarks_button" type="submit">
+                Save Marks
+            </button>
+</form>
+
+
+        {% with messages = get_flashed_messages() %}
+
+            {% if messages %}
+
+                {% for message in messages %}
+
+                <p class="login_error">
+                    {{ message }}
+                </p>
+
+                {% endfor %}
+
+            {% endif %}
+
+        {% endwith %}
+
+    </div>
+<script src="{{ url_for('static', filename='js/teacher_marks.js') }}"></script>
+<script src="{{ url_for('static', filename='js/common.js') }}" defer></script>
+</body>
+</html>

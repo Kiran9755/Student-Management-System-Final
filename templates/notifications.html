@@ -1,0 +1,142 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <title>Notifications</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/style.css') }}">
+    <link rel="icon" href="{{ url_for('static', filename='images/icon.png') }}">
+</head>
+<body>
+<div class="notification_page_shell">
+    <div class="global_role_navbar notification_navbar">
+        <div class="notification_brand">Student Management System</div>
+        <div class="global_nav_right">
+            <a class="global_home_link" href="{{ {'student':'/dashboard','teacher':'/teacher_dashboard','hod':'/hod_dashboard','admin':'/admin_dashboard'}[role] }}">Home</a>
+            <div class="global_nav_dropdown">
+                <button class="global_nav_dropdown_button" type="button">Menu ▾</button>
+                <div class="global_nav_dropdown_menu">
+                    <a href="/notifications">Notifications</a>
+                    {% if role in ['admin','hod','teacher'] %}<a href="/notification_compose">Send Notification</a>{% endif %}
+                    {% if role=='student' %}<a href="/assignments">Assignments</a>{% elif role=='teacher' %}<a href="/teacher_assignments">Assignments</a>{% endif %}
+                    <a href="/logout?role={{ role }}">Logout</a>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <main class="notification_container">
+        <div class="notification_heading">
+            <div>
+                <h1>Notifications</h1>
+                <p>Your notification history is private to your account. Deleting one does not delete it for anyone else.</p>
+            </div>
+            {% if role in ['admin','hod','teacher'] %}
+            <a class="notification_primary_button" href="/notification_compose">+ Send Notification</a>
+            {% endif %}
+        </div>
+
+        {% with messages=get_flashed_messages() %}
+            {% for message in messages %}<p class="portal_message">{{ message }}</p>{% endfor %}
+        {% endwith %}
+
+        {% if role in ['admin','hod','teacher'] %}
+        <section class="sent_notification_section">
+            <div class="notification_section_heading">
+                <div>
+                    <h2>Sent Notifications</h2>
+                    <p>Messages you send are saved here until you delete them from your own history.</p>
+                </div>
+            </div>
+
+            {% if sent_notifications %}
+            <div class="notification_list">
+                {% for item in sent_notifications %}
+                <article class="notification_card sent_notification_card">
+                    <div class="notification_card_top">
+                        <div>
+                            <span class="notification_sender sent_label">Sent by you</span>
+                            <h2>{{ item['title'] }}</h2>
+                        </div>
+                        <time>{{ item['created_at'] }}</time>
+                    </div>
+                    <p>{{ item['message'] }}</p>
+                    <div class="notification_card_bottom">
+                        <span>
+                            {% if item['target_scope']=='college' %}
+                                Whole College · {{ item['recipient_count'] }} recipients
+                            {% elif item['target_scope']=='department' %}
+                                {{ item['department'] }} Department · {{ item['recipient_count'] }} recipients
+                            {% elif item['target_scope']=='semester' %}
+                                {{ item['department'] }} · Semester {{ item['semester'] }} · {{ item['recipient_count'] }} students
+                            {% else %}
+                                Notification · {{ item['recipient_count'] }} recipients
+                            {% endif %}
+                        </span>
+                        <form method="POST" action="/delete_sent_notification" data-confirm="Delete this sent notification from your history only? Recipients will still keep their notification.">
+                            <input type="hidden" name="notification_id" value="{{ item['notification_id'] }}">
+                            <button class="notification_delete_button" type="submit">Delete</button>
+                        </form>
+                    </div>
+                </article>
+                {% endfor %}
+            </div>
+            {% else %}
+            <div class="notification_empty notification_empty_compact">
+                <h2>No sent notifications</h2>
+                <p>Notifications you send will appear here until you delete them.</p>
+            </div>
+            {% endif %}
+        </section>
+        {% endif %}
+
+        {% if role != 'admin' %}
+        <section class="received_notification_section">
+            <div class="notification_section_heading">
+                <div>
+                    <h2>Received Notifications</h2>
+                    <p>Messages sent to this account.</p>
+                </div>
+            </div>
+
+            {% if notifications %}
+            <div class="notification_list">
+                {% for item in notifications %}
+                <article class="notification_card">
+                    <div class="notification_card_top">
+                        <div>
+                            <span class="notification_sender">{{ item['sender_role']|capitalize }}</span>
+                            <h2>{{ item['title'] }}</h2>
+                        </div>
+                        <time>{{ item['created_at'] }}</time>
+                    </div>
+                    <p>{{ item['message'] }}</p>
+                    <div class="notification_card_bottom">
+                        <span>
+                            {% if item['target_scope']=='college' %}Whole College
+                            {% elif item['target_scope']=='department' %}{{ item['department'] }} Department
+                            {% elif item['target_scope']=='semester' %}{{ item['department'] }} · Semester {{ item['semester'] }}
+                            {% elif item['target_scope']=='assignment' %}Assignment
+                            {% elif item['target_scope']=='assignment_warning' %}Assignment Warning
+                            {% else %}Notification{% endif %}
+                        </span>
+                        <form method="POST" action="/delete_notification" data-confirm="Delete this notification from your history only?">
+                            <input type="hidden" name="recipient_id" value="{{ item['recipient_id'] }}">
+                            <button class="notification_delete_button" type="submit">Delete</button>
+                        </form>
+                    </div>
+                </article>
+                {% endfor %}
+            </div>
+            {% else %}
+            <div class="notification_empty">
+                <h2>No received notifications</h2>
+                <p>New messages sent to you will appear here.</p>
+            </div>
+            {% endif %}
+        </section>
+        {% endif %}
+    </main>
+</div>
+<script src="{{ url_for('static', filename='js/common.js') }}" defer></script>
+</body>
+</html>

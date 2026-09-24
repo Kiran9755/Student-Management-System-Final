@@ -1,0 +1,152 @@
+<!DOCTYPE html>
+
+<html lang="en">
+<head>
+<title>Manage Students</title>
+<link href="{{ url_for('static', filename='css/style.css') }}" rel="stylesheet"/>
+<link href="{{ url_for('static', filename='images/icon.png') }}" rel="icon" type="image/png"/>
+</head>
+<body>
+<div class="admin_navbar global_role_navbar"><div class="admin_nav_left"><h1>Student Management System</h1></div><div class="admin_nav_right global_nav_right"><a class="global_home_link" href="/admin_dashboard">Home</a><div class="global_nav_dropdown"><button class="global_nav_dropdown_button" type="button">Menu ▾</button><div class="global_nav_dropdown_menu"><a href="/admin_students">Students</a><a href="/admin_teachers">Teachers</a><a href="/admin_subjects">Subjects</a><a href="/admin_enrollment">Enrollment</a><a href="/admin_teacher_subjects">Teacher Subjects</a><a href="/admin_departments">Departments</a><a href="/admin_hods">HODs</a><a href="/logout?role=admin">Logout</a></div></div></div></div>
+<div class="admin_students_container">
+<h1>Manage Students</h1>
+<a href="/admin_add_student">
+<button class="admin_add_button">
+                Add Student
+            </button>
+</a>
+
+
+        {% with messages = get_flashed_messages() %}
+
+        {% if messages %}
+
+        {% for message in messages %}
+
+        <p class="admin_message">
+            {{ message }}
+        </p>
+
+        {% endfor %}
+
+        {% endif %}
+
+        {% endwith %}
+
+
+        <!-- Semester Selection -->
+<form action="/admin_students" method="POST">
+<label for="department">
+                Select Department
+            </label>
+<select id="department" name="department" required="">
+<option value="">
+                    Select Department
+                </option>
+
+                {% for department in departments %}
+
+                <option jinjatoken11end="" jinjatoken12end="" selected="" value="{{ department['department'] }}">
+                    {{ department['department'] }}
+                </option>
+
+                {% endfor %}
+
+            </select>
+<label for="semester">
+                Select Semester
+            </label>
+<select id="semester" name="semester" required="">
+<option value="">
+                    Select Semester
+                </option>
+
+                {% for semester in semesters %}
+
+                <option jinjatoken17end="" jinjatoken18end="" selected="" value="{{ semester['semester'] }}">
+                    Semester {{ semester['semester'] }}
+                </option>
+
+                {% endfor %}
+
+            </select>
+<button type="submit">
+                View Students
+            </button>
+</form>
+
+
+        {% if selected_department and selected_semester %}
+
+        <h2>
+            {{ selected_department }} -
+            Semester {{ selected_semester }} Students
+        </h2>
+<div class="admin_students_table_card">
+<table class="admin_students_table">
+<tr>
+<th>Student ID</th>
+<th>Name</th>
+<th>Department</th>
+<th>Semester</th>
+<th>Email</th>
+<th>Action</th>
+</tr>
+
+
+                {% for student in students %}
+
+                <tr>
+<td>
+                        {{ student["student_id"] }}
+                    </td>
+<td>
+                        {{ student["name"] }}
+                    </td>
+<td>
+                        {{ student["department"] }}
+                    </td>
+<td>
+                        {{ student["semester"] }}
+                    </td>
+<td>
+                        {{ student["email"] }}
+                    </td>
+<td>
+<form action="/admin_delete_student" method="POST">
+<input name="student_id" type="hidden" value="{{ student['student_id'] }}"/>
+<button class="admin_delete_button" data-confirm="Are you sure you want to delete this student?" type="submit">
+
+                                Delete
+
+                            </button>
+</form>
+</td>
+</tr>
+
+                {% endfor %}
+
+
+                {% if not students %}
+
+                <tr>
+<td colspan="6">
+
+                        No students found for this semester.
+
+                    </td>
+</tr>
+
+                {% endif %}
+
+
+            </table>
+</div>
+
+        {% endif %}
+
+
+    </div>
+<script src="{{ url_for('static', filename='js/common.js') }}" defer></script>
+</body>
+</html>

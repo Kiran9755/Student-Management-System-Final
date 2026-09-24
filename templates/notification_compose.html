@@ -1,0 +1,13 @@
+<!DOCTYPE html>
+<html lang="en"><head><meta charset="utf-8"><title>Send Notification</title><link rel="stylesheet" href="{{ url_for('static', filename='css/style.css') }}"><link rel="stylesheet" href="{{ url_for('static', filename='css/style.css') }}"><link rel="icon" href="{{ url_for('static', filename='images/icon.png') }}"></head>
+<body><div class="notification_page_shell"><div class="global_role_navbar notification_navbar"><div class="notification_brand">Student Management System</div><div class="global_nav_right"><a class="global_home_link" href="{{ {'teacher':'/teacher_dashboard','hod':'/hod_dashboard','admin':'/admin_dashboard'}[role] }}">Home</a><a class="notification_nav_link" href="/notifications">Notifications</a></div></div>
+<main class="notification_container compose_container"><div class="notification_heading"><div><h1>Send Notification</h1><p>Choose the permitted audience. The system creates independent copies for every recipient.</p></div></div>
+{% with messages=get_flashed_messages() %}{% for message in messages %}<p class="portal_message">{{ message }}</p>{% endfor %}{% endwith %}
+<form class="notification_form" method="POST" action="/create_notification">
+<label>Title<input type="text" name="title" maxlength="120" required placeholder="Notification title"></label>
+<label>Message<textarea name="message" rows="6" maxlength="1000" required placeholder="Write the notification..."></textarea></label>
+{% if role=='admin' %}<label>Send To<select name="target_scope" id="notification_target"><option value="college">Whole College</option><option value="department">Particular Department</option></select></label><label id="notification_department_wrap">Department<select name="department">{% for d in departments %}<option value="{{ d['department_name'] }}">{{ d['department_name'] }}</option>{% endfor %}</select></label>
+{% elif role=='hod' %}<div class="notification_locked"><strong>Audience:</strong> {{ department }} department students and teachers only.</div>
+{% else %}<div class="notification_locked"><strong>Audience:</strong> Your assigned {{ department }} classes only.</div><label>Semester<select name="semester" required>{% for s in semesters %}<option value="{{ s['semester'] }}">Semester {{ s['semester'] }}</option>{% endfor %}</select></label>{% endif %}
+<button class="notification_primary_button" type="submit">Send Notification</button></form></main></div>
+<script src="{{ url_for('static', filename='js/notification_compose.js') }}" defer></script><script src="{{ url_for('static', filename='js/common.js') }}" defer></script></body></html>

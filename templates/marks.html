@@ -1,0 +1,94 @@
+<!DOCTYPE html>
+
+<html>
+
+<head>
+
+    <title>MARKS</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/style.css') }}">
+    <link rel="icon" type="image/png" href="{{ url_for('static', filename='images/icon.png') }}">
+</head>
+
+<body>
+<div class="Sdash_navbar global_role_navbar"><h2>Student Management System</h2><div class="Sdash_nav_right global_nav_right"><a href="/dashboard" class="global_home_link">Home</a><div class="global_nav_dropdown"><button type="button" class="global_nav_dropdown_button">Menu ▾</button><div class="global_nav_dropdown_menu"><a href="/profile">Profile</a><a href="/attendance">Attendance</a><a href="/marks">Marks</a><a href="/leave_request">Leave Request</a><a href="/my_leave_requests">My Leaves</a><a href="/logout?role=student">Logout</a></div></div></div></div>
+
+    <div class="Smarks_container">
+
+
+    <h1 class="Smarks_title">
+        Examination Marks
+    </h1>
+
+
+
+    <div class="Smarks_table_card">
+
+
+        <table class="Smarks_table">
+
+
+            <tr>
+
+                <th>Subject</th>
+
+                <th>Internal Marks</th>
+
+                <th>External Marks</th>
+
+                <th>Total Marks</th>
+
+            </tr>
+
+
+
+            {% for row in marks %}
+
+
+            <tr>
+
+                <td>
+                    {{ row["subject_name"] }}
+                </td>
+
+
+                <td>
+                    {{ row["internal_marks"] }}
+                </td>
+
+
+                <td>
+                    {{ row["external_marks"] }}
+                </td>
+
+
+                <td>
+                    {{ row["total_marks"] }}
+                </td>
+
+            </tr>
+
+
+            {% endfor %}
+
+
+        </table>
+
+
+    </div>
+
+
+
+    <a class="Smarks_back"
+       href="/student_dashboard">
+
+        ← Back to Dashboard
+
+    </a>
+
+
+</div>
+
+<script src="{{ url_for('static', filename='js/common.js') }}" defer></script>
+</body>
+
+</html>

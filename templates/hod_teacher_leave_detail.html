@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+
+<html lang="en">
+<head>
+<meta charset="utf-8"/>
+<title>Teacher Leave Application</title>
+<link href="{{ url_for('static', filename='css/style.css') }}" rel="stylesheet"/>
+<link href="{{ url_for('static', filename='images/icon.png') }}" rel="icon" type="image/png"/>
+</head>
+<body>
+<div class="tdash_navbar global_role_navbar"><div class="tdash_nav_left"><h1>Student Management System</h1></div><div class="tdash_nav_right global_nav_right"><a class="global_home_link" href="/hod_dashboard">Home</a><div class="global_nav_dropdown"><button class="global_nav_dropdown_button" type="button">Menu ▾</button><div class="global_nav_dropdown_menu"><a href="#teachers">Teachers</a><a href="#students">Students</a><a href="#subjects">Subjects</a><a href="#student-leaves">Student Leave Requests</a><a href="#teacher-leaves">Teacher Leave Requests</a>{% if hod['teacher_id'] %}<a href="/teacher_dashboard">Teacher Dashboard</a>{% endif %}<a href="/logout?role=hod">Logout</a></div></div></div></div>
+<div class="Tdash_container teacher_leave_form_container">
+<div class="Tdash_content">
+<h1 class="Tdash_title">Teacher Leave Application</h1>
+<div class="Tdash_details">
+<p>Teacher ID : {{ leave_request['teacher_id'] }}</p>
+<p>Name : {{ leave_request['teacher_name'] }}</p>
+<p>Department : {{ leave_request['department'] }}</p>
+<p>Email : {{ leave_request['email'] }}</p>
+<p>Phone : {{ leave_request['phone'] }}</p>
+<p>From : {{ leave_request['from_date'] }}</p>
+<p>To : {{ leave_request['to_date'] }}</p>
+</div>
+<div class="Tdash_search teacher_leave_panel">
+<h2>Reason</h2><p>{{ leave_request['reason'] }}</p>
+<h2>Current Status</h2>
+                {% if leave_request['status']=='Approved' %}<span class="status_badge status_approved">Leave Granted</span>{% elif leave_request['status']=='Rejected' %}<span class="status_badge status_rejected">Rejected</span>{% else %}<span class="status_badge status_pending">Pending</span>{% endif %}
+                {% if leave_request['hod_remark'] %}<p><strong>HOD Remark:</strong> {{ leave_request['hod_remark'] }}</p>{% endif %}
+            </div>
+            {% if leave_request['status'] != 'Pending' %}<div class="leave_detail_actions"><a class="leave_delete_button" href="/hod_delete_leave_request/teacher/{{ leave_request['teacher_leave_id'] }}/{{ make_hod_leave_action_token(hod['hod_id']) }}" onclick="return confirm('Delete this decided leave request from your HOD history only?');">Delete from My History</a></div>{% endif %}
+            {% if leave_request['status']=='Pending' %}
+            <div class="Tdash_search teacher_leave_panel">
+<form action="/hod_approve_leave" class="teacher_leave_form" method="POST">
+<input name="leave_id" type="hidden" value="{{ leave_request['teacher_leave_id'] }}"/><input name="request_type" type="hidden" value="teacher"/>
+<label>Remark (optional)</label><textarea name="remark" placeholder="Optional approval remark" rows="3"></textarea>
+<button class="Tdash_button" type="submit">Grant Leave</button>
+</form>
+<form action="/hod_reject_leave" class="teacher_leave_form reject_form" method="POST">
+<input name="leave_id" type="hidden" value="{{ leave_request['teacher_leave_id'] }}"/><input name="request_type" type="hidden" value="teacher"/>
+<label>Reason for Rejection</label><textarea name="remark" placeholder="Enter why the leave is rejected" required="" rows="3"></textarea>
+<button class="reject_button" type="submit">Reject Leave</button>
+</form>
+</div>
+            {% endif %}
+            <a class="back_link" href="/hod_dashboard">← Back to HOD Dashboard</a>
+</div>
+</div>
+<script src="{{ url_for('static', filename='js/common.js') }}" defer></script>
+</body>
+</html>

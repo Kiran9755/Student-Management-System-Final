@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+
+<html lang="en">
+<head>
+<meta charset="utf-8"/>
+<title>Manage HODs</title>
+<link href="{{ url_for('static', filename='css/style.css') }}" rel="stylesheet"/>
+<link href="{{ url_for('static', filename='images/icon.png') }}" rel="icon" type="image/png"/>
+</head>
+<body>
+<div class="admin_navbar global_role_navbar"><div class="admin_nav_left"><h1>Student Management System</h1></div><div class="admin_nav_right global_nav_right"><a class="global_home_link" href="/admin_dashboard">Home</a><div class="global_nav_dropdown"><button class="global_nav_dropdown_button" type="button">Menu ▾</button><div class="global_nav_dropdown_menu"><a href="/admin_students">Students</a><a href="/admin_teachers">Teachers</a><a href="/admin_subjects">Subjects</a><a href="/admin_enrollment">Enrollment</a><a href="/admin_teacher_subjects">Teacher Subjects</a><a href="/admin_departments">Departments</a><a href="/admin_hods">HODs</a><a href="/logout?role=admin">Logout</a></div></div></div></div>
+<div class="admin_hod_container">
+<h1>Manage HODs</h1>
+<p class="page_subtitle">Select an existing teacher and create separate HOD login credentials for that teacher.</p>
+
+        {% with messages = get_flashed_messages() %}
+        {% if messages %}{% for message in messages %}<p class="portal_message">{{ message }}</p>{% endfor %}{% endif %}
+        {% endwith %}
+
+        <div class="admin_hod_grid">
+<div class="admin_hod_card">
+<h2>Add HOD</h2>
+<p class="hod_form_note">The selected teacher remains a teacher and is additionally given HOD access for that department.</p>
+<form action="/admin_add_hod" method="POST" class="admin_hod_form">
+                    <label>Select Department</label>
+                    <select name="department" id="hod_department" required>
+                        <option value="">Select Department</option>
+                        {% for department in departments %}
+                        <option value="{{ department['department_name'] }}">{{ department['department_name'] }}</option>
+                        {% endfor %}
+                    </select>
+
+                    <label>Select Teacher</label>
+                    <select name="teacher_id" id="hod_teacher_id" required disabled>
+                        <option value="">First select a department</option>
+                    </select>
+
+                    <div class="hod_selected_teacher_info" id="hod_selected_teacher_info">
+                        <p><strong>Name:</strong> <span id="selected_teacher_name">—</span></p>
+                        <p><strong>Department:</strong> <span id="selected_teacher_department">—</span></p>
+                        <p><strong>Email:</strong> <span id="selected_teacher_email">—</span></p>
+                        <p><strong>Phone:</strong> <span id="selected_teacher_phone">—</span></p>
+                    </div>
+
+                    <label>HOD ID</label>
+                    <input type="text" name="hod_id" required placeholder="Enter separate HOD ID">
+
+                    <label>HOD Password</label>
+                    <input type="password" name="password" required placeholder="Enter separate HOD Password">
+
+                    <button type="submit">Add HOD</button>
+                </form>
+</div>
+<div class="admin_hod_card">
+<h2>Department HODs</h2>
+                {% if hods %}
+                <div class="leave_table_wrap">
+<table class="leave_table">
+<thead><tr><th>HOD ID</th><th>Teacher</th><th>Teacher ID</th><th>Department</th><th>Email</th><th>Phone</th><th>Action</th></tr></thead>
+<tbody>
+                        {% for hod in hods %}
+                        <tr>
+<td>{{ hod['hod_id'] }}</td>
+<td><strong>{{ hod['name'] or 'Unlinked HOD' }}</strong></td>
+<td>{{ hod['teacher_id'] or 'Not linked' }}</td>
+<td>{{ hod['department'] }}</td>
+<td>{{ hod['email'] or '—' }}</td>
+<td>{{ hod['phone'] or '—' }}</td>
+<td><form action="/admin_delete_hod" method="POST"><input name="hod_id" type="hidden" value="{{ hod['hod_id'] }}"/><button class="delete_button" data-confirm="Delete this HOD account? The linked teacher will remain." type="submit">Delete</button></form></td>
+</tr>
+                        {% endfor %}
+                        </tbody>
+</table>
+</div>
+                {% else %}<div class="empty_state">No HOD accounts have been created yet.</div>{% endif %}
+            </div>
+</div>
+</div>
+<script src="{{ url_for('static', filename='js/admin_hods.js') }}" defer></script>
+<script src="{{ url_for('static', filename='js/common.js') }}" defer></script>
+</body>
+</html>

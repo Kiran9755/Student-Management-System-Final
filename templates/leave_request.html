@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+
+<html lang="en">
+<head>
+<meta charset="utf-8"/>
+<title>Leave Request</title>
+<link href="{{ url_for('static', filename='css/style.css') }}" rel="stylesheet"/>
+<link href="{{ url_for('static', filename='images/icon.png') }}" rel="icon" type="image/png"/>
+</head>
+<body class="leave_page">
+<div class="Sdash_navbar global_role_navbar"><h2>Student Management System</h2><div class="Sdash_nav_right global_nav_right"><a class="global_home_link" href="/dashboard">Home</a><div class="global_nav_dropdown"><button class="global_nav_dropdown_button" type="button">Menu ▾</button><div class="global_nav_dropdown_menu"><a href="/profile">Profile</a><a href="/attendance">Attendance</a><a href="/marks">Marks</a><a href="/leave_request">Leave Request</a><a href="/my_leave_requests">My Leaves</a><a href="/logout?role=student">Logout</a></div></div></div></div>
+<div class="leave_container">
+<div class="leave_card">
+<h1>Apply for Leave</h1>
+<p class="page_subtitle">Submit your leave application to the HOD of your department.</p>
+
+            {% with messages = get_flashed_messages() %}
+            {% if messages %}
+                {% for message in messages %}
+                    <p class="portal_message">{{ message }}</p>
+                {% endfor %}
+            {% endif %}
+            {% endwith %}
+
+            <div class="leave_student_info">
+<div><span>Student</span><strong>{{ student['name'] }}</strong></div>
+<div><span>Student ID</span><strong>{{ student['student_id'] }}</strong></div>
+<div><span>Department</span><strong>{{ student['department'] }}</strong></div>
+<div><span>Semester</span><strong>{{ student['semester'] }}</strong></div>
+</div>
+
+            {% if hod %}
+                <div class="approval_info">
+<strong>Application will be sent to:</strong>
+                    {{ hod['name'] }} — HOD, {{ hod['department'] }}
+                </div>
+<form action="/apply_leave" class="leave_form" method="POST">
+<label>From Date</label>
+<input name="from_date" required="" type="date"/>
+<label>To Date</label>
+<input name="to_date" required="" type="date"/>
+<label>Reason for Leave</label>
+<textarea maxlength="500" name="reason" placeholder="Enter the reason for your leave" required="" rows="5"></textarea>
+<button class="leave_primary_button" type="submit">Apply for Leave</button>
+</form>
+            {% else %}
+                <div class="leave_warning">
+                    No HOD is currently assigned to your department. Please contact the administrator.
+                </div>
+            {% endif %}
+        </div>
+</div>
+<script src="{{ url_for('static', filename='js/common.js') }}" defer></script>
+</body>
+</html>
